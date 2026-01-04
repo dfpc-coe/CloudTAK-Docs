@@ -8,7 +8,7 @@ CloudTAK provides a comprehensive suite of tools for managing geospatial data, c
 
 This documentation is organized into three main sections to help you get started with CloudTAK:
 
-### 🚀 [Deploy](/deploy)
+### 🚀 [Deploy](./deploy.md)
 
 The deploy section will guide system administrators and engineers through the process of setting up CloudTAK.
 
@@ -18,11 +18,11 @@ CloudTAK can be deployed in one of three supported configurations:
 - Docker Compose Deployment: Run CloudTAK using Docker Compose on bare-metal or cloud hosted server
 - AWS Deployment: Deploy CloudTAK to AWS using CloudFormation templates
 
-### 🛠️ [Develop](/develop)
+### 🛠️ [Develop](./develop.md)
 
 The Develop section provides everything developers need to build custom integrations and extend CloudTAK's functionality.
 
-### 📚 [Administration Guide](/admin)
+### 📚 [Administration Guide](./admin.md)
 
 The admin guide section is tailored for system administrators to manage and maintain CloudTAK deployments.
 
@@ -30,7 +30,7 @@ The admin guide section is tailored for system administrators to manage and main
 
 *Ready to get started? Choose one of the sections above based on your role and objectives.*
 
-### 📚 [User Guide](/user)
+### 📚 [User Guide](./user.md)
 
 The User guide section is designed for end-users and operators to learn how to effectively use CloudTAK's features.
 
