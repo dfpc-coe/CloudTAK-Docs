@@ -40,7 +40,8 @@ plugins:
 
 # Navigation structure
 nav:
-  - Home: docs.md
+  - Home: index.md
+  - Overview: docs.md
   - Deploy:
       - Home: deploy.md
   - Develop:
