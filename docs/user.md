@@ -14,7 +14,7 @@ We recommend using the callsign convention [agency acronym] [last name] and [rad
 
 ![](assets/2026-01-16-15-08-16-image.png)
 
-Finally choose your role based on the table provided. When in doubt choose the Team Member option.
+Finally, choose your role based on the table provided. When in doubt choose the Team Member option.
 
 You will be prompted: map.cotak.gov wants to Know your Location. Select “Allow".
 
