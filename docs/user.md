@@ -44,9 +44,15 @@ Click on the pencil icon in the top right corner to open the drawing tool option
 
 **Coordinate Input:** Place a marker of your choice at the coordinates that you enter
 
-**Range & Bearing: **Create a line of specified bearing and distance originating from chosen coordinates.
 
-** Range Rings**: Create rings at specified distances from the point of origin. Useful for evacuation operations, searches, and manhunts.
+
+**Range & Bearing:** Create a line of specified bearing and distance originating from chosen coordinates.
+
+
+
+**Range Rings:** Create rings at specified distances from the point of origin. Useful for evacuation operations, searches, and manhunts.
+
+
 
  **Draw Point:** Opens a window with 5 different points to choose from. Select the desired icon then click on the map to drop the point. Click on the point to access the radial menu.
 
@@ -66,19 +72,33 @@ CloudTAK supports many iconsets (view them by clicking Style ->Select Icon). Not
 
 ![](assets/2026-01-16-11-30-14-image.png)
 
+
+
 **Draw Line:** Place points on the map to create a straight line between them. Double click to finish the line. Clicking on the finished line gives you access to the same radial menu as for markers. The Edit button allows you to add accuracy.
 
-** Draw Polygon:** Create any type of shape. Click to put at least two points on the map then double click at the last point to close the shape. Clicking on any shape will give you access to the same radial menu as for markers and lines. You can edit color, opacity, line style, and center coordinates.
 
-** Draw Rectangle**: Draw a rectangle in any orientation of your choosing. Drop your first and second point to draw the height of the rectangle. Then use the third point to create the width of the rectangle. Clicking on any shape will give you access to the same radial menu as for markers and lines. You can edit color, opacity, line style, and center coordinates.
+
+**Draw Polygon**: Create any type of shape. Click to put at least two points on the map then double click at the last point to close the shape. Clicking on any shape will give you access to the same radial menu as for markers and lines. You can edit color, opacity, line style, and center coordinates.
+
+
+
+**Draw Rectangle**: Draw a rectangle in any orientation of your choosing. Drop your first and second point to draw the height of the rectangle. Then use the third point to create the width of the rectangle. Clicking on any shape will give you access to the same radial menu as for markers and lines. You can edit color, opacity, line style, and center coordinates.
+
+
 
  **Draw Circle**: Draw a circle of any size. First click is center, second click is perimiter. Clicking on any shape will give you access to the same radial menu as for markers and lines. You can edit color, opacity, line style, and center coordinates.
 
-** Draw Sector:** Draw a sector of any size. First click is the center point, second click is the perimeter.Clicking on any shape will give you access to the same radial menu as for markers and lines. You can edit color, opacity, line style, and center coordinates.
+
+
+**Draw Sector:** Draw a sector of any size. First click is the center point, second click is the perimeter.Clicking on any shape will give you access to the same radial menu as for markers and lines. You can edit color, opacity, line style, and center coordinates.
+
+
 
  **Lasso Select:** Creates a lasso to select any features on your map. Single click to start, single click to finish. After features have been selected, they can be shared, deleted, added to a Data Package, or added to a Data Sync.
 
- GeoJSON Import: Allows you to import smaller GeoJSONS. Icons imported this way instead of through the Imports tool show up in "Your Features."  Each feature is editable so you can change the icon type or location. However, they are features on your map, not an overlay, so you can't toggle them on or off.
+
+
+**GeoJSON Import:** Allows you to import smaller GeoJSONS. Icons imported this way instead of through the Imports tool show up in "Your Features."  Each feature is editable so you can change the icon type or location. However, they are features on your map, not an overlay, so you can't toggle them on or off.
 
 ## Overlays
 
