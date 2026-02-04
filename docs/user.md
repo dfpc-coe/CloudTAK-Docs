@@ -96,7 +96,45 @@ Allows you to change the current basemap displayed on CloudTAK. Feel free to cho
 
 ## Data Sync (Missions)
 
-Data Sync allow synchronization of data between multiple devices. Data Sync allow a team member to generate data and as field members go in and out of connectivity, their data will be synchronized with the team.
+Data Sync is a tool that creates a mission, also known as a feed, which is like a folder for custom data sets, and is hosted within the TAK Server. It allow synchronization of data between multiple devices. Any data in the feed is synchronized to all TAK app users who have subscribed to that feed. This sync happens immediately if the users are connected to the TAK Server, or will happen as soon as a user reconnects to the Server. As a result, data sync is the best method in TAK to ensure that all members of a team receive identical data when planning an operation. Conversely, items deleted by the DataSync feed creator will disappear from users’ maps. This is useful for de-cluttering maps after an incident is complete.
+
+**To create a new Data Sync**: 
+
+Click the plus button on the top right corner. ![](assets/2026-02-04-11-43-04-image.png)
+
+Name your Data Sync and select the channel or channels you want it to be available on. 
+
+![](assets/2026-02-04-11-41-42-image.png)
+
+(Note: Only channels you currently have turned on will be displayed as options). Advanced Options allows you to password protect your Data Sync and control whether users are Owners (Able to subscribe to, edit, and delete the Data Sync), Subscribers (default, able to subscribe to and edit the Data Sync) or Viewers (able to subscribe to the Data Sync but not able to make any edits).
+
+Click "Make Active""
+
+![](assets/2026-02-04-11-45-58-image.png)
+
+Selecting “Make Active” will cause the mission to display on the top left corner. 
+
+![](assets/2026-02-04-11-47-43-image.png)
+
+While the Data Sync is active, any features you create in CloudTAK will automatically be added to the Data Sync. 
+
+You can also add existing features to the Data Sync by selecting features with the Lasso Tool (see Drawing Tools), clicking the three dots, and selecting "Move to Data Sync."
+
+![](assets/2026-02-04-11-54-34-image.png)
+
+**To subscribe to an existing Data Sync:** 
+
+Make sure you have the channel associated with the Data Sync turned on. Select Data Sync, then select “Subscribe.” All features in the Data Sync will now appear live on your map.
+
+![](assets/2026-02-04-12-00-20-image.png)
+
+If you wish to add features to this Data Sync, click "Make Active." While the data sync is active, any features you create in CloudTAK will automatically be added to the Data Sync. After clicking "Deactivate," features you create will no longer automatically be added to the Data Sync, but the Data Sync will continue to update. 
+
+![](assets/2026-02-04-12-05-01-image.png)
+
+Some Data Syncs (such as the CDOT cameras) will not allow the “Make Active” option. To unsubscribe and remove the Data sync features from your map, click “Unsubscribe.” 
+
+![](assets/2026-02-04-12-03-16-image.png)
 
 ## Data Packages
 
@@ -152,7 +190,7 @@ All files uploaded through “Imports” will be displayed here. Click on an upl
 
 ## Imports
 
-Displays all imported files. To import a new file, Select the “New Import” icon <img src="assets/2026-02-03-14-03-05-image.png" title="" alt="" width="50"> on the top right side to upload files from your desktop.
+Displays all imported files. To import a new file, Select the “New Import” icon  on the top right side to upload files from your desktop. ![](assets/2026-02-04-11-24-20-image.png)
 
 ## Settings
 
