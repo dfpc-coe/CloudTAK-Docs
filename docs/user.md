@@ -50,7 +50,7 @@ Click on the pencil icon in the top right corner to open the drawing tool option
 
 ![](assets/2026-01-16-11-06-34-image.png) Delete point.
 
-![](assets/2026-01-16-11-06-55-image.png) Lock on point. Note that this feature was created for moving markers and integration such as aircrafts or gps trackers.
+![](assets/2026-01-16-11-06-55-image.png) Lock on point. Note that this feature was created for moving markers and integration such as aircrafts or GPS trackers.
 
 ![](assets/2026-01-16-11-07-22-image.png) Open side menu to edit point. From here you can edit name, coordinates, icon style, add notes or attachments, and share with other users through the share button.
 
@@ -66,7 +66,7 @@ CloudTAK supports many iconsets (view them by clicking Style ->Select Icon). Not
 
 **Draw Rectangle**: Draw a rectangle in any orientation of your choosing. Drop your first and second point to draw the height of the rectangle. Then use the third point to create the width of the rectangle. Clicking on any shape will give you access to the same radial menu as for markers and lines. You can edit color, opacity, line style, and center coordinates.
 
- **Draw Circle**: Draw a circle of any size. First click is center, second click is perimiter. Clicking on any shape will give you access to the same radial menu as for markers and lines. You can edit color, opacity, line style, and center coordinates.
+ **Draw Circle**: Draw a circle of any size. First click is center, second click is perimeter. Clicking on any shape will give you access to the same radial menu as for markers and lines. You can edit color, opacity, line style, and center coordinates.
 
 **Draw Sector:** Draw a sector of any size. First click is the center point, second click is the perimeter.Clicking on any shape will give you access to the same radial menu as for markers and lines. You can edit color, opacity, line style, and center coordinates.
 
@@ -96,7 +96,7 @@ Allows you to change the current basemap displayed on CloudTAK. Feel free to cho
 
 ## Data Sync (Missions)
 
-Data Sync is a tool that creates a mission, also known as a feed, which is like a folder for custom data sets, and is hosted within the TAK Server. It allow synchronization of data between multiple devices. Any data in the feed is synchronized to all TAK app users who have subscribed to that feed. This sync happens immediately if the users are connected to the TAK Server, or will happen as soon as a user reconnects to the Server. As a result, data sync is the best method in TAK to ensure that all members of a team receive identical data when planning an operation. Conversely, items deleted by the DataSync feed creator will disappear from users’ maps. This is useful for de-cluttering maps after an incident is complete.
+Data Sync is a tool that creates a mission, also known as a feed, which is like a folder for custom data sets, and is hosted within the TAK Server. It allows synchronization of data between multiple devices. Any data in the feed is synchronized to all TAK app users who have subscribed to that feed. This sync happens immediately if the users are connected to the TAK Server, or will happen as soon as a user reconnects to the Server. As a result, data sync is the best method in TAK to ensure that all members of a team receive identical data when planning an operation. Conversely, items deleted by the DataSync feed creator will disappear from users’ maps. This is useful for de-cluttering maps after an incident is complete.
 
 **To create a new Data Sync**: 
 
@@ -180,7 +180,13 @@ Displays all of your current chats. To start a new chat, click the plus button o
 
 ## Routes
 
-Allows you to create and save routes from one address to another.
+Allows you to create and save routes from one address to another. You can either freehand the route by using "No Snapping," or select "Roads & Trails" to snap to routes.
+
+![](assets/2026-02-20-09-12-34-image.png)
+
+Click once to start route and twice to finish. Route can then be edited and shared like any other feature.
+
+![](assets/2026-02-20-09-16-06-image.png)
 
 ## Uploaded Files
 
