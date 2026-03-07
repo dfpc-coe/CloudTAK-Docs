@@ -37,4 +37,16 @@ Add any or all of the options you wish to customize and then select "Save Settin
 
 ![](assets/2025-12-31-17-22-36-image.png)
 
+## Basemaps & Overlays
+
+You can enhance CloudTAK by configuring custom, high-quality basemaps and overlays to improve the user experience. CloudTAK supports a variety of map tile sources, including both standard raster imagery and modern vector tiles. You can upload or configure these sources, such as `.pmtiles` archives, to serve as global basemaps or specialized custom overlays.
+
+If you are using vector basemaps, we highly recommend utilizing the standard [OpenMapTiles Style Sheets](https://github.com/openmaptiles/openmaptiles/tree/master/style) to customize the map aesthetics according to your needs.
+
+To help you get started quickly with a global vector basemap, you can download our pre-generated `openmaptiles.pmtiles` file using the button below:
+
+<div align="center" markdown="1">
+[Download openmaptiles.pmtiles](https://files.cloudtak.io/){ .md-button .md-button--primary }
+</div>
+
 ## Connections & Data/ETL Integrations
