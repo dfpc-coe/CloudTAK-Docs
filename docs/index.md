@@ -62,22 +62,27 @@ hide:
     </div>
     <div class="docs-card-grid docs-card-grid--three">
       <a class="docs-card docs-card-compact" href="https://github.com/dfpc-coe/CloudTAK">
+        <span class="docs-card-icon docs-card-icon-compact">🗺️</span>
         <h3>CloudTAK</h3>
         <p>TAK Compatible, browser based Common Operation Picture &amp; Situational Awareness tool.</p>
       </a>
       <a class="docs-card docs-card-compact" href="https://github.com/dfpc-coe/node-CoT">
+        <span class="docs-card-icon docs-card-icon-compact">📡</span>
         <h3>node-cot</h3>
         <p>Javascript Cursor-On-Target Library.</p>
       </a>
       <a class="docs-card docs-card-compact" href="https://github.com/dfpc-coe/node-tak">
+        <span class="docs-card-icon docs-card-icon-compact">🔌</span>
         <h3>node-tak</h3>
         <p>TAK Server NodeJS SDK.</p>
       </a>
       <a class="docs-card docs-card-compact" href="https://github.com/dfpc-coe/tak-infra">
+        <span class="docs-card-icon docs-card-icon-compact">🏗️</span>
         <h3>tak-infra</h3>
         <p>CloudFormation managed infrastructure for TAK Server.</p>
       </a>
       <a class="docs-card docs-card-compact" href="https://github.com/dfpc-coe/auth-infra">
+        <span class="docs-card-icon docs-card-icon-compact">🔐</span>
         <h3>auth-infra</h3>
         <p>Cloud Infrastructure for Hosting &amp; Managing TAK Authentication Infrastructure (LDAP).</p>
       </a>
