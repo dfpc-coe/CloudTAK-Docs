@@ -23,7 +23,6 @@ theme:
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.instant.progress
-    - search.suggest
     - search.highlight
     - content.tabs.link
     - content.code.annotate
@@ -31,6 +30,9 @@ theme:
 
 extra_css:
   - assets/extra.css
+
+extra_javascript:
+  - assets/landing.js
 
 extra:
   homepage: https://cloudtak.io
@@ -41,7 +43,6 @@ plugins:
 # Navigation structure
 nav:
   - Home: index.md
-  - Overview: docs.md
   - Deploy:
       - Home: deploy.md
   - Develop:
