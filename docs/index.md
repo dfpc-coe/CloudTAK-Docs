@@ -12,9 +12,9 @@ hide:
       Deploy, extend, administer, and operate CloudTAK with task-based guides that help you get where you need to go quickly.
     </p>
     <div class="docs-actions">
-      <a class="docs-button docs-button-primary" href="./deploy.md">Deploy CloudTAK</a>
-      <a class="docs-button" href="./develop.md">Develop locally</a>
-      <a class="docs-button" href="./user.md">User Guide</a>
+      <a class="docs-button docs-button-primary" href="/deploy/">Deploy CloudTAK</a>
+      <a class="docs-button" href="/develop/">Develop locally</a>
+      <a class="docs-button" href="/user/">User Guide</a>
     </div>
   </section>
 
@@ -27,25 +27,25 @@ hide:
       </p>
     </div>
     <div class="docs-card-grid docs-card-grid--two">
-      <a class="docs-card" href="./deploy.md">
+      <a class="docs-card" href="/deploy/">
         <span class="docs-card-icon">🚀</span>
         <h3>Deploy a production instance</h3>
         <p>Set up CloudTAK with Docker Compose or deploy into AWS with the provided infrastructure templates.</p>
         <span class="docs-card-meta">Best for platform engineers and administrators</span>
       </a>
-      <a class="docs-card" href="./develop.md">
+      <a class="docs-card" href="/develop/">
         <span class="docs-card-icon">🛠️</span>
         <h3>Develop CloudTAK</h3>
         <p>Set up a local development environment, install dependencies, prepare PostgreSQL with PostGIS, build the web client, and start the API.</p>
         <span class="docs-card-meta">Best for developers and integrators</span>
       </a>
-      <a class="docs-card" href="./admin.md">
+      <a class="docs-card" href="/admin/">
         <span class="docs-card-icon">⚙️</span>
         <h3>Administer your deployment</h3>
         <p>Configure branding, manage settings, and understand the admin workflows that keep a CloudTAK instance healthy.</p>
         <span class="docs-card-meta">Best for system owners and support staff</span>
       </a>
-      <a class="docs-card" href="./user.md">
+      <a class="docs-card" href="/user/">
         <span class="docs-card-icon">🧭</span>
         <h3>Learn how to use CloudTAK</h3>
         <p>Follow the core user workflow from first login through maps, drawing tools, overlays, chat, routes, imports, and settings.</p>
@@ -105,8 +105,8 @@ hide:
       <ul>
         <li><a href="https://cloudtak.io">CloudTAK website</a></li>
         <li><a href="https://github.com/dfpc-coe/CloudTAK">GitHub repository</a></li>
-        <li><a href="./deploy.md">Deployment guide</a></li>
-        <li><a href="./user.md">User guide</a></li>
+        <li><a href="/deploy/">Deployment guide</a></li>
+        <li><a href="/user/">User guide</a></li>
       </ul>
     </div>
   </section>
