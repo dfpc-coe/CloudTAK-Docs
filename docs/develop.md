@@ -2,6 +2,11 @@
 
 CloudTAK can be developed locally without Docker, and that is usually the easiest way to iterate on code changes.
 
+> [!WARNING]
+> This workflow is intended for local development only.
+> It starts the CloudTAK API and the web development server, but it does **not** set up the separate tiles server or events server.
+> If you need functionality backed by those services, you must run and configure them separately.
+
 These steps assume Ubuntu 24.04. If you are on macOS, the same flow works with Homebrew-managed packages. If you are on Windows, the simplest route is to use WSL2 with Ubuntu and follow the same commands there.
 
 ## What you need
@@ -93,12 +98,11 @@ npm install
 
 cd web
 npm install
-npm run build
 
 cd ..
 ```
 
-The `web` build step matters because the local API server serves the built frontend assets.
+For day-to-day development, use the web development server instead of building the frontend bundle.
 
 ## 5. Create a local API config file
 
@@ -117,24 +121,32 @@ Create `api/.env` with content like this:
 
 You can keep this file minimal for local development. If `StackName` is not set, CloudTAK will treat the run as a local test-style environment.
 
-## 6. Start the CloudTAK server
+## 6. Start the CloudTAK development servers
 
-From the `api/` directory, start the development server:
+Run the API server and the web development server in separate terminals.
+
+In the first terminal, start the API from the `api/` directory:
 
 ```sh
 cd /path/to/CloudTAK/api
 npm run dev
 ```
 
-On first startup, CloudTAK will connect to PostgreSQL, apply its migrations, and populate a small amount of default data if the database is empty.
+In the second terminal, start the web dev server from the `api/web/` directory:
 
-When the server comes up successfully, local development runs on:
-
-```text
-http://localhost:5001
+```sh
+cd /path/to/CloudTAK/api/web
+npm run serve
 ```
 
-Open that address in your browser to confirm the app is up.
+On first startup, the API will connect to PostgreSQL, apply its migrations, and populate a small amount of default data if the database is empty.
+
+When both processes are running successfully:
+
+- the API is available at `http://localhost:5001`
+- the web UI is available at `http://localhost:8080`
+
+Open `http://localhost:8080` in your browser for normal frontend development. The web dev server proxies `/api` requests to the local API on port `5001`.
 
 ## 7. A quick sanity check
 
@@ -166,14 +178,14 @@ sudo -u postgres psql -d tak_ps_etl -c 'CREATE EXTENSION IF NOT EXISTS postgis;'
 
 ### The frontend looks out of date
 
-If you changed frontend code and the UI does not reflect it yet, rebuild the web bundle:
+If you changed frontend code and the UI does not reflect it yet, make sure the web dev server is running:
 
 ```sh
 cd /path/to/CloudTAK/api/web
-npm run build
+npm run serve
 ```
 
-Then restart the API server.
+Then refresh the browser. If needed, restart the web dev server.
 
 ## 9. Optional: quickest local stack with Docker Compose
 
