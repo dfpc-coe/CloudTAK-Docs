@@ -148,8 +148,6 @@ A shortcut to this menu also appears on the top left next to your active mission
 
 ![](assets/2026-03-18-11-38-31-image.png) Chats: Chat feature for all users subscribed to Data Sync.
 
-
-
 **To subscribe to an existing Data Sync:** 
 
 Make sure you have the channel associated with the Data Sync turned on. Select Data Sync, then select “Subscribe.” All features in the Data Sync will now appear live on your map.
@@ -166,7 +164,9 @@ Some Data Syncs (such as the CDOT cameras) will not allow the “Make Active” 
 
 ## Data Packages
 
-A tool to bundle items you might want to share with other TAK users. To create a new Data Package use the Lasso Tool (see Drawing Tools) to select existing features on your map. After lassoing your features, a menu will appear displaying captured features.
+A tool to bundle items you might want to share with other TAK users. 
+
+**To create a new Data Package:** Use the Lasso Tool (see Drawing Tools) to select existing features on your map. After lassoing your features, a menu will appear displaying captured features.
 
 ![](assets/2026-02-03-13-45-33-image.png)
 
@@ -177,6 +177,15 @@ Click the three dots, then “New Data Package”
 Name your Data Package, and select the channel or channels you want this data to be available on. (Note: Only channels you currently have turned on will be displayed as options). If desired, you can add a file to your data package. 
 
 You can also use the Plus button on the right side under Data Package to create a new package.
+
+Note: Data Packages will be cleared from the COTAK server every two months. If you wish to make the Data Package stay available on your channel indefinitely, add #permanent under "Hashtags."
+
+**To Import an existing Data Package**: Ensure the correct channel is on, then select the Data Package and click "Import Package."
+<img src="assets/2026-03-18-14-03-58-image.png" title="" alt="" width="411">
+
+This will allow you to import all features in the data package. If the data package has a file such as a kmz attached, you will need to select the file under "IMPORT RESULTS." This will add the file to your overlays. 
+
+<img title="" src="assets/2026-03-18-13-52-17-image.png" alt="" width="419">
 
 ## Channels
 
