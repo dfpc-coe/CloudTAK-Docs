@@ -259,6 +259,14 @@ body.docs-landing-page .md-content__inner,
     margin: 0 0 0.75rem;
 }
 
+.md-typeset .headerlink {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.6em;
+    line-height: 1;
+    vertical-align: middle;
+}
+
 .docs-card-meta {
     display: inline-block;
     margin-top: 0.75rem;

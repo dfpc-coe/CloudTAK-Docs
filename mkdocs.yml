@@ -20,6 +20,7 @@ theme:
     - header.autohide
     - navigation.tabs
     - navigation.sections
+    - navigation.tracking
     - navigation.instant
     - navigation.instant.prefetch
     - navigation.instant.progress
@@ -55,6 +56,8 @@ nav:
       - Home: user.md
 
 markdown_extensions:
+  - toc:
+      permalink: "🔗"
   - admonition
   - pymdownx.details
   - pymdownx.superfences
