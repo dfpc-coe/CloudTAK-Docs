@@ -40,6 +40,11 @@ extra:
 
 plugins:
   - search
+  - git-revision-date-localized
+  - minify:
+      minify_html: true
+  - glightbox
+  - open-in-new-tab
 
 # Navigation structure
 nav:

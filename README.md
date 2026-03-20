@@ -15,7 +15,7 @@ First, clone this repository and navigate into the directory.
 Then install the required packages:
 
 ```bash
-pip install mkdocs mkdocs-material
+pip install -r requirements.txt
 ```
 
 ### Running the Development Server
@@ -37,6 +37,7 @@ If you are adding a new page, make sure to also update the `nav` section in `mkd
 ### Project Structure
 
 - `mkdocs.yml`: The main configuration file for the site.
+- `requirements.txt`: Python dependencies for the docs site, including MkDocs plugins.
 - `docs/`: Contains the markdown source files.
 - `docs/assets/`: Images and custom stylesheets.
 - `overrides/`: HTML overrides for the theme.

@@ -34,7 +34,7 @@ jobs:
           python-version: 3.x
 
       - name: Install MKDocs
-        run: pip install mkdocs mkdocs-material
+        run: pip install -r requirements.txt
 
       - name: Build MKDocs
         run: mkdocs build --site-dir ./dist --config-file ./mkdocs.yml
