@@ -44,13 +44,19 @@ Click on the pencil icon in the top right corner to open the drawing tool option
 
  **Draw Point:** Opens a window with 5 different points to choose from. Select the desired icon then click on the map to drop the point. Click on the point to access the radial menu.
 
-![](assets/2026-01-16-11-27-34-image.png)
+<img src="assets/2026-03-24-12-38-27-image.png" title="" alt="" width="221">
 
 ![](assets/2026-01-16-11-05-50-image.png) Edit location of point by clicking and dragging.
 
 ![](assets/2026-01-16-11-06-34-image.png) Delete point.
 
 ![](assets/2026-01-16-11-06-55-image.png) Lock on point. Note that this feature was created for moving markers and integration such as aircrafts or GPS trackers.
+
+![](assets/2026-03-24-12-39-06-image.png) Open Buffer Geometry Tool. This allows you to create a perimeter with a radius of a specified distance around your point.
+
+![](assets/2026-03-24-12-40-49-image.png)
+
+<img src="assets/2026-03-24-12-42-02-image.png" title="" alt="" width="359">
 
 ![](assets/2026-01-16-11-07-22-image.png) Open side menu to edit point. From here you can edit name, coordinates, icon style, add notes or attachments, and share with other users through the share button.
 
