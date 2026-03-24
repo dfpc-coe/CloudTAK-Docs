@@ -2,7 +2,7 @@
 
 ## First Login
 
-Go to map.cotak.gov. Use your cotak.gov credentials to log in.
+Go to your agency login page. Use your credentials to log in.
 
 ![](assets/2026-01-16-15-06-57-image.png)
 
@@ -14,9 +14,9 @@ We recommend using the callsign convention [agency acronym] [last name] and [rad
 
 ![](assets/2026-01-16-15-08-16-image.png)
 
-Finally, choose your role based on the table provided. When in doubt choose the Team Member option.
+Finally, choose your role based on the table provided. When in doubtchoose the Team Member option.
 
-You will be prompted: map.cotak.gov wants to Know your Location. Select “Allow".
+Select “Allow" if prompted that your server wants to know your location.
 
 ![](assets/2026-01-16-15-10-18-image.png)
 
@@ -178,7 +178,7 @@ Name your Data Package, and select the channel or channels you want this data to
 
 You can also use the Plus button on the right side under Data Package to create a new package.
 
-Note: Data Packages will be cleared from the COTAK server every two months. If you wish to make the Data Package stay available on your channel indefinitely, add #permanent under "Hashtags."
+Note: Data Packages will be cleared from the server every two months. If you wish to make the Data Package stay available on your channel indefinitely, add #permanent under "Hashtags."
 
 **To Import an existing Data Package**: Ensure the correct channel is on, then select the Data Package and click "Import Package."
 <img src="assets/2026-03-18-14-03-58-image.png" title="" alt="" width="411">
@@ -189,7 +189,7 @@ This will allow you to import all features in the data package. If the data pack
 
 ## Channels
 
-Will display all channels available to your COTAK account. 
+Will display all channels available to your account. 
 
 ![](assets/2026-02-03-13-55-28-image.png) An open eyeball icon indicates that the channel is currently on and is sharing your location with all other users on that same channel. 
 
@@ -201,7 +201,7 @@ To the right of the channels you will also see a pointer arrow icon.
 
 ![](assets/2026-02-03-13-57-05-image.png) An arrow with a slash indicates that users on this channel cannot see each other. Instead, these channels are used to supply you with additional data such as Aircraft locations or Wildland Fire data. 
 
-Each COTAK emergency responder sees a unique list of channels. Some of these channels were created by your agency administrator and are only available to members of your public safety organization, while other channels are available to multiple agencies for use in mutual aid. It is best practice to only turn on mutual aid channels when a need for them arises, but refer to your own agency’s policies for definitive guidance. 
+Each user sees a unique list of channels. Some of these channels were created by your agency administrator and are only available to members of your public safety organization, while other channels are available to multiple agencies for use in mutual aid. It is best practice to only turn on mutual aid channels when a need for them arises, but refer to your own agency’s policies for definitive guidance. 
 
 ## Videos
 
