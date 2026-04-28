@@ -2,7 +2,7 @@
 
 ## First Login
 
-Go to map.cotak.gov. Use your cotak.gov credentials to log in.
+Go to your agency login page. Use your credentials to log in.
 
 ![](assets/2026-01-16-15-06-57-image.png)
 
@@ -14,9 +14,9 @@ We recommend using the following callsign convention: `[Agency Acronym] [Last Na
 
 ![](assets/2026-01-16-15-08-16-image.png)
 
-Finally, choose your role based on the table provided. When in doubt choose the Team Member option.
+Finally, choose your role based on the table provided. When in doubtchoose the Team Member option.
 
-You will be prompted: map.cotak.gov wants to Know your Location. Select “Allow".
+Select “Allow" if prompted that your server wants to know your location.
 
 ![](assets/2026-01-16-15-10-18-image.png)
 
@@ -44,13 +44,19 @@ Click on the pencil icon in the top right corner to open the drawing tool option
 
 **Draw Point:** Opens a window with 5 different points to choose from. Select the desired icon then click on the map to drop the point. Click on the point to access the radial menu.
 
-![](assets/2026-01-16-11-27-34-image.png)
+<img src="assets/2026-03-24-12-38-27-image.png" title="" alt="" width="221">
 
 ![](assets/2026-01-16-11-05-50-image.png) Edit location of point by clicking and dragging.
 
 ![](assets/2026-01-16-11-06-34-image.png) Delete point.
 
 ![](assets/2026-01-16-11-06-55-image.png) Lock on point. Note that this feature was created for moving markers and integration such as aircrafts or GPS trackers.
+
+![](assets/2026-03-24-12-39-06-image.png) Open Buffer Geometry Tool. This allows you to create a perimeter with a radius of a specified distance around your point.
+
+![](assets/2026-03-24-12-40-49-image.png)
+
+<img src="assets/2026-03-24-12-42-02-image.png" title="" alt="" width="359">
 
 ![](assets/2026-01-16-11-07-22-image.png) Open side menu to edit point. From here you can edit name, coordinates, icon style, add notes or attachments, and share with other users through the share button.
 
@@ -182,7 +188,7 @@ Name your Data Package, and select the channel or channels you want this data to
 
 You can also use the Plus button on the right side under Data Package to create a new package.
 
-Note: Data Packages will be cleared from the COTAK server every two months. If you wish to make the Data Package stay available on your channel indefinitely, add #permanent under "Hashtags."
+Note: Data Packages will be cleared from the server every two months. If you wish to make the Data Package stay available on your channel indefinitely, add #permanent under "Hashtags."
 
 **To Import an existing Data Package**: Ensure the correct channel is on, then select the Data Package and click "Import Package."
 <img src="assets/2026-03-18-14-03-58-image.png" title="" alt="" width="411">
@@ -193,7 +199,7 @@ This will allow you to import all features in the data package. If the data pack
 
 ## Channels
 
-Will display all channels available to your COTAK account. 
+Will display all channels available to your account. 
 
 ![](assets/2026-02-03-13-55-28-image.png) An open eyeball icon indicates that the channel is currently on and is sharing your location with all other users on that same channel. 
 
@@ -205,7 +211,7 @@ To the right of the channels you will also see a pointer arrow icon.
 
 ![](assets/2026-02-03-13-57-05-image.png) An arrow with a slash indicates that users on this channel cannot see each other. Instead, these channels are used to supply you with additional data such as Aircraft locations or Wildland Fire data. 
 
-Each COTAK emergency responder sees a unique list of channels. Some of these channels were created by your agency administrator and are only available to members of your public safety organization, while other channels are available to multiple agencies for use in mutual aid. It is best practice to only turn on mutual aid channels when a need for them arises, but refer to your own agency’s policies for definitive guidance. 
+Each user sees a unique list of channels. Some of these channels were created by your agency administrator and are only available to members of your public safety organization, while other channels are available to multiple agencies for use in mutual aid. It is best practice to only turn on mutual aid channels when a need for them arises, but refer to your own agency’s policies for definitive guidance. 
 
 ### Videos
 
