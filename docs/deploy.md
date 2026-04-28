@@ -94,6 +94,39 @@ Note: commands below assume Ubuntu
 
     It will prompt you to perform a database backup before proceeding with the update, we recommend you always do so.
 
+## Runtime Configuration
+
+CloudTAK stores almost all operational settings in the database and exposes them through the administrative interface.
+That is the preferred way to manage day-to-day settings after the platform is running.
+
+You can also provide configuration values as environment variables at startup. When an environment variable is present,
+it overrides the matching value stored in the database for that process launch.
+
+### Mapping CloudTAK config keys to environment variables
+
+Any configuration key exposed by the `POST /config` API can be set with an environment variable during startup.
+
+Use the following rules:
+
+- Prefix the key with `CLOUDTAK_Config_`
+- Replace every `::` sequence with `_`
+- Preserve the original case of the key after the prefix
+
+Examples:
+
+- `media::url` becomes `CLOUDTAK_Config_media_url`
+- `group::Brown` becomes `CLOUDTAK_Config_group_Brown`
+
+### AWS custom resource naming overrides
+
+If you deploy with the provided CloudFormation templates, CloudTAK populates these values for you and you usually do not need to set them manually.
+Override them only if you are integrating CloudTAK with pre-existing AWS resources or custom naming conventions.
+
+| Variable Name               | Description |
+| --------------------------- | ----------- |
+| `ECR_TASKS_REPOSITORY_NAME` | ECR repository used for ETL task images |
+| `ECS_CLUSTER_PREFIX`        | Prefix used when resolving ECS cluster names |
+
 ## DNS Configuration
 
 Final DNS Configuration should have the following entries:
@@ -116,6 +149,13 @@ The following rules must be adhered to unless customizing the nginx configuratio
 ### Initial Install & Setup
 
 The following instructions will guide you through deploying CloudTAK using AWS CloudFormation
+
+Before you begin, make sure any prerequisite infrastructure required by your environment already exists.
+At minimum, CloudTAK expects a VPC and supporting networking stack where it can place ECS tasks and related resources.
+
+| Name             | Notes |
+| ---------------- | ----- |
+| `coe-vpc-<name>` | VPC, networking, and related AWS infrastructure for the deployment environment |
 
 
 1.  Ensure you have NodeJS installed locally. The install instructions assume an Ubuntu Command line, Windows
@@ -151,14 +191,14 @@ Note: Ensure the `profile` used in the next step matches the profile name you se
 deploy init
 ```
 
-6. Create a new folder to hold CloudTAK specific configuration
+5. Create a new folder to hold CloudTAK specific configuration
 
 ```
 mkdir -p ~/Development/dfpc-coe
 cd ~/Development/dfpc-coe
 ```
 
-5. Install the VPC Infrastructure
+6. Install the VPC Infrastructure
 
 Note: You must have an active Route53 Hosted Zone for the domain you plan to use with CloudTAK
 
@@ -174,24 +214,60 @@ npm install
 deploy create <stack-name> --profile <profile> --region <region>
 ```
 
-6. Install the CloudTAK Infrastructure
+7. Build and publish the CloudTAK container images
+
+CloudTAK ships with scripts to build the required images and push them to ECR.
+Run these commands from the root of the CloudTAK repository after you clone it.
+
+Make sure the target ECR repositories already exist and that your AWS credentials are available in the current shell,
+because the build process performs `aws ecr get-login-password` as part of the push flow.
+
+```sh
+cd ~/Development/dfpc-coe
+git clone git@github.com:dfpc-coe/CloudTAK
+cd CloudTAK
+npm install
+npm run build
+```
+
+8. Install the CloudTAK Infrastructure
 
 Note: The stack name must match the stack name used in the VPC deployment step.
 Each stack will be prefixed by the name of the git repository.
 
 ```
 cd ~/Development/dfpc-coe
-git clone git@github.com:dfpc-coe/CloudTAK
-cd CloudTAK
-npm install
-
 $(deploy env --profile <profile> --region <region>)
 Environment='<stack-name>' node bin/build.js
+
+deploy create <stack-name> --template cloudformation/webhooks.template.js --profile <profile> --region <region>
 deploy create <stack-name> --profile <profile> --region <region>
+deploy update <stack-name> --profile <profile> --region <region>
+deploy info <stack-name> --outputs --profile <profile> --region <region>
+deploy info <stack-name> --parameters --profile <profile> --region <region>
 
 ```
 
-7. Navigate to `https://map.<yourdomain>` to access the CloudTAK Web UI
+9. Navigate to `https://map.<yourdomain>` to access the CloudTAK Web UI
+
+The `webhooks` stack creates the API Gateway resources used for inbound ETL data events and internal webhook processing.
+
+If you prefer not to install `deploy` globally, the same commands can be run with `npx deploy ...` from the repository root.
+
+For a full list of supported actions, run:
+
+```sh
+deploy --help
+deploy info --help
+```
+
+### Optional dependencies
+
+The following components can be deployed later if your environment needs them:
+
+| Name              | Notes |
+| ----------------- | ----- |
+| `coe-media-<name>`| Media-server task definitions and supporting infrastructure |
 
 ## S3 Bucket Configuration
 

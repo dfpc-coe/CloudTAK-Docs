@@ -53,15 +53,15 @@ To help you get started quickly with a global vector basemap, you can download o
 
 CloudTAK supports serving tiles diretly from a PMTiles Archive. To upload a PMTiles archive, from the Admin Page, navigate to the Hosted Tilesets Menu.
 
-<img src="../assets/2026-03-19-20-38-45-image.png" title="" alt="" data-align="center">
+<img src="../assets/2026-03-19-20-38-45-image.png" title="" alt="" style="display: block; margin: 0 auto;">
 
 On the Hosted Tilesets page you can see a list of tilesets that are hosted on the server (If any).
 
-<img src="../assets/2026-03-19-20-39-49-image.png" title="" alt="" data-align="center">
+<img src="../assets/2026-03-19-20-39-49-image.png" title="" alt="" style="display: block; margin: 0 auto;">
 
 To upload a new TileSet to the server, Click on the upload button in the upper-right-hand corner.
 
-<img src="../assets/2026-03-19-20-40-39-image.png" title="" alt="" data-align="center">
+<img src="../assets/2026-03-19-20-40-39-image.png" title="" alt="" style="display: block; margin: 0 auto;">
 
 Find the file and then start the upload. 
 
@@ -83,25 +83,25 @@ Basemaps and overlays are both layers on the map that will be visible to the use
 
 From the Server Admin page naviate to the Basemap & Overlay Menu
 
-<img title="" src="../assets/2026-03-19-20-48-48-image.png" alt="" data-align="center">
+<img title="" src="../assets/2026-03-19-20-48-48-image.png" alt="" style="display: block; margin: 0 auto;">
 
 The Basemaps menu will show a list of current basemaps loaded into the server. By default only "public" basemaps are shown, public being basemaps that are avilable to all users of the system. 
 
-![](../assets/2026-03-19-20-49-21-image.png)
+![](../assets/2026-03-19-20-49-21-image.png){ style="display: block; margin: 0 auto;" }
 
 Seeing a user's personal basemaps is possible when warranted by clicking on the "Filter" icon and choosing "All" or "User" from the dropdown list.
 
-<img src="../assets/2026-03-19-20-50-46-image.png" title="" alt="" data-align="center">
+<img src="../assets/2026-03-19-20-50-46-image.png" title="" alt="" style="display: block; margin: 0 auto;">
 
 ### Adding a Basemap or Overlay
 
 1. Click on the Create Overlay button
 
-<img src="../assets/2026-03-19-20-51-31-image.png" title="" alt="" data-align="center">
+<img src="../assets/2026-03-19-20-51-31-image.png" title="" alt="" style="display: block; margin: 0 auto;">
 
 2. The New Overlay Pane will open that depending on your version will look similiar to the panel below.
 
-<img src="../assets/2026-03-19-20-52-53-image.png" title="" alt="" data-align="center">
+<img src="../assets/2026-03-19-20-52-53-image.png" title="" alt="" style="display: block; margin: 0 auto;">
 
 3. Choose a name for the basemap. Enable Sharing allows the user to share the basemap to other TAK users. Note that while disabling sharing makes it more difficult to share, the user is still able to see the tile URL and could create a personal overlay they could subsequently share. Hidden should typically only be used for snapping layers as this will cause the basemap not to be present in the default Basemap or Overlay menu.
 
@@ -129,7 +129,7 @@ Seeing a user's personal basemaps is possible when warranted by clicking on the 
      
      - `https://example.com/tiles/{$q}.png`
    
-   If adding a Hosted Tileset as uploaded in the previous section, select the "Public Tilesets" item and select the relevant tileset from the list.
+   If adding a Hosted Tileset as uploaded in the previous section, select the "Hosted Tilesets" item and select the relevant tileset from the list.
 
 
 
