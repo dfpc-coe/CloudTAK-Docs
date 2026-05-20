@@ -99,10 +99,6 @@ Seeing a user's personal basemaps is possible when warranted by clicking on the 
 
 5. Choose the source of the Tiles, Manual Entry supports quadkey, zxy, and ESRI Servers. Some example URLs can be seen below.
    
-   - ESRI ImageServer
-   
-     - `https://example.com/arcgis/rest/services/WorldImagery/ImageServer`
-   
    - ESRI MapServer
    
      - `https://example.com/arcgis/rest/services/WorldTopo/MapServer/1`
@@ -121,7 +117,39 @@ Seeing a user's personal basemaps is possible when warranted by clicking on the 
    
    If adding a Hosted Tileset as uploaded in the previous section, select the "Hosted Tilesets" item and select the relevant tileset from the list.
 
-## Users
+## Terrain
+
+CloudTAK has support for a 2.5D environment if loaded with a DEM dataset. To do so, navigate to the Basemap/Overlay section of the Admin Panel as described above.
+
+Create a new Basemap and select the "TileJSON Import" object from the protocol options
+
+<img src="assets/2026-05-20-14-18-20-image.png" title="" alt="" data-align="center">
+
+You can provide your own DEM source if it is in the mapbox or terrarium tile format, or use Mapterhorn, a high quality, free global elevation dataset.
+
+If using Mapterhorn, paste the TileJSON URL
+
+> https://tiles.mapterhorn.com/tilejson.json
+
+and select, "Fetch TileJSON"
+
+<img src="assets/2026-05-20-14-19-54-image.png" title="" alt="" data-align="center">
+
+Give the layer a name - IE "Mapterhorn DEM" and click save. To enable the layer as the default CloudTAK Terrain source and show the 3D terrain button on the map, navigate to the CloudTAK Settings option on the Admin Panel, then Map Settings
+
+<img src="assets/2026-05-20-14-21-12-image.png" title="" alt="" data-align="center">
+
+Click the Edit Pencil in the upper right-hand corner and select the DEM source that you created in the previous step.
+
+<img src="assets/2026-05-20-14-21-49-image.png" title="" alt="" data-align="center">
+
+Finally click the save button in the upper right hand corner to save the new default terrain layer. Log out and then log back in and the map view will show the 3d terrain option (The Mountain Icon)
+
+<img src="assets/2026-05-20-14-24-05-image.png" title="" alt="" data-align="center">
+
+
+
+# # Users
 
 The CloudTAK Users section of the Admin Panel allows you to view and configure data about active users of CloudTAK
 
