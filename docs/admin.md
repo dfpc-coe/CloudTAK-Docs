@@ -87,11 +87,11 @@ Seeing a user's personal basemaps is possible when warranted by clicking on the 
 
 1. Click on the Create Overlay button
 
-<img src="../assets/2026-03-19-20-51-31-image.png" title="" alt="" style="display: block; margin: 0 auto;">
+<img title="" src="./assets/2026-03-19-20-51-31-image.png" alt="loading-ag-277" style="display: block; margin: 0 auto;" data-align="center">
 
 2. The New Overlay Pane will open that depending on your version will look similiar to the panel below.
 
-<img src="../assets/2026-03-19-20-52-53-image.png" title="" alt="" style="display: block; margin: 0 auto;">
+<img title="" src="./assets/2026-03-19-20-52-53-image.png" alt="loading-ag-269" style="display: block; margin: 0 auto;" data-align="center">
 
 3. Choose a name for the basemap. Enable Sharing allows the user to share the basemap to other TAK users. Note that while disabling sharing makes it more difficult to share, the user is still able to see the tile URL and could create a personal overlay they could subsequently share. Hidden should typically only be used for snapping layers as this will cause the basemap not to be present in the default Basemap or Overlay menu.
 
@@ -128,8 +128,6 @@ The CloudTAK Users section of the Admin Panel allows you to view and configure d
 <img src="assets/2026-05-20-14-03-46-image.png" title="" alt="" data-align="center">
 
 From the Admin Panel, select the user's Menu Entry on the left.
-
-
 
 ![](assets/2026-05-20-14-04-51-image.png)
 
