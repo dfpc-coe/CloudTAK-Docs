@@ -9,13 +9,13 @@ Whether you are a system administrator or a technical user, this guide will help
 
 The admin panel can be accessed once logged in to the CloudTAK Map View.
 
-| Large Device Side Menu                                                                                     | From within the Main Menu                                                                            |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| ![Large device side menu](assets/2025-12-31-17-14-53-image.png){ style="display: block; margin: 0 auto;" } | ![Main menu access](assets/2025-12-31-17-15-22-image.png){ style="display: block; margin: 0 auto;" } |
+| Large Device Side Menu                                          | From within the Main Menu                                 |
+| --------------------------------------------------------------- | --------------------------------------------------------- |
+| ![Large device side menu](assets/2025-12-31-17-14-53-image.png) | ![Main menu access](assets/2025-12-31-17-15-22-image.png) |
 
 Once you enter the Admin Panel, you will get a screen like the following:
 
-![Admin panel overview](assets/2025-12-31-17-16-08-image.png){ style="display: block; margin: 0 auto;" }
+<img src="assets/2025-12-31-17-16-08-image.png" title="" alt="Admin panel overview" data-align="center">
 
 ## CloudTAK Settings
 
@@ -23,19 +23,17 @@ The CloudTAK Settings section of the Admin Panel allows you to configure the def
 
 From the Admin Page, select the CloudTAK Settings Menu Item on the left:
 
-![CloudTAK settings menu item](assets/2025-12-31-17-17-34-image.png){ style="display: block; margin: 0 auto;" }
-
-### Server Branding
+<img src="assets/2025-12-31-17-17-34-image.png" title="" alt="CloudTAK settings menu item" data-align="center">
 
 CloudTAK can be configured to use a custom logo and naming scheme to more easily identify and customize the server to fit your agency.
 
 To configure, select the "Login Page" option and then the Pencil icon in the upper right-hand corner to edit.
 
-![Login page branding settings](assets/2025-12-31-17-21-47-image.png){ style="display: block; margin: 0 auto;" }
+<img src="assets/2025-12-31-17-21-47-image.png" title="" alt="Login page branding settings" data-align="center">
 
 Add any or all of the options you wish to customize and then select "Save Setting" in the bottom right.
 
-![Save branding settings](assets/2025-12-31-17-22-36-image.png){ style="display: block; margin: 0 auto;" }
+<img src="assets/2025-12-31-17-22-36-image.png" title="" alt="Save branding settings" data-align="center">
 
 ## Basemaps & Overlays
 
@@ -53,45 +51,37 @@ To help you get started quickly with a global vector basemap, you can download o
 
 CloudTAK supports serving tiles diretly from a PMTiles Archive. To upload a PMTiles archive, from the Admin Page, navigate to the Hosted Tilesets Menu.
 
-<img src="../assets/2026-03-19-20-38-45-image.png" title="" alt="" style="display: block; margin: 0 auto;">
+<img src="./assets/2026-03-19-20-38-45-image.png" title="" alt="" data-align="center">
 
 On the Hosted Tilesets page you can see a list of tilesets that are hosted on the server (If any).
 
-<img src="../assets/2026-03-19-20-39-49-image.png" title="" alt="" style="display: block; margin: 0 auto;">
+<img title="" src="./assets/2026-03-19-20-39-49-image.png" alt="" style="display: block; margin: 0 auto;" data-align="center">
 
 To upload a new TileSet to the server, Click on the upload button in the upper-right-hand corner.
 
-<img src="../assets/2026-03-19-20-40-39-image.png" title="" alt="" style="display: block; margin: 0 auto;">
+<img title="" src="./assets/2026-03-19-20-40-39-image.png" alt="" style="display: block; margin: 0 auto;" data-align="center">
 
 Find the file and then start the upload. 
 
-
-
 > On the backend these tilesets will be uploaded to the `public/`prefix of the S3 Bucket or Compatible Store. Tiles are public to authenticated users of CloudTAK but _not_ to unauthenticated users. Tiles themselves are served via the PMTiles Task Server. 
 
-
-
 Once the tiles have been uploaded, proceed to the next section to add a new Basemap or Overlay
-
-
 
 ### Basemap/Overlays
 
 Basemaps and overlays are both layers on the map that will be visible to the user. The difference between the two are simply if the new layer should be added ontop of existing layers (an overlay), or if the layer should replace the bottom layer (a basemap). Both share the same functionality and as such we will refer to both as an overlay in this guide.
 
-
-
 From the Server Admin page naviate to the Basemap & Overlay Menu
 
-<img title="" src="../assets/2026-03-19-20-48-48-image.png" alt="" style="display: block; margin: 0 auto;">
+<img title="" src="./assets/2026-03-19-20-48-48-image.png" alt="" style="display: block; margin: 0 auto;" data-align="center">
 
 The Basemaps menu will show a list of current basemaps loaded into the server. By default only "public" basemaps are shown, public being basemaps that are avilable to all users of the system. 
 
-![](../assets/2026-03-19-20-49-21-image.png){ style="display: block; margin: 0 auto;" }
+<img src="./assets/2026-03-19-20-49-21-image.png" title="" alt="" data-align="center">
 
 Seeing a user's personal basemaps is possible when warranted by clicking on the "Filter" icon and choosing "All" or "User" from the dropdown list.
 
-<img src="../assets/2026-03-19-20-50-46-image.png" title="" alt="" style="display: block; margin: 0 auto;">
+<img title="" src="./assets/2026-03-19-20-50-46-image.png" alt="loading-ag-497" style="display: block; margin: 0 auto;">
 
 ### Adding a Basemap or Overlay
 
@@ -110,29 +100,45 @@ Seeing a user's personal basemaps is possible when warranted by clicking on the 
 5. Choose the source of the Tiles, Manual Entry supports quadkey, zxy, and ESRI Servers. Some example URLs can be seen below.
    
    - ESRI ImageServer
-     
+   
      - `https://example.com/arcgis/rest/services/WorldImagery/ImageServer`
    
    - ESRI MapServer
-     
+   
      - `https://example.com/arcgis/rest/services/WorldTopo/MapServer/1`
    
    - ESRI FeatureServer
-     
-     - `https://example.com/arcgis/rest/services/Parcels/FeatureServer/1` 
+   
+     - `https://example.com/arcgis/rest/services/Parcels/FeatureServer/1`
    
    - ZXY
-     
+   
      -  `https://example.com/tiles/{$z}/{$x}/{$y}.png`
    
    - Quadkey
-     
+   
      - `https://example.com/tiles/{$q}.png`
    
    If adding a Hosted Tileset as uploaded in the previous section, select the "Hosted Tilesets" item and select the relevant tileset from the list.
 
+## Users
+
+The CloudTAK Users section of the Admin Panel allows you to view and configure data about active users of CloudTAK
+
+<img src="assets/2026-05-20-14-03-46-image.png" title="" alt="" data-align="center">
+
+From the Admin Panel, select the user's Menu Entry on the left.
 
 
 
+![](assets/2026-05-20-14-04-51-image.png)
 
-## Connections & Data/ETL Integrations
+A list of users that have accessed the CloudTAK platform will appear, sorted by most recent. A green status icon indicates that they are actively connected to the CloudTAK Service.
+
+Clicking on a user will open the user profile view
+
+<img src="assets/2026-05-20-14-06-11-image.png" title="" alt="" data-align="center">
+
+From here, admins can see default settings that the user has selected as well as editing their access level. To edit the user's access level, select the gear icon in the upper right-hand corner. An edit page will open that will allow you to indicate that a user is a System Administrator or a General User
+
+![](assets/2026-05-20-14-06-51-image.png)
