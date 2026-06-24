@@ -48,7 +48,7 @@ an Integration via the CloudTAK Admin UI.
    CloudTAK build script, pointing it at the current directory (`.`):
 
     ```sh
-    tsx ../<path-to-cloudtak>/bin/build.ts .
+    node ../<path-to-cloudtak>/bin/build.js .
     ```
 
     Replace `<path-to-cloudtak>` with the relative path to your local checkout of
