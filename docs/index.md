@@ -39,6 +39,12 @@ hide:
         <p>Set up a local development environment, install dependencies, prepare PostgreSQL with PostGIS, build the web client, and start the API.</p>
         <span class="docs-card-meta">Best for developers and integrators</span>
       </a>
+      <a class="docs-card" href="/plugin/">
+        <span class="docs-card-icon">🧩</span>
+        <h3>Build a plugin</h3>
+        <p>Extend the CloudTAK web client with custom menus, routes, map overlays, and status-bar widgets using the Plugin API.</p>
+        <span class="docs-card-meta">Best for plugin developers</span>
+      </a>
       <a class="docs-card" href="/admin/">
         <span class="docs-card-icon">⚙️</span>
         <h3>Administer your deployment</h3>

@@ -2,10 +2,10 @@
 
 CloudTAK can be developed locally without Docker, and that is usually the easiest way to iterate on code changes.
 
-> [!WARNING]
-> This workflow is intended for local development only.
-> It starts the CloudTAK API and the web development server, but it does **not** set up the separate tiles server or events server.
-> If you need functionality backed by those services, you must run and configure them separately.
+!!! warning
+    This workflow is intended for local development only.
+    It starts the CloudTAK API and the web development server, but it does **not** set up the separate tiles server or events server.
+    If you need functionality backed by those services, you must run and configure them separately.
 
 These steps assume Ubuntu 24.04. If you are on macOS, the same flow works with Homebrew-managed packages. If you are on Windows, the simplest route is to use WSL2 with Ubuntu and follow the same commands there.
 

@@ -53,6 +53,8 @@ nav:
       - Home: deploy.md
   - Develop:
       - Home: develop.md
+  - Plugins:
+      - Home: plugin.md
   - Admin Guide:
       - Home: admin.md
   - Integration Guide:
