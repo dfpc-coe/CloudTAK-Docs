@@ -8,7 +8,7 @@ Go to your agency login page. Use your credentials to log in.
 
 The first time you log in, you must set your callsign and device preferences.
 
-<img src="assets/2026-01-16-15-07-29-image.png" title="" alt="" width="596">
+<img src="../assets/2026-01-16-15-07-29-image.png" title="" alt="" width="596">
 
 We recommend using the following callsign convention: `[Agency Acronym] [Last Name] [Radio Callsign]`. Next decide which color your marker will show as on the map. View this table to see which color you should choose.
 
@@ -44,7 +44,7 @@ Click on the pencil icon in the top right corner to open the drawing tool option
 
 **Draw Point:** Opens a window with 5 different points to choose from. Select the desired icon then click on the map to drop the point. Click on the point to access the radial menu.
 
-<img src="assets/2026-03-24-12-38-27-image.png" title="" alt="" width="221">
+<img src="../assets/2026-03-24-12-38-27-image.png" title="" alt="" width="221">
 
 ![](assets/2026-01-16-11-05-50-image.png) Edit location of point by clicking and dragging.
 
@@ -56,7 +56,7 @@ Click on the pencil icon in the top right corner to open the drawing tool option
 
 ![](assets/2026-03-24-12-40-49-image.png)
 
-<img src="assets/2026-03-24-12-42-02-image.png" title="" alt="" width="359">
+<img src="../assets/2026-03-24-12-42-02-image.png" title="" alt="" width="359">
 
 ![](assets/2026-01-16-11-07-22-image.png) Open side menu to edit point. From here you can edit name, coordinates, icon style, add notes or attachments, and share with other users through the share button.
 
@@ -134,7 +134,7 @@ You can also add existing features to the Data Sync by selecting features with t
 
 Any Data Sync you are subscribed to will have a menu which is displayed on the right side:
 
-<img src="assets/2026-03-18-11-22-12-image.png" title="" alt="" width="356">
+<img src="../assets/2026-03-18-11-22-12-image.png" title="" alt="" width="356">
 
 A shortcut to this menu also appears on the top left next to your active mission:
 
@@ -144,15 +144,15 @@ A shortcut to this menu also appears on the top left next to your active mission
 
 ![](assets/2026-03-18-11-25-11-image.png) Users: Displays all users subscribed to this Data Sync. Click the plus button to send users a request to join Data Sync.
 
-<img src="assets/2026-03-18-11-59-55-image.png" title="" alt="" width="325">
+<img src="../assets/2026-03-18-11-59-55-image.png" title="" alt="" width="325">
 
 ![](assets/2026-03-18-11-26-09-image.png) Changes: Displays a log of all added and deleted features, including the date and time the change was made.
 
-<img title="" src="assets/2026-03-18-11-40-14-image.png" alt="" width="326">
+<img title="" src="../assets/2026-03-18-11-40-14-image.png" alt="" width="326">
 
 ![](assets/2026-03-18-11-28-43-image.png) Logs: Allows for documentation of mission. Logs can be downloaded as a .csv by clicking "Save Log." 
 
-<img title="" src="assets/2026-03-18-12-06-00-image.png" alt="" width="331">
+<img title="" src="../assets/2026-03-18-12-06-00-image.png" alt="" width="331">
 
 ![](assets/2026-03-18-11-35-32-image.png) Files: Displays all files added to Data Sync.
 
@@ -191,11 +191,11 @@ You can also use the Plus button on the right side under Data Package to create 
 Note: Data Packages will be cleared from the server every two months. If you wish to make the Data Package stay available on your channel indefinitely, add #permanent under "Hashtags."
 
 **To Import an existing Data Package**: Ensure the correct channel is on, then select the Data Package and click "Import Package."
-<img src="assets/2026-03-18-14-03-58-image.png" title="" alt="" width="411">
+<img src="../assets/2026-03-18-14-03-58-image.png" title="" alt="" width="411">
 
 This will allow you to import all features in the data package. If the data package has a file such as a kmz attached, you will need to select the file under "IMPORT RESULTS." This will add the file to your overlays. 
 
-<img title="" src="assets/2026-03-18-13-52-17-image.png" alt="" width="419">
+<img title="" src="../assets/2026-03-18-13-52-17-image.png" alt="" width="419">
 
 ## Channels
 

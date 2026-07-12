@@ -11,7 +11,7 @@ The admin panel can be accessed once logged in to the CloudTAK Map View.
 
 | Large Device Side Menu                                          | From within the Main Menu                                 |
 | --------------------------------------------------------------- | --------------------------------------------------------- |
-| ![Large device side menu](../assets/2025-12-31-17-14-53-image.png) | ![Main menu access](../assets/2025-12-31-17-15-22-image.png) |
+| ![Large device side menu](assets/2025-12-31-17-14-53-image.png) | ![Main menu access](assets/2025-12-31-17-15-22-image.png) |
 
 Once you enter the Admin Panel, you will get a screen like the following:
 
@@ -157,7 +157,7 @@ The CloudTAK Users section of the Admin Panel allows you to view and configure d
 
 From the Admin Panel, select the user's Menu Entry on the left.
 
-![](../assets/2026-05-20-14-04-51-image.png)
+![](assets/2026-05-20-14-04-51-image.png)
 
 A list of users that have accessed the CloudTAK platform will appear, sorted by most recent. A green status icon indicates that they are actively connected to the CloudTAK Service.
 
@@ -167,4 +167,4 @@ Clicking on a user will open the user profile view
 
 From here, admins can see default settings that the user has selected as well as editing their access level. To edit the user's access level, select the gear icon in the upper right-hand corner. An edit page will open that will allow you to indicate that a user is a System Administrator or a General User
 
-![](../assets/2026-05-20-14-06-51-image.png)
+![](assets/2026-05-20-14-06-51-image.png)
