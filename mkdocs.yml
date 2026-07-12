@@ -59,6 +59,8 @@ nav:
       - Home: admin.md
   - Integration Guide:
       - Home: etl.md
+  - Styling:
+      - Home: styling.md
   - User Guide:
       - Home: user.md
 
