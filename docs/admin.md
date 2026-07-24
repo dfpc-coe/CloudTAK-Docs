@@ -135,7 +135,20 @@ and select, "Fetch TileJSON"
 
 <img src="../assets/2026-05-20-14-19-54-image.png" title="" alt="" data-align="center">
 
-Give the layer a name - IE "Mapterhorn DEM" and click save. To enable the layer as the default CloudTAK Terrain source and show the 3D terrain button on the map, navigate to the CloudTAK Settings option on the Admin Panel, then Map Settings
+If using the CloudTAK provided Mapterhorn snapping file, set the following values before saving. Some of these fields are only visible once the "Advanced Options" section is expanded.
+
+| Setting          | Value       | Location         |
+| ---------------- | ----------- | ---------------- |
+| Name              | Mapterhorn DEM | Main form      |
+| Enable Sharing    | Off         | Main form         |
+| Type              | raster-dem  | Advanced Options  |
+| Terrain Encoding  | terrarium   | Advanced Options  |
+| Min Zoom          | 14          | Advanced Options  |
+| Max Zoom          | 14          | Advanced Options  |
+| Tile Size         | 512         | Advanced Options  |
+| Format            | webp        | Advanced Options  |
+
+Click save. To enable the layer as the default CloudTAK Terrain source and show the 3D terrain button on the map, navigate to the CloudTAK Settings option on the Admin Panel, then Map Settings
 
 <img src="../assets/2026-05-20-14-21-12-image.png" title="" alt="" data-align="center">
 
