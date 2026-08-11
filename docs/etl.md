@@ -25,13 +25,81 @@ an Integration via the CloudTAK Admin UI.
 
 ### Build & Push the Docker Container to ECR
 
-1. **Set the version.** Open the ETL task's `package.json` and ensure the
+ETL containers are built and pushed with the `cloudtak-etl` CLI, which is
+published as part of the [@tak-ps/etl](https://github.com/dfpc-coe/etl-base)
+package (v10.10.0 or newer).
+
+#### Prerequisites
+
+- [Node.js](https://nodejs.org/en) v24 or newer
+- [Docker](https://www.docker.com/) with the `buildx` plugin (included in modern
+  Docker installs)
+- The [AWS CLI](https://aws.amazon.com/cli/), used to authenticate Docker
+  against ECR
+
+#### Install the CLI
+
+ETL tasks built on the ETL Base library already have `@tak-ps/etl` as a
+dependency, so from the root of the ETL task directory a plain `npm install`
+makes the CLI available via `npx`:
+
+```sh
+npm install
+npx cloudtak-etl --help
+```
+
+Alternatively the CLI can be installed globally, making `cloudtak-etl`
+available in any ETL repository:
+
+```sh
+npm install --global @tak-ps/etl
+```
+
+#### Build & Push
+
+1. **Author a `capabilities.json`.** The CLI requires a `capabilities.json`
+   document in the root of the ETL repository, describing the task, the
+   permissions it needs, and the invocation modes it supports:
+
+    ```json
+    {
+        "version": "1.0.0",
+        "name": "ArcGIS ETL",
+        "description": "Pull features from an ArcGIS Feature Server",
+        "permissions": [{
+            "resource": "feature:*",
+            "required": true,
+            "description": "Write features to the connection"
+        }],
+        "compute": {
+            "memory": 512,
+            "timeout": 300
+        },
+        "invocations": {
+            "incoming": {
+                "schedule": {
+                    "description": "Poll the Feature Server on a schedule",
+                    "default": {
+                        "enabled": true,
+                        "schedule": "rate(1 minute)"
+                    }
+                }
+            }
+        }
+    }
+    ```
+
+    The document is validated against the `StaticCapabilities` schema exported
+    by `@tak-ps/etl` and embedded in the container's OCI Image Manifest, where
+    the CloudTAK API reads it directly from ECR.
+
+2. **Set the version.** Open the ETL task's `package.json` and ensure the
    `version` field is set to the version you intend to build. This value is used
    as the container image tag in ECR.
 
-2. **Configure AWS credentials.** Ensure valid AWS credentials are present in
-   your current shell environment. The build script requires the following
-   environment variables to be set:
+3. **Configure AWS credentials.** Ensure valid AWS credentials are present in
+   your current shell environment. The CLI requires the following environment
+   variables to be set:
 
     | Variable         | Description                                              |
     | ---------------- | -------------------------------------------------------- |
@@ -42,22 +110,22 @@ an Integration via the CloudTAK Admin UI.
     !!! note
         Standard AWS credential environment variables (`AWS_ACCESS_KEY_ID`,
         `AWS_SECRET_ACCESS_KEY`, and `AWS_SESSION_TOKEN` if applicable) must also
-        be present so the build script can authenticate against ECR.
+        be present so the CLI can authenticate against ECR.
 
-3. **Run the build script.** From the root of the ETL task directory, run the
-   CloudTAK build script, pointing it at the current directory (`.`):
+4. **Run the CLI.** From the root of the ETL task directory:
 
     ```sh
-    node ../<path-to-cloudtak>/bin/build.js .
+    npx cloudtak-etl
     ```
 
-    Replace `<path-to-cloudtak>` with the relative path to your local checkout of
-    the CloudTAK repository. The script will:
+    The CLI will:
 
-    - Build a Docker image named after the ETL's git repository.
-    - Tag the image using the repository name and the `package.json` version
-      (e.g. `etl-arcgis-v1.0.0`).
-    - Authenticate with and push the image to the CloudTAK tasks ECR repository.
+    - Authenticate Docker against the CloudTAK tasks ECR repository.
+    - Validate the `capabilities.json` document and embed it in the image
+      manifest as an OCI annotation.
+    - Build a `linux/amd64` Docker image named after the ETL's git repository.
+    - Tag and push the image using the repository name and the `package.json`
+      version (e.g. `tak-vpc-prod-cloudtak-tasks:etl-arcgis-v1.0.0`).
 
 ### Register the Integration in the Admin UI
 
