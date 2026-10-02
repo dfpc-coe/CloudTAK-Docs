@@ -416,3 +416,19 @@ body.docs-landing-page .md-content__inner,
         margin-top: 0;
     }
 }
+
+/* screenshot not yet captured - shows the expected filename */
+.md-typeset .shot-todo {
+    padding: 1.25rem;
+    border: 1px dashed rgba(234, 179, 8, 0.6);
+    border-radius: 8px;
+    background: rgba(234, 179, 8, 0.06);
+    color: #fde68a;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.md-typeset .shot-todo code {
+    display: block;
+    margin-top: 0.4rem;
+}

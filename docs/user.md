@@ -65,6 +65,93 @@ To navigate the map, click and drag. To rotate the map, hold control, then click
 
 ![Search](assets/2026-01-16-15-17-47-image.png){ .icon } At the top of the left panel is the search tool. Here you may enter an address similar to how you would use a navigation system. When you find the correct address, click on it, and your map will automatically position itself at that exact location.
 
+## Location & Coordinates
+
+The GPS panel in the bottom left corner of the map shows your callsign, your altitude (MSL), location accuracy, speed, heading, and a coordinate readout you can copy.
+
+<div class="steps steps--plain" markdown>
+
+<div class="step" markdown>
+<div class="step-body" markdown>
+**Your location.** The icon next to your callsign shows where your location comes from:
+
+- **Live GPS** (arrow icon): the icon color shows accuracy. Green is within 50 m, yellow within 200 m, and red is worse than 200 m. A red icon with a very large `+/-` value usually means the browser is estimating your position from the network rather than GPS.
+- **Manual location** (pin icon): a position you placed on the map yourself.
+- **No location** (crossed-out icon): CloudTAK doesn't know where you are and you will not appear to other users.
+
+Click the icon to switch between live GPS and setting your location manually. Click your callsign to zoom the map to your location.
+</div>
+<div class="step-fig" markdown>
+![GPS panel showing callsign, altitude, accuracy, speed and coordinates](assets/user-gps-panel.png)
+</div>
+</div>
+
+<div class="step" markdown>
+<div class="step-body" markdown>
+**Coordinate readout.** Click the coordinates to open the coordinate menu:
+
+- **Cursor / GPS**: show the position of your mouse cursor, or your own location.
+- **Copy**: copy the coordinates in the current format, ready to paste into a radio log, CAD or chat.
+- **Format**: pick one of the formats below. Your choice is saved to your profile.
+
+| Format | Example |
+| ------ | ------- |
+| DD - Decimal Degrees | `39.7392, -104.9903` |
+| DM - Degrees Minutes | `39° 44.3519', -104° 59.418'` |
+| DMS - Degrees Minutes Seconds | `39° 44' 21.11", -104° 59' 25.08"` |
+| MGRS - Military Grid Reference System | `13S ED 00831 98811` |
+| UTM - Universal Transverse Mercator | `13S 500831 4398811` |
+</div>
+<div class="step-fig" markdown>
+![Coordinate menu with Cursor/GPS, Copy and format options](assets/user-coordinate-format.png)
+</div>
+</div>
+
+</div>
+
+### Querying a Point on the Map
+
+Query Mode gives you information about any spot on the map without placing a marker.
+
+<div class="steps" markdown>
+
+<div class="step" markdown>
+<div class="step-body" markdown>
+Right-click an empty spot on the map. A radial menu opens with:
+
+- **New Feature** (pencil with plus): drop a point here.
+- **Paste**: only shown when you have copied a feature. Pastes it here.
+- **Info** (question mark): open Query Mode for this spot.
+</div>
+<div class="step-fig" markdown>
+![Radial menu on an empty spot: New Feature, Paste and Info](assets/user-query-radial.png)
+</div>
+</div>
+
+<div class="step" markdown>
+<div class="step-body" markdown>
+Select **Info**. The Query Mode panel shows:
+
+- **Coordinates** of the spot, switchable between formats
+- **Location**: the nearest address or place name
+- **Elevation**, when elevation data is available for the area
+- **Weather** from the National Weather Service: wind, humidity, dewpoint and precipitation. US locations only.
+- **Sun Phase**: sunrise, sunset and twilight times, with the current local time
+- **Magnetic Declination**: the difference between true and magnetic north, needed for compass bearings
+</div>
+<div class="step-fig" markdown>
+![Query Mode panel with location, elevation, weather, sun phase and magnetic declination](assets/user-query-panel.png)
+</div>
+</div>
+
+<div class="step" markdown>
+<div class="step-body" markdown>
+From the buttons at the top of the panel you can **Navigate** to the spot, **Create Route** to it, or **Refresh** the information. **Create Event** starts a new event at this location, pre-filled with the address.
+</div>
+</div>
+
+</div>
+
 ## Draw Tools
 
 <div class="steps steps--plain" markdown>
@@ -127,6 +214,105 @@ CloudTAK supports many iconsets (view them by clicking Style, then Select Icon).
 </div>
 <div class="step-fig" markdown>
 ![Icon set selection](assets/2026-01-16-11-30-14-image.png)
+</div>
+</div>
+
+</div>
+
+## Working with Map Features
+
+Everything on the map, from other users and aircraft to markers, shapes and overlay data, can be selected for more information.
+
+<div class="steps steps--plain" markdown>
+
+<div class="step" markdown>
+<div class="step-body" markdown>
+**Click a feature** to open its radial menu. Which options appear depends on what the feature is and your permissions:
+
+- **Edit**: for your own features, and Data Sync features where you have write access. Other users' positions can't be edited.
+- **Delete**: remove the feature from your map. Data Sync features can only be deleted with write access, and are then removed for everyone subscribed.
+- **Lock On**: points only. The map follows the feature as it moves.
+- **Play**: shown when the feature has a video stream attached.
+- **Geometry**: a submenu with **Buffer**, **Copy**, and **Split** for lines.
+- **View**: open the details pane.
+
+When several features overlap where you click, a list appears so you can pick the right one. Hold **Ctrl** while clicking to add a feature to a multi-selection.
+</div>
+<div class="step-fig" markdown>
+![Radial menu on a user position: Delete, Lock On, Geometry and View](assets/user-feature-radial.png)
+</div>
+</div>
+
+<div class="step" markdown>
+<div class="step-body" markdown>
+**The details pane** opens from **View**. The buttons along the top are:
+
+- **Save Feature** (star): keep the feature on your map, so it doesn't disappear when it stops updating
+- **Zoom To**: center the map on the feature
+- **Navigate**: points and routes only, see below
+- **Lock On**: points only. The map follows the feature as it moves.
+- **View Video Stream**: when the feature has video
+- **Share**: see below
+- **Breadcrumb**: points only. Show a **Live Trail**, or **Load History** for the last 1, 4, 8 or 24 hours.
+- **Edit**: change the shape or position
+- **Transforms**: **Buffer**, or **Convert to Route** for lines
+- **Chat**: start a chat with another user
+- **Add Properties** (three dots): attach files, links, a video stream, a sensor field of view, or a geofence (polygons only)
+</div>
+<div class="step-fig" markdown>
+![Details pane for a user position, with action buttons and Info view](assets/user-feature-info.png)
+</div>
+</div>
+
+<div class="step" markdown>
+<div class="step-body" markdown>
+Below the buttons, the **Info** view shows everything known about the feature: its type, the Data Sync it belongs to, location, elevation, speed and course, contact details, remarks, attachments, links, sensor readings, style and who created it.
+
+Use the switch at the top to change to **Raw** to see the underlying data. For other users, **Channels** shows which channels they are on.
+</div>
+</div>
+
+</div>
+
+### Sharing Features
+
+<div class="steps" markdown>
+
+<div class="step" markdown>
+<div class="step-body" markdown>
+Open the feature's details pane and click **Share**. You can also share several features at once from a Lasso selection (see [Draw Tools](#draw-tools)).
+</div>
+</div>
+
+<div class="step" markdown>
+<div class="step-body" markdown>
+In the **Share Features** window, choose who receives it from the **Users**, **Channels** or **Data Syncs** tabs, then click **Share**.
+
+**Broadcast To All Users** sends the feature to everyone on your active channels instead.
+</div>
+<div class="step-fig" markdown>
+![Share Features window with Users, Channels and Data Syncs tabs](assets/user-share.png)
+</div>
+</div>
+
+</div>
+
+### Navigating to a Feature
+
+<div class="steps" markdown>
+
+<div class="step" markdown>
+<div class="step-body" markdown>
+Click **Navigate** in a feature's details pane, or in the Query Mode panel for any spot on the map.
+</div>
+</div>
+
+<div class="step" markdown>
+<div class="step-body" markdown>
+A navigation banner at the top of the map shows the distance to the destination, your speed and ETA (speed and ETA need a live GPS location while moving). Use the zoom button to fit the destination on screen, and the **X** to end navigation. When navigating a route, a **Reverse Direction** button also appears.
+</div>
+<div class="step-fig" markdown>
+![Navigation banner with distance, speed and ETA, and a line to the destination](assets/user-navigation.png)
 </div>
 </div>
 
