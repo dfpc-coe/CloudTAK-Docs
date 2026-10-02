@@ -43,7 +43,9 @@ plugins:
   - git-revision-date-localized
   - minify:
       minify_html: true
-  - glightbox
+  - glightbox:
+      skip_classes:
+        - icon
   - open-in-new-tab
 
 # Navigation structure

@@ -9,31 +9,63 @@ Whether you are a system administrator or a technical user, this guide will help
 
 The admin panel can be accessed once logged in to the CloudTAK Map View.
 
-| Large Device Side Menu                                          | From within the Main Menu                                 |
-| --------------------------------------------------------------- | --------------------------------------------------------- |
-| ![Large device side menu](assets/2025-12-31-17-14-53-image.png) | ![Main menu access](assets/2025-12-31-17-15-22-image.png) |
+<div class="steps" markdown>
 
-Once you enter the Admin Panel, you will get a screen like the following:
+<div class="step" markdown>
+<div class="step-body" markdown>
+Open the Admin Panel from the side menu on large devices, or from within the Main Menu on smaller ones.
+</div>
+<div class="step-fig" markdown>
+![Large device side menu](assets/2025-12-31-17-14-53-image.png)
+![Main menu access](assets/2025-12-31-17-15-22-image.png)
+</div>
+</div>
 
-<img src="../assets/2025-12-31-17-16-08-image.png" title="" alt="Admin panel overview" data-align="center">
+<div class="step" markdown>
+<div class="step-body" markdown>
+The Admin Panel opens with the server overview and the admin menu on the left.
+</div>
+<div class="step-fig" markdown>
+![Admin panel overview](assets/2025-12-31-17-16-08-image.png)
+</div>
+</div>
+
+</div>
 
 ## CloudTAK Settings
 
-The CloudTAK Settings section of the Admin Panel allows you to configure the default behavior of the CloudTAK server instance.
+The CloudTAK Settings section of the Admin Panel allows you to configure the default behavior of the CloudTAK server instance. CloudTAK can be configured to use a custom logo and naming scheme to more easily identify and customize the server to fit your agency.
 
-From the Admin Page, select the CloudTAK Settings Menu Item on the left:
+<div class="steps" markdown>
 
-<img src="../assets/2025-12-31-17-17-34-image.png" title="" alt="CloudTAK settings menu item" data-align="center">
+<div class="step" markdown>
+<div class="step-body" markdown>
+From the Admin Panel, select the **CloudTAK Settings** menu item on the left.
+</div>
+<div class="step-fig" markdown>
+![CloudTAK settings menu item](assets/2025-12-31-17-17-34-image.png)
+</div>
+</div>
 
-CloudTAK can be configured to use a custom logo and naming scheme to more easily identify and customize the server to fit your agency.
+<div class="step" markdown>
+<div class="step-body" markdown>
+Select the **Login Page** option, then the pencil icon in the upper right-hand corner to edit.
+</div>
+<div class="step-fig" markdown>
+![Login page branding settings](assets/2025-12-31-17-21-47-image.png)
+</div>
+</div>
 
-To configure, select the "Login Page" option and then the Pencil icon in the upper right-hand corner to edit.
+<div class="step" markdown>
+<div class="step-body" markdown>
+Add any or all of the options you wish to customize, then select **Save Setting** in the bottom right.
+</div>
+<div class="step-fig" markdown>
+![Save branding settings](assets/2025-12-31-17-22-36-image.png)
+</div>
+</div>
 
-<img src="../assets/2025-12-31-17-21-47-image.png" title="" alt="Login page branding settings" data-align="center">
-
-Add any or all of the options you wish to customize and then select "Save Setting" in the bottom right.
-
-<img src="../assets/2025-12-31-17-22-36-image.png" title="" alt="Save branding settings" data-align="center">
+</div>
 
 ## Authentication
 
@@ -147,135 +179,247 @@ To help you get started quickly with a global vector basemap, you can download o
 
 ### Hosted Tilesets
 
-CloudTAK supports serving tiles diretly from a PMTiles Archive. To upload a PMTiles archive, from the Admin Page, navigate to the Hosted Tilesets Menu.
+CloudTAK supports serving tiles directly from a PMTiles Archive.
 
-<img src="../assets/2026-03-19-20-38-45-image.png" title="" alt="" data-align="center">
+<div class="steps" markdown>
 
-On the Hosted Tilesets page you can see a list of tilesets that are hosted on the server (If any).
+<div class="step" markdown>
+<div class="step-body" markdown>
+From the Admin Panel, navigate to the **Hosted Tilesets** menu.
+</div>
+<div class="step-fig" markdown>
+![Hosted Tilesets menu item](assets/2026-03-19-20-38-45-image.png)
+</div>
+</div>
 
-<img title="" src="../assets/2026-03-19-20-39-49-image.png" alt="" style="display: block; margin: 0 auto;" data-align="center">
+<div class="step" markdown>
+<div class="step-body" markdown>
+The Hosted Tilesets page lists the tilesets that are hosted on the server, if any.
+</div>
+<div class="step-fig" markdown>
+![Hosted Tilesets list](assets/2026-03-19-20-39-49-image.png)
+</div>
+</div>
 
-To upload a new TileSet to the server, Click on the upload button in the upper-right-hand corner.
+<div class="step" markdown>
+<div class="step-body" markdown>
+To upload a new tileset, click the upload button in the upper right-hand corner, find the file and start the upload.
+</div>
+<div class="step-fig" markdown>
+![Upload tileset button](assets/2026-03-19-20-40-39-image.png)
+</div>
+</div>
 
-<img title="" src="../assets/2026-03-19-20-40-39-image.png" alt="" style="display: block; margin: 0 auto;" data-align="center">
+</div>
 
-Find the file and then start the upload. 
+!!! note
+    Tilesets are uploaded to the `public/` prefix of the S3 Bucket or compatible store. Tiles are public to authenticated users of CloudTAK but _not_ to unauthenticated users. Tiles themselves are served via the PMTiles Task Server.
 
-> On the backend these tilesets will be uploaded to the `public/`prefix of the S3 Bucket or Compatible Store. Tiles are public to authenticated users of CloudTAK but _not_ to unauthenticated users. Tiles themselves are served via the PMTiles Task Server. 
-
-Once the tiles have been uploaded, proceed to the next section to add a new Basemap or Overlay
+Once the tiles have been uploaded, proceed to the next section to add a new Basemap or Overlay.
 
 ### Basemap/Overlays
 
-Basemaps and overlays are both layers on the map that will be visible to the user. The difference between the two are simply if the new layer should be added ontop of existing layers (an overlay), or if the layer should replace the bottom layer (a basemap). Both share the same functionality and as such we will refer to both as an overlay in this guide.
+Basemaps and overlays are both layers on the map that will be visible to the user. The difference between the two is simply whether the new layer is added on top of existing layers (an overlay), or replaces the bottom layer (a basemap). Both share the same functionality and as such we will refer to both as an overlay in this guide.
 
-From the Server Admin page naviate to the Basemap & Overlay Menu
+<div class="steps" markdown>
 
-<img title="" src="../assets/2026-03-19-20-48-48-image.png" alt="" style="display: block; margin: 0 auto;" data-align="center">
+<div class="step" markdown>
+<div class="step-body" markdown>
+From the Admin Panel, navigate to the **Basemaps & Overlays** menu.
+</div>
+<div class="step-fig" markdown>
+![Basemaps & Overlays menu item](assets/2026-03-19-20-48-48-image.png)
+</div>
+</div>
 
-The Basemaps menu will show a list of current basemaps loaded into the server. By default only "public" basemaps are shown, public being basemaps that are avilable to all users of the system. 
+<div class="step" markdown>
+<div class="step-body" markdown>
+The Basemaps menu shows the basemaps currently loaded into the server. By default only "public" basemaps are shown, public being basemaps that are available to all users of the system.
+</div>
+<div class="step-fig" markdown>
+![Basemap list](assets/2026-03-19-20-49-21-image.png)
+</div>
+</div>
 
-<img src="../assets/2026-03-19-20-49-21-image.png" title="" alt="" data-align="center">
+<div class="step" markdown>
+<div class="step-body" markdown>
+To see a user's personal basemaps when warranted, click the **Filter** icon and choose "All" or "User" from the dropdown list.
+</div>
+<div class="step-fig" markdown>
+![Basemap filter dropdown](assets/2026-03-19-20-50-46-image.png)
+</div>
+</div>
 
-Seeing a user's personal basemaps is possible when warranted by clicking on the "Filter" icon and choosing "All" or "User" from the dropdown list.
-
-<img title="" src="../assets/2026-03-19-20-50-46-image.png" alt="loading-ag-497" style="display: block; margin: 0 auto;">
+</div>
 
 ### Adding a Basemap or Overlay
 
-1. Click on the Create Overlay button
+<div class="steps" markdown>
 
-<img title="" src="../assets/2026-03-19-20-51-31-image.png" alt="loading-ag-277" style="display: block; margin: 0 auto;" data-align="center">
+<div class="step" markdown>
+<div class="step-body" markdown>
+Click the **Create Overlay** button.
+</div>
+<div class="step-fig" markdown>
+![Create Overlay button](assets/2026-03-19-20-51-31-image.png)
+</div>
+</div>
 
-2. The New Overlay Pane will open that depending on your version will look similiar to the panel below.
+<div class="step" markdown>
+<div class="step-body" markdown>
+The New Overlay pane will open. Depending on your version it will look similar to the panel shown.
+</div>
+<div class="step-fig" markdown>
+![New Overlay pane](assets/2026-03-19-20-52-53-image.png)
+</div>
+</div>
 
-<img title="" src="../assets/2026-03-19-20-52-53-image.png" alt="loading-ag-269" style="display: block; margin: 0 auto;" data-align="center">
+<div class="step" markdown>
+<div class="step-body" markdown>
+Choose a name for the basemap.
 
-3. Choose a name for the basemap. Enable Sharing allows the user to share the basemap to other TAK users. Note that while disabling sharing makes it more difficult to share, the user is still able to see the tile URL and could create a personal overlay they could subsequently share. Hidden should typically only be used for snapping layers as this will cause the basemap not to be present in the default Basemap or Overlay menu.
+- **Enable Sharing** allows the user to share the basemap to other TAK users. While disabling sharing makes it more difficult to share, the user is still able to see the tile URL and could create a personal overlay they could subsequently share.
+- **Hidden** should typically only be used for snapping layers, as it keeps the basemap out of the default Basemap or Overlay menu.
+</div>
+</div>
 
-4. If the basemap should be available to all users of the system leave the basemap as "Publically Shared", otherwise select a user from the dropdown to assign it to a specific user.
+<div class="step" markdown>
+<div class="step-body" markdown>
+If the basemap should be available to all users of the system, leave it as "Publicly Shared". Otherwise select a user from the dropdown to assign it to a specific user.
+</div>
+</div>
 
-5. Choose the source of the Tiles, Manual Entry supports quadkey, zxy, and ESRI Servers. Some example URLs can be seen below.
-   
-   - ESRI MapServer
-   
-     - `https://example.com/arcgis/rest/services/WorldTopo/MapServer/1`
-   
-   - ESRI FeatureServer
-   
-     - `https://example.com/arcgis/rest/services/Parcels/FeatureServer/1`
-   
-   - ZXY
-   
-     -  `https://example.com/tiles/{$z}/{$x}/{$y}.png`
-   
-   - Quadkey
-   
-     - `https://example.com/tiles/{$q}.png`
-   
-   If adding a Hosted Tileset as uploaded in the previous section, select the "Hosted Tilesets" item and select the relevant tileset from the list.
+<div class="step" markdown>
+<div class="step-body" markdown>
+Choose the source of the tiles. Manual Entry supports quadkey, ZXY, and ESRI servers, for example:
+
+| Source            | Example URL                                                          |
+| ----------------- | -------------------------------------------------------------------- |
+| ESRI MapServer    | `https://example.com/arcgis/rest/services/WorldTopo/MapServer/1`     |
+| ESRI FeatureServer | `https://example.com/arcgis/rest/services/Parcels/FeatureServer/1`  |
+| ZXY               | `https://example.com/tiles/{$z}/{$x}/{$y}.png`                       |
+| Quadkey           | `https://example.com/tiles/{$q}.png`                                 |
+
+If adding a Hosted Tileset uploaded in the previous section, select the "Hosted Tilesets" item and select the relevant tileset from the list.
+</div>
+</div>
+
+</div>
 
 ## Terrain
 
-CloudTAK has support for a 2.5D environment if loaded with a DEM dataset. To do so, navigate to the Basemap/Overlay section of the Admin Panel as described above.
+CloudTAK has support for a 2.5D environment if loaded with a DEM dataset. You can provide your own DEM source if it is in the mapbox or terrarium tile format, or use Mapterhorn, a high quality, free global elevation dataset.
 
-Create a new Basemap and select the "TileJSON Import" object from the protocol options
+<div class="steps" markdown>
 
-<img src="../assets/2026-05-20-14-18-20-image.png" title="" alt="" data-align="center">
+<div class="step" markdown>
+<div class="step-body" markdown>
+Navigate to the Basemaps & Overlays section of the Admin Panel as described above, create a new basemap and select **TileJSON Import** from the protocol options.
+</div>
+<div class="step-fig" markdown>
+![TileJSON Import protocol option](assets/2026-05-20-14-18-20-image.png)
+</div>
+</div>
 
-You can provide your own DEM source if it is in the mapbox or terrarium tile format, or use Mapterhorn, a high quality, free global elevation dataset.
+<div class="step" markdown>
+<div class="step-body" markdown>
+If using Mapterhorn, paste the TileJSON URL and select **Fetch TileJSON**:
 
-If using Mapterhorn, paste the TileJSON URL
+```
+https://tiles.mapterhorn.com/tilejson.json
+```
+</div>
+<div class="step-fig" markdown>
+![Fetch TileJSON](assets/2026-05-20-14-19-54-image.png)
+</div>
+</div>
 
-> https://tiles.mapterhorn.com/tilejson.json
+<div class="step" markdown>
+<div class="step-body" markdown>
+If using the CloudTAK provided Mapterhorn snapping file, set the following values, then click save. Some of these fields are only visible once the "Advanced Options" section is expanded.
 
-and select, "Fetch TileJSON"
+| Setting          | Value          | Location         |
+| ---------------- | -------------- | ---------------- |
+| Name             | Mapterhorn DEM | Main form        |
+| Enable Sharing   | Off            | Main form        |
+| Type             | raster-dem     | Advanced Options |
+| Terrain Encoding | terrarium      | Advanced Options |
+| Min Zoom         | 14             | Advanced Options |
+| Max Zoom         | 14             | Advanced Options |
+| Tile Size        | 512            | Advanced Options |
+| Format           | webp           | Advanced Options |
+</div>
+</div>
 
-<img src="../assets/2026-05-20-14-19-54-image.png" title="" alt="" data-align="center">
+<div class="step" markdown>
+<div class="step-body" markdown>
+To make the layer the default CloudTAK terrain source and show the 3D terrain button on the map, navigate to **CloudTAK Settings** in the Admin Panel, then **Map Settings**.
+</div>
+<div class="step-fig" markdown>
+![Map Settings](assets/2026-05-20-14-21-12-image.png)
+</div>
+</div>
 
-If using the CloudTAK provided Mapterhorn snapping file, set the following values before saving. Some of these fields are only visible once the "Advanced Options" section is expanded.
+<div class="step" markdown>
+<div class="step-body" markdown>
+Click the edit pencil in the upper right-hand corner and select the DEM source you created earlier, then click save in the upper right-hand corner.
+</div>
+<div class="step-fig" markdown>
+![Select terrain source](assets/2026-05-20-14-21-49-image.png)
+</div>
+</div>
 
-| Setting          | Value       | Location         |
-| ---------------- | ----------- | ---------------- |
-| Name              | Mapterhorn DEM | Main form      |
-| Enable Sharing    | Off         | Main form         |
-| Type              | raster-dem  | Advanced Options  |
-| Terrain Encoding  | terrarium   | Advanced Options  |
-| Min Zoom          | 14          | Advanced Options  |
-| Max Zoom          | 14          | Advanced Options  |
-| Tile Size         | 512         | Advanced Options  |
-| Format            | webp        | Advanced Options  |
+<div class="step" markdown>
+<div class="step-body" markdown>
+Log out and back in. The map view will now show the 3D terrain option (the mountain icon).
+</div>
+<div class="step-fig" markdown>
+![3D terrain button on the map](assets/2026-05-20-14-24-05-image.png)
+</div>
+</div>
 
-Click save. To enable the layer as the default CloudTAK Terrain source and show the 3D terrain button on the map, navigate to the CloudTAK Settings option on the Admin Panel, then Map Settings
+</div>
 
-<img src="../assets/2026-05-20-14-21-12-image.png" title="" alt="" data-align="center">
+## Users
 
-Click the Edit Pencil in the upper right-hand corner and select the DEM source that you created in the previous step.
+The CloudTAK Users section of the Admin Panel allows you to view and configure data about active users of CloudTAK.
 
-<img src="../assets/2026-05-20-14-21-49-image.png" title="" alt="" data-align="center">
+<div class="steps" markdown>
 
-Finally click the save button in the upper right hand corner to save the new default terrain layer. Log out and then log back in and the map view will show the 3d terrain option (The Mountain Icon)
+<div class="step" markdown>
+<div class="step-body" markdown>
+From the Admin Panel, select the **Users** menu entry on the left.
+</div>
+<div class="step-fig" markdown>
+![Users menu entry](assets/2026-05-20-14-03-46-image.png)
+</div>
+</div>
 
-<img src="../assets/2026-05-20-14-24-05-image.png" title="" alt="" data-align="center">
-
-
-
-# # Users
-
-The CloudTAK Users section of the Admin Panel allows you to view and configure data about active users of CloudTAK
-
-<img src="../assets/2026-05-20-14-03-46-image.png" title="" alt="" data-align="center">
-
-From the Admin Panel, select the user's Menu Entry on the left.
-
-![](assets/2026-05-20-14-04-51-image.png)
-
+<div class="step" markdown>
+<div class="step-body" markdown>
 A list of users that have accessed the CloudTAK platform will appear, sorted by most recent. A green status icon indicates that they are actively connected to the CloudTAK Service.
+</div>
+<div class="step-fig" markdown>
+![User list](assets/2026-05-20-14-04-51-image.png)
+</div>
+</div>
 
-Clicking on a user will open the user profile view
+<div class="step" markdown>
+<div class="step-body" markdown>
+Clicking on a user opens the user profile view, where admins can see the default settings the user has selected.
+</div>
+<div class="step-fig" markdown>
+![User profile](assets/2026-05-20-14-06-11-image.png)
+</div>
+</div>
 
-<img src="../assets/2026-05-20-14-06-11-image.png" title="" alt="" data-align="center">
+<div class="step" markdown>
+<div class="step-body" markdown>
+To edit the user's access level, select the gear icon in the upper right-hand corner. The edit page lets you mark the user as a System Administrator or a General User.
+</div>
+<div class="step-fig" markdown>
+![Edit user access level](assets/2026-05-20-14-06-51-image.png)
+</div>
+</div>
 
-From here, admins can see default settings that the user has selected as well as editing their access level. To edit the user's access level, select the gear icon in the upper right-hand corner. An edit page will open that will allow you to indicate that a user is a System Administrator or a General User
-
-![](assets/2026-05-20-14-06-51-image.png)
+</div>

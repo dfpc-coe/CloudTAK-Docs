@@ -11,11 +11,19 @@ Connections form the core container through which integrations push or pull data
 
 Connections at their core are a single private/public key certificate pair.
 
-Connections can be access from the CloudTAK Main Menu:
+<div class="steps steps--plain" markdown>
 
-| Large Device Side Menu                    | From within the Main Menu                 |
-| ----------------------------------------- | ----------------------------------------- |
-| ![](assets/2026-01-02-20-24-31-image.png) | ![](assets/2026-01-02-20-24-42-image.png) |
+<div class="step" markdown>
+<div class="step-body" markdown>
+Connections can be accessed from the side menu on large devices, or from within the CloudTAK Main Menu on smaller ones.
+</div>
+<div class="step-fig" markdown>
+![Connections in the large device side menu](assets/2026-01-02-20-24-31-image.png)
+![Connections in the Main Menu](assets/2026-01-02-20-24-42-image.png)
+</div>
+</div>
+
+</div>
 
 ## Publishing an ETL Task
 
@@ -92,6 +100,14 @@ npm install --global @tak-ps/etl
     The document is validated against the `StaticCapabilities` schema exported
     by `@tak-ps/etl` and embedded in the container's OCI Image Manifest, where
     the CloudTAK API reads it directly from ECR.
+
+    !!! note
+        This static, build-time document is distinct from the **live**
+        Capabilities document a deployed task returns when invoked with a
+        `capabilities` event. The static document describes a task version
+        before it is ever deployed - the live document reflects the runtime
+        environment schemas of the running image and is what drives the layer
+        environment configuration UI.
 
 2. **Set the version.** Open the ETL task's `package.json` and ensure the
    `version` field is set to the version you intend to build. This value is used
