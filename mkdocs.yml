@@ -34,12 +34,15 @@ extra_css:
 
 extra_javascript:
   - assets/landing.js
+  - assets/filter.js
 
 extra:
   homepage: https://cloudtak.io
 
 plugins:
   - search
+  - literate-nav:
+      nav_file: SUMMARY.md
   - git-revision-date-localized
   - minify:
       minify_html: true
@@ -57,10 +60,9 @@ nav:
       - Home: develop.md
   - Plugins:
       - Home: plugin.md
-  - Admin Guide:
+  - Administration:
       - Home: admin.md
-  - Integration Guide:
-      - Home: etl.md
+  - Integrations: integrations/
   - Styling:
       - Home: styling.md
   - User Guide:

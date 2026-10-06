@@ -4,6 +4,9 @@ on:
   push:
     branches: ["main"]
 
+  schedule:
+    - cron: "0 6 * * *"
+
   workflow_dispatch:
 
 permissions:
@@ -35,6 +38,9 @@ jobs:
 
       - name: Install MKDocs
         run: pip install -r requirements.txt
+
+      - name: Fetch Integrations
+        run: python3 bin/integrations.py
 
       - name: Build MKDocs
         run: mkdocs build --site-dir ./dist --config-file ./mkdocs.yml

@@ -18,6 +18,22 @@ Then install the required packages:
 pip install -r requirements.txt
 ```
 
+### Generating the Integrations Overview
+
+The Integrations landing page is generated from the integration list published by
+[CloudTAK-Known](https://github.com/dfpc-coe/CloudTAK-Known) at `https://api.cloudtak.io/index.json`.
+Integrations whose repository is not publicly accessible are skipped. The generated page lives in `docs/integrations/` and is not committed, so run the generator before serving or building the site:
+
+```bash
+python3 bin/integrations.py
+```
+
+Each integration also gets a page built from the README of its repository, and a `logo.png` in the repository root is used
+for its tile when present (transparent padding is trimmed at build time). Set `INTEGRATIONS_API` to a URL or local file path to generate from a different source, for example
+a local CloudTAK-Known build, and `INTEGRATIONS_REPOS` to a directory of local repository checkouts to read the README and logo
+from disk instead of GitHub.
+The GitHub Pages workflow runs the generator on every build and rebuilds the site daily so the page stays in sync with the published list.
+
 ### Running the Development Server
 
 You can start the local development server with the following command:
@@ -40,6 +56,8 @@ If you are adding a new page, make sure to also update the `nav` section in `mkd
 - `requirements.txt`: Python dependencies for the docs site, including MkDocs plugins.
 - `docs/`: Contains the markdown source files.
 - `docs/assets/`: Images and custom stylesheets.
+- `docs/integrations/`: Generated Integrations landing page, integration pages and logos (not committed).
+- `bin/integrations.py`: Generator for the Integrations landing page.
 - `overrides/`: HTML overrides for the theme.
 
 ## Building the Site

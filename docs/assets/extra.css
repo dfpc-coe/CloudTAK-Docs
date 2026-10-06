@@ -203,6 +203,118 @@ body.docs-landing-page .md-content__inner,
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
+.docs-card-grid--one {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.docs-card-grid--four {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.md-typeset .docs-filter {
+    width: 100%;
+    margin: 0 0 1rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.72);
+    color: #ffffff;
+    font: inherit;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.md-typeset .docs-filter::placeholder {
+    color: #94a3b8;
+}
+
+.md-typeset .docs-filter:focus {
+    border-color: rgba(129, 140, 248, 0.6);
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.2);
+}
+
+.md-typeset .docs-filter-empty {
+    color: #cbd5e1;
+}
+
+.docs-card[hidden] {
+    display: none;
+}
+
+.docs-card-grid--four .docs-card {
+    position: relative;
+    padding-bottom: 3rem;
+}
+
+.docs-card-github {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 1;
+    display: inline-flex;
+    color: #94a3b8;
+    transition: color 0.2s ease;
+}
+
+.docs-card-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 72px;
+    margin-bottom: 0.75rem;
+    padding: 8px 14px;
+    border-radius: 12px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.md-typeset .docs-card-logo img {
+    display: block;
+    width: 100%;
+    height: 56px;
+    object-fit: contain;
+}
+
+.docs-card-logo--fallback {
+    background: rgba(129, 140, 248, 0.16);
+    color: #c7d2fe;
+}
+
+.md-typeset .docs-card-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.docs-card-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+
+.docs-card:hover .docs-card-github {
+    color: #ffffff;
+}
+
+.docs-card-grid--four .docs-card p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@media (max-width: 1100px) {
+    .docs-card-grid--four {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .docs-card-grid--four {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
 .docs-card,
 .docs-list-card,
 .docs-callout {

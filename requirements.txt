@@ -4,3 +4,5 @@ mkdocs-git-revision-date-localized-plugin
 mkdocs-minify-plugin
 mkdocs-glightbox
 mkdocs-open-in-new-tab
+mkdocs-literate-nav
+pillow
