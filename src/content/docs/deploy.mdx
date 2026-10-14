@@ -1,4 +1,7 @@
-# CloudTAK Deploy
+---
+title: CloudTAK Deploy
+description: Run CloudTAK with Docker Compose, or deploy it into AWS with the provided infrastructure templates.
+---
 
 ## Introduction
 
@@ -24,8 +27,8 @@ Note: commands below assume Ubuntu
 
     | Record Type | Hostname               | Points To                | Example                    |
     | ----------- | ---------------------- | ------------------------ | -------------------------- |
-    | A           | map.<yourdomain>       | CloudTAK API & Web UI    | map.cotak.gov              |
-    | A           | tiles.map.<yourdomain> | CloudTAK Tile Server     | tiles.map.cotak.gov        |
+    | A           | `map.<yourdomain>`       | CloudTAK API & Web UI    | map.cotak.gov              |
+    | A           | `tiles.map.<yourdomain>` | CloudTAK Tile Server     | tiles.map.cotak.gov        |
 
 2. Ensure Ubuntu Version is 24.04 or greater
 
@@ -64,13 +67,12 @@ Note: commands below assume Ubuntu
     nano .env
     ```
 
-???+ warning
-
-    If you are using the `cloudtak.sh` install script, then the `SigningSecret`
-    will be randomly generated for you. If you are not using the install script, you must
-    set these values to be long, random strings. Leaving these values with the defaults can allow
-    an attacker to gain access to your system and generate valid authentication tokens without a user account.
-
+:::caution
+If you are using the `cloudtak.sh` install script, then the `SigningSecret`
+will be randomly generated for you. If you are not using the install script, you must
+set these values to be long, random strings. Leaving these values with the defaults can allow
+an attacker to gain access to your system and generate valid authentication tokens without a user account.
+:::
 
 8. Start the Docker Containers
 
@@ -133,9 +135,9 @@ Final DNS Configuration should have the following entries:
 
 | Record Type | Hostname               | Points To                | Example                    |
 | ----------- | ---------------------- | ------------------------ | -------------------------- |
-| A           | <sub>.example.com      | CloudTAK API & Web UI    | map.example.com            |
-| A           | <sub>.example.com      | CloudTAK Media Server    | video.example.com          |
-| A           | tiles.<sub>.example.com| CloudTAK Tile Server     | tiles.map.example.com      |
+| A           | `<sub>.example.com` | CloudTAK API & Web UI    | map.example.com            |
+| A           | `<sub>.example.com` | CloudTAK Media Server    | video.example.com          |
+| A           | `tiles.<sub>.example.com` | CloudTAK Tile Server     | tiles.map.example.com      |
 
 Note that the relationship between subdomains in the tree is important as CloudTAK will automatically generate
 Content Security Policy (CSP) headers that allow the API & Web UI to access the Media and Tile servers.
@@ -156,7 +158,6 @@ At minimum, CloudTAK expects a VPC and supporting networking stack where it can 
 | Name             | Notes |
 | ---------------- | ----- |
 | `coe-vpc-<name>` | VPC, networking, and related AWS infrastructure for the deployment environment |
-
 
 1.  Ensure you have NodeJS installed locally. The install instructions assume an Ubuntu Command line, Windows
 Subsystem for Linux (WSL) is recommended for Windows users.

@@ -1,0 +1,55 @@
+---
+import Default from '@astrojs/starlight/components/Footer.astro';
+import { sections } from './sections';
+
+const links = [
+    ...sections(Astro.locals.starlightRoute.sidebar),
+    { label: 'CloudTAK.io', href: 'https://cloudtak.io' },
+    { label: 'COTAK.gov', href: 'https://cotak.gov' },
+    { label: 'YouTube', href: 'http://www.youtube.com/@coetak' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/cofiretech/' },
+    { label: 'Instagram', href: 'https://www.instagram.com/cofiretech' },
+    { label: 'Facebook', href: 'https://www.facebook.com/COEATAF/' }
+];
+---
+
+<Default><slot /></Default>
+
+<div class="site-footer">
+    <nav aria-label="Footer">
+        {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    </nav>
+    <p>&copy; State of Colorado. All rights reserved.</p>
+</div>
+
+<style>
+    .site-footer {
+        margin-top: 3rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--sl-color-hairline);
+        text-align: center;
+        font-size: var(--sl-text-sm);
+        color: var(--sl-color-gray-3);
+    }
+
+    .site-footer nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .site-footer a {
+        color: var(--sl-color-gray-3);
+        text-decoration: none;
+    }
+
+    .site-footer a:hover {
+        color: var(--sl-color-white);
+    }
+
+    .site-footer p {
+        margin: 0;
+    }
+</style>

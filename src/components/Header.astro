@@ -1,0 +1,58 @@
+---
+import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
+import Search from '@astrojs/starlight/components/Search.astro';
+import SocialIcons from '@astrojs/starlight/components/SocialIcons.astro';
+import ThemeSelect from '@astrojs/starlight/components/ThemeSelect.astro';
+import { sections } from './sections';
+
+const tabs = sections(Astro.locals.starlightRoute.sidebar);
+---
+
+<div class="header sl-flex">
+    <SiteTitle />
+    <nav class="tabs sl-hidden lg:sl-flex" aria-label="Documentation sections">
+        {tabs.map((tab) => <a href={tab.href} aria-current={tab.isCurrent ? 'page' : undefined}>{tab.label}</a>)}
+    </nav>
+    <div class="search print:hidden"><Search /></div>
+    <div class="sl-hidden md:sl-flex print:hidden right"><SocialIcons /><ThemeSelect /></div>
+</div>
+
+<style>
+    .header {
+        align-items: center;
+        gap: 1.5rem;
+        height: 100%;
+    }
+
+    .tabs {
+        gap: 1.25rem;
+        font-size: var(--sl-text-sm);
+        white-space: nowrap;
+    }
+
+    .tabs a {
+        color: var(--sl-color-gray-2);
+        text-decoration: none;
+    }
+
+    .tabs a:hover,
+    .tabs a[aria-current] {
+        color: var(--sl-color-white);
+    }
+
+    .tabs a[aria-current] {
+        font-weight: 500;
+    }
+
+    .search {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        min-width: 0;
+    }
+
+    .right {
+        gap: 1rem;
+        align-items: center;
+    }
+</style>

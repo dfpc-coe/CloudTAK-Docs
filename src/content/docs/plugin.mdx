@@ -1,4 +1,7 @@
-# Building CloudTAK Plugins
+---
+title: Building CloudTAK Plugins
+description: Extend the CloudTAK web client with custom menus, routes, map overlays and status-bar widgets.
+---
 
 CloudTAK plugins let you extend the web client with new menus, routes, map
 overlays, status‑bar widgets, and floating panes — without forking CloudTAK
@@ -9,10 +12,11 @@ This guide walks through the plugin contract, the Plugin API, scaffolding a new
 plugin from the official sample, developing it locally against CloudTAK, and
 deploying it into a production build.
 
-!!! note
-    The reference implementation for everything on this page is the
-    [`cloudtak-plugin-sample`](https://github.com/dfpc-coe/cloudtak-plugin-sample)
-    repository. When in doubt, copy from there.
+:::note
+The reference implementation for everything on this page is the
+[`cloudtak-plugin-sample`](https://github.com/dfpc-coe/cloudtak-plugin-sample)
+repository. When in doubt, copy from there.
+:::
 
 ## How plugins work
 
@@ -86,17 +90,18 @@ export default class MyPlugin implements PluginInstance {
 | `enable()` | When the map becomes ready, or the user opts in | Add menus, routes, bottom‑bar items, floating panes, subscriptions. |
 | `disable()` | When the plugin is turned off | Remove every menu, route, widget, and listener you added. |
 
-!!! warning
-    `enable()` and `disable()` must be symmetric. Anything registered in
-    `enable()` has to be cleaned up in `disable()`, otherwise disabling the plugin
-    will leave orphaned menus or routes behind.
+:::caution
+`enable()` and `disable()` must be symmetric. Anything registered in
+`enable()` has to be cleaned up in `disable()`, otherwise disabling the plugin
+will leave orphaned menus or routes behind.
+:::
 
 ## Prerequisites
 
 - `git`
 - Node.js `24.x` and `npm`
 - Familiarity with Vue 3 (Composition API) and TypeScript
-- A local CloudTAK checkout — see the [Develop guide](./develop.md)
+- A local CloudTAK checkout — see the [Develop guide](/develop/)
 
 ## Scaffolding a new plugin
 
@@ -149,10 +154,11 @@ own runtime dependencies.
 }
 ```
 
-!!! tip
-    The `@tak-ps/cloudtak` alias resolves to `CloudTAK/api/web` — the same package
-    that Vite exposes internally as `@tak-ps/cloudtak`. Adjust the relative
-    `file:` path to match where you checked out CloudTAK.
+:::tip
+The `@tak-ps/cloudtak` alias resolves to `CloudTAK/api/web` — the same package
+that Vite exposes internally as `@tak-ps/cloudtak`. Adjust the relative
+`file:` path to match where you checked out CloudTAK.
+:::
 
 ### `tsconfig.json`
 
@@ -328,9 +334,10 @@ const map = this.api.map;
 map.on('click', (e) => console.log('clicked at', e.lngLat));
 ```
 
-!!! warning
-    `api.map` and the store‑backed managers are only available after the map is
-    loaded. Access them inside `enable()` (or later), never inside `install()`.
+:::caution
+`api.map` and the store‑backed managers are only available after the map is
+loaded. Access them inside `enable()` (or later), never inside `install()`.
+:::
 
 ## Building UI components
 
@@ -391,18 +398,19 @@ At build time CloudTAK copies everything under `<plugin>/public/` into the
 CloudTAK web `public/` directory, so a file at `public/pngs/my-plugin-icon.png`
 is served at `/pngs/my-plugin-icon.png`.
 
-!!! warning
-    Plugin static assets may **not** overwrite core CloudTAK assets. If a file in
-    your plugin's `public/` directory collides with an existing CloudTAK asset,
-    the build fails with a clear error. Namespace your files (for example under a
-    plugin‑specific subfolder) to avoid collisions.
+:::caution
+Plugin static assets may **not** overwrite core CloudTAK assets. If a file in
+your plugin's `public/` directory collides with an existing CloudTAK asset,
+the build fails with a clear error. Namespace your files (for example under a
+plugin‑specific subfolder) to avoid collisions.
+:::
 
 ## Developing against a local CloudTAK
 
 Because plugins are compiled into the web client, you develop them by placing
 your plugin where CloudTAK's build can discover it: `api/web/plugins/`.
 
-1. Follow the [Develop guide](./develop.md) to get a local CloudTAK API and web
+1. Follow the [Develop guide](/develop/) to get a local CloudTAK API and web
    dev server running.
 2. Install your plugin's dev dependencies:
 
@@ -424,9 +432,10 @@ your plugin where CloudTAK's build can discover it: `api/web/plugins/`.
    `install()` and `enable()` hooks now run in the local client at
    `http://localhost:8080`.
 
-!!! note
-    `api/web/plugins/` is git‑ignored in CloudTAK, so your linked plugin will not
-    show up as a change in the CloudTAK repository.
+:::note
+`api/web/plugins/` is git‑ignored in CloudTAK, so your linked plugin will not
+show up as a change in the CloudTAK repository.
+:::
 
 Before committing, lint and type‑check your plugin:
 
@@ -471,10 +480,11 @@ The plugin installation itself is handled inside the Docker build by
 `api/bin/plugin.ts`, so the resulting image is fully self‑contained — no extra
 steps are required at runtime.
 
-!!! tip
-    Because plugins are baked into the image, changing the plugin set requires a
-    rebuild. Pin plugin repositories to a tag or commit you trust for reproducible
-    production builds.
+:::tip
+Because plugins are baked into the image, changing the plugin set requires a
+rebuild. Pin plugin repositories to a tag or commit you trust for reproducible
+production builds.
+:::
 
 ## Best practices
 
@@ -495,4 +505,4 @@ steps are required at runtime.
 - Sample plugin: [`dfpc-coe/cloudtak-plugin-sample`](https://github.com/dfpc-coe/cloudtak-plugin-sample)
 - Plugin API source: `api/web/plugin.ts` in the CloudTAK repository
 - UI components: [`@tak-ps/vue-tabler`](https://www.npmjs.com/package/@tak-ps/vue-tabler)
-- Local development: [Develop guide](./develop.md)
+- Local development: [Develop guide](/develop/)

@@ -1,0 +1,30 @@
+{
+    "name": "cloudtak-docs",
+    "version": "2.0.0",
+    "private": true,
+    "description": "CloudTAK Documentation",
+    "homepage": "https://docs.cloudtak.io",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dfpc-coe/CloudTAK-Docs.git"
+    },
+    "type": "module",
+    "engines": {
+        "node": ">=22"
+    },
+    "scripts": {
+        "dev": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "integrations": "node bin/integrations.js"
+    },
+    "dependencies": {
+        "@astrojs/markdown-satteri": "^0.4.3",
+        "@astrojs/starlight": "^0.42.6",
+        "@fontsource/roboto": "^5.3.0",
+        "@fontsource/roboto-mono": "^5.3.0",
+        "astro": "^7.3.8",
+        "sharp": "^0.35.5",
+        "starlight-image-zoom": "^0.16.2"
+    }
+}

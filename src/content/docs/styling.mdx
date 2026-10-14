@@ -1,4 +1,7 @@
-# CloudTAK Styling
+---
+title: CloudTAK Styling
+description: Write MapLibre styles for vector overlays, with hover and global state the map updates at runtime.
+---
 
 ## Introduction
 
@@ -14,13 +17,13 @@ Beyond static styling, CloudTAK exposes dynamic state that styles can react to a
 
 This document walks through how to consume each of these from your overlay styles.
 
-!!! note
-
-    When an overlay style is saved, CloudTAK automatically rewrites each layer's `source` to
-    point at the overlay's data source and prefixes the layer `id` with the overlay ID. The
-    `source` values in the examples below are placeholders. Vector data hosted by CloudTAK is
-    served with a single source layer named `out`, which is why the examples use
-    `"source-layer": "out"`.
+:::note
+When an overlay style is saved, CloudTAK automatically rewrites each layer's `source` to
+point at the overlay's data source and prefixes the layer `id` with the overlay ID. The
+`source` values in the examples below are placeholders. Vector data hosted by CloudTAK is
+served with a single source layer named `out`, which is why the examples use
+`"source-layer": "out"`.
+:::
 
 ## Global State
 
@@ -92,10 +95,10 @@ As the cursor moves across a vector overlay, CloudTAK sets the
 `hover` to `true` on the features underneath it, and back to `false` when the cursor leaves.
 Styles can read this with the `feature-state` expression to provide visual hover feedback.
 
-!!! note
-
-    `feature-state` expressions may only be used in `paint` properties - they are not
-    supported in `layout` properties or `filter` expressions.
+:::note
+`feature-state` expressions may only be used in `paint` properties - they are not
+supported in `layout` properties or `filter` expressions.
+:::
 
 A typical use is increasing polygon opacity for the hovered feature - for example a parcel
 layer where the parcel under the cursor is highlighted:
@@ -121,10 +124,10 @@ layer where the parcel under the cursor is highlighted:
 The `["boolean", ..., false]` wrapper is required - before a feature has been hovered for the
 first time its `hover` state is undefined, and the fallback `false` keeps the expression valid.
 
-!!! tip
-
-    Hover state is suspended while the drawing tools are active so that in-progress
-    drawing is not visually disrupted.
+:::tip
+Hover state is suspended while the drawing tools are active so that in-progress
+drawing is not visually disrupted.
+:::
 
 ## Putting It Together
 

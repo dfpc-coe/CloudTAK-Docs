@@ -1,0 +1,123 @@
+---
+// Outline of the current page with a link back to its parent, in place of Starlight's site navigation.
+import MobileMenuFooter from '@astrojs/starlight/components/MobileMenuFooter.astro';
+import { currentLabel, firstLink, hasCurrent, sections } from './sections';
+
+const { entry, headings, sidebar } = Astro.locals.starlightRoute;
+
+const group = sidebar.find((item) => item.type === 'group' && hasCurrent(item));
+const parent = group && firstLink(group);
+const back =
+    parent && parent.href !== Astro.url.pathname
+        ? { label: group.label, href: parent.href }
+        : { label: 'CloudTAK Docs', href: '/' };
+
+const title = currentLabel(sidebar) ?? entry.data.title;
+
+const outline: { text: string; slug: string; children: { text: string; slug: string }[] }[] = [];
+for (const heading of headings) {
+    if (heading.depth === 2) outline.push({ ...heading, children: [] });
+    else if (heading.depth === 3) outline.at(-1)?.children.push(heading);
+}
+---
+
+<nav class="outline" aria-label="On this page">
+    <a class="back" href={back.href}>‹ {back.label}</a>
+    <h2>{title}</h2>
+    <ul>
+        {outline.map((item) => (
+            <li>
+                <a href={'#' + item.slug}>{item.text}</a>
+                {item.children.length > 0 && (
+                    <ul>{item.children.map((child) => <li><a href={'#' + child.slug}>{child.text}</a></li>)}</ul>
+                )}
+            </li>
+        ))}
+    </ul>
+</nav>
+
+<nav class="sections lg:sl-hidden" aria-label="Documentation sections">
+    <ul>{sections(sidebar).map((tab) => <li><a href={tab.href}>{tab.label}</a></li>)}</ul>
+</nav>
+
+<div class="md:sl-hidden"><MobileMenuFooter /></div>
+
+<script>
+    const links = [...document.querySelectorAll<HTMLAnchorElement>('.outline a[href^="#"]')];
+    const headings = links.map((link) => document.getElementById(link.hash.slice(1))).filter(Boolean) as HTMLElement[];
+
+    function highlight() {
+        let current = headings[0];
+        for (const heading of headings) {
+            if (heading.getBoundingClientRect().top <= 120) current = heading;
+        }
+        for (const link of links) {
+            if (link.hash.slice(1) === current?.id) link.setAttribute('aria-current', 'true');
+            else link.removeAttribute('aria-current');
+        }
+    }
+
+    document.addEventListener('scroll', highlight, { passive: true });
+    highlight();
+</script>
+
+<style>
+    .outline,
+    .sections {
+        font-size: var(--sl-text-sm);
+    }
+
+    .back {
+        display: block;
+        margin-bottom: 0.75rem;
+        padding: 0 0.75rem;
+        color: var(--sl-color-gray-3);
+        text-decoration: none;
+    }
+
+    h2 {
+        margin: 0 0 0.75rem;
+        padding: 0 0.75rem;
+        font-size: var(--sl-text-lg);
+        color: var(--sl-color-white);
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a:not(.back) {
+        display: block;
+        padding: 0.35rem 0.75rem;
+        border-radius: 8px;
+        color: var(--sl-color-gray-2);
+        text-decoration: none;
+    }
+
+    .outline > ul > li > a {
+        margin-top: 0.5rem;
+        color: var(--sl-color-white);
+        font-weight: 500;
+    }
+
+    ul ul a {
+        padding-left: 1.75rem;
+    }
+
+    a:not(.back):hover {
+        background: var(--sl-color-gray-6);
+    }
+
+    a[aria-current] {
+        background: var(--sl-color-accent-low);
+        color: var(--sl-color-text-accent);
+    }
+
+    .sections {
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--sl-color-hairline);
+    }
+</style>

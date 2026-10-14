@@ -1,0 +1,56 @@
+---
+title: Get started with CloudTAK
+description: Deploy, extend, administer, and operate CloudTAK with task-based guides.
+template: splash
+hero:
+  tagline: Deploy, extend, administer, and operate CloudTAK with task-based guides that help you get where you need to go quickly.
+  actions:
+    - text: User Guide
+      link: /user/
+      icon: right-arrow
+    - text: Deploy CloudTAK
+      link: /deploy/
+      variant: secondary
+    - text: Develop Locally
+      link: /develop/
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Common paths
+
+<CardGrid>
+  <LinkCard title="Deploy a production instance" href="/deploy/" description="Set up CloudTAK with Docker Compose or deploy into AWS with the provided infrastructure templates. Best for platform engineers and administrators." />
+  <LinkCard title="Develop CloudTAK" href="/develop/" description="Set up a local development environment, install dependencies, prepare PostgreSQL with PostGIS, build the web client, and start the API. Best for developers and integrators." />
+  <LinkCard title="Build a plugin" href="/plugin/" description="Extend the CloudTAK web client with custom menus, routes, map overlays, and status-bar widgets using the Plugin API. Best for plugin developers." />
+  <LinkCard title="Administer your deployment" href="/admin/" description="Configure branding, manage settings, and understand the admin workflows that keep a CloudTAK instance healthy. Best for system owners and support staff." />
+  <LinkCard title="Learn how to use CloudTAK" href="/user/" description="Follow the core user workflow from first login through maps, drawing tools, overlays, chat, routes, imports, and settings. Best for everyday users and field teams." />
+  <LinkCard title="Connect an integration" href="/integrations/" description="Browse the catalog of ETL integrations that bring non-TAK data sources into a TAK Server, or learn how to build your own." />
+</CardGrid>
+
+## CloudTAK GitHub projects
+
+The main repositories that make up the broader CloudTAK ecosystem in the dfpc-coe organization.
+
+<CardGrid>
+  <LinkCard title="CloudTAK" href="https://github.com/dfpc-coe/CloudTAK" description="TAK Compatible, browser based Common Operation Picture & Situational Awareness tool." />
+  <LinkCard title="node-cot" href="https://github.com/dfpc-coe/node-CoT" description="Javascript Cursor-On-Target Library." />
+  <LinkCard title="node-tak" href="https://github.com/dfpc-coe/node-tak" description="TAK Server NodeJS SDK." />
+  <LinkCard title="tak-infra" href="https://github.com/dfpc-coe/tak-infra" description="CloudFormation managed infrastructure for TAK Server." />
+  <LinkCard title="auth-infra" href="https://github.com/dfpc-coe/auth-infra" description="Cloud Infrastructure for Hosting & Managing TAK Authentication Infrastructure (LDAP)." />
+</CardGrid>
+
+<CardGrid>
+  <Card title="What is CloudTAK" icon="information">
+    - A common operating picture that brings disparate systems and data onto one pane of glass
+    - Real-time situational awareness for teams coordinating across incidents, operations, and locations
+    - A single source for seeing, sharing, and acting on critical information as it changes
+  </Card>
+  <Card title="Useful links" icon="external">
+    - [CloudTAK website](https://cloudtak.io)
+    - [GitHub repository](https://github.com/dfpc-coe/CloudTAK)
+    - [Deployment guide](/deploy/)
+    - [User guide](/user/)
+  </Card>
+</CardGrid>
