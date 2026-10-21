@@ -3,11 +3,74 @@ title: CloudTAK Deploy
 description: Run CloudTAK with Docker Compose, or deploy it into AWS with the provided infrastructure templates.
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 ## Introduction
 
 CloudTAK is designed to be deployed into one of two different environments; a full AWS deployment
 via provided Infrastructure as Code (IaC) templates, or into a on-prem or alternate cloud environment
 via provided Docker Compose files.
+
+Both paths end with the same step: opening the Web UI for the first time and uploading a TAK Server
+administrative certificate, which must be generated as described in
+[TAK Server Admin Certificate](#tak-server-admin-certificate).
+
+## TAK Server Admin Certificate
+
+CloudTAK talks to the TAK Server through a single administrative client certificate, the
+**Admin Connection**. You upload it as a `.p12` on the setup page the first time you open the Web UI,
+and you can replace it later from **Admin Panel → Server → Connection**.
+
+The certificate **must be channels disabled**. When a certificate is issued through the TAK Server's
+Certificate Enrollment API (the path ATAK, WebTAK and CloudTAK user logins take) the TAK Server adds an
+extra Extended Key Usage OID, `1.2.840.113549.1.9.7`, that marks it as channels enabled. A channels
+enabled certificate is scoped to the channels currently selected for that user, so CloudTAK cannot see
+every group on the server and the CoreDevice and CoreEvents functionality will not work. Never reuse a
+certificate enrolled through ATAK, WebTAK, or a CloudTAK user login as the Admin Connection.
+
+The Server Connection page shows **Channels Enabled: Enabled** or **Disabled** for the certificate
+currently loaded, so you can confirm the state after uploading.
+
+Generate the certificate with the `makeCert.sh` script that ships with the TAK Server. It signs
+against the `[ client ]` profile in `config.cfg`, which only sets the `clientAuth` usage and
+therefore produces a channels disabled certificate.
+
+<Steps>
+
+1. On the TAK Server, as the `tak` user, generate a client certificate. The common name is up to
+    you; it becomes the Admin Connection's identity.
+
+    ```
+    cd /opt/tak/certs
+    ./makeCert.sh client cloudtak-admin
+    ```
+
+    The certificate, key, and `cloudtak-admin.p12` are written to `/opt/tak/certs/files/`. The P12
+    password is the `PASS` value from `cert-metadata.sh`, which is `atakatak` unless you changed it.
+
+2. Grant the certificate administrator rights on the TAK Server.
+
+    ```
+    java -jar /opt/tak/utils/UserManager.jar certmod -A /opt/tak/certs/files/cloudtak-admin.pem
+    ```
+
+3. Optionally confirm the certificate is channels disabled. The output should list only
+    `TLS Web Client Authentication`.
+
+    ```
+    openssl x509 -in /opt/tak/certs/files/cloudtak-admin.pem -noout -ext extendedKeyUsage
+    ```
+
+4. Copy `cloudtak-admin.p12` to your workstation and upload it, with its password, as the
+    **Admin Certificate** on the CloudTAK setup page.
+
+</Steps>
+
+:::caution
+`config.cfg` contains a commented out `extendedKeyUsage = critical, clientAuth, challengePassword`
+line under `[ client ]`. Leave it commented out. Enabling it makes every certificate `makeCert.sh`
+produces channels enabled, including the one you upload to CloudTAK.
+:::
 
 ## Docker Compose Deployment
 
@@ -19,6 +82,7 @@ The following are pre-requisites for a Docker Compose deployment:
 
 - Working TAK Server
 - TAK Server Admin Credentials
+- A channels disabled TAK Server admin certificate, see [TAK Server Admin Certificate](#tak-server-admin-certificate)
 - Linux Distribution (Ubuntu 24.04+ recommended)
 
 Note: commands below assume Ubuntu
@@ -79,6 +143,9 @@ an attacker to gain access to your system and generate valid authentication toke
 ```
 ./cloudtak.sh start
 ```
+
+9. Navigate to `https://map.<yourdomain>` and complete the setup page, uploading the admin
+    certificate `.p12` generated in [TAK Server Admin Certificate](#tak-server-admin-certificate).
 
 ### Updating CloudTAK
 
@@ -249,7 +316,9 @@ deploy info <stack-name> --parameters --profile <profile> --region <region>
 
 ```
 
-9. Navigate to `https://map.<yourdomain>` to access the CloudTAK Web UI
+9. Navigate to `https://map.<yourdomain>` to access the CloudTAK Web UI and complete the setup page,
+    uploading the admin certificate `.p12` generated in
+    [TAK Server Admin Certificate](#tak-server-admin-certificate).
 
 The `webhooks` stack creates the API Gateway resources used for inbound ETL data events and internal webhook processing.
 
