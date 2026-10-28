@@ -1,48 +1,51 @@
 ---
 title: Developing CloudTAK
-description: Set up a local development environment for the CloudTAK API and web client.
+description: Set up a local development environment for the CloudTAK API and web client on Ubuntu 26.04.
 ---
 
 CloudTAK can be developed locally without Docker, and that is usually the easiest way to iterate on code changes.
 
 :::caution
 This workflow is intended for local development only.
-It starts the CloudTAK API and the web development server, but it does **not** set up the separate tiles server or events server.
-If you need functionality backed by those services, you must run and configure them separately.
+It starts the CloudTAK API and the web development server, but it does **not** set up the separate tiles server, events server or retention task.
+If you need functionality backed by those services, build and run them with Docker Compose as described in [Building Images](/deploy/#building-images).
 :::
 
-These steps assume Ubuntu 24.04. If you are on macOS, the same flow works with Homebrew-managed packages. If you are on Windows, the simplest route is to use WSL2 with Ubuntu and follow the same commands there.
+These steps assume Ubuntu 26.04 LTS. If you are on macOS, the same flow works with Homebrew-managed packages. If you are on Windows, the simplest route is to use WSL2 with Ubuntu 26.04 and follow the same commands there.
 
 ## What you need
 
 Before you start, make sure you have:
 
 - `git`
-- Node.js `24.x`
+- Node.js `26.x` (`24.x` is the minimum supported version)
 - `npm`
-- PostgreSQL
-- PostGIS
+- PostgreSQL `18`
+- PostGIS `3`
 
 CloudTAK's local API server expects a PostgreSQL database and uses PostGIS-backed tables in its migrations, so a basic PostgreSQL install should include the PostGIS extension as well.
 
-## 1. Install system dependencies on Ubuntu 24.04
+Ubuntu 26.04 ships PostgreSQL 18 and PostGIS 3.6 in its default archive, so no third-party apt repositories are required.
+The production container images run on Node.js 26, so use the same major version locally.
 
-If you already have Node.js `24.x`, PostgreSQL, and PostGIS installed, you can skip this section.
+## 1. Install system dependencies on Ubuntu 26.04
+
+If you already have Node.js `26.x`, PostgreSQL, and PostGIS installed, you can skip this section.
 
 ```sh
 sudo apt update
 sudo apt install -y git build-essential curl \
 	 postgresql postgresql-client postgresql-contrib \
-	 postgis postgresql-16-postgis-3
+	 postgis postgresql-18-postgis-3
 ```
 
-For Node.js, using `nvm` tends to be the least painful option during development:
+For Node.js, using `nvm` tends to be the least painful option during development, and avoids the older `nodejs` package in the Ubuntu archive:
 
 ```sh
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 source ~/.nvm/nvm.sh
-nvm install 24
-nvm use 24
+nvm install 26
+nvm use 26
 node --version
 npm --version
 ```
@@ -92,15 +95,18 @@ SQL
 
 At this point you should have a working local database that CloudTAK can connect to.
 
-## 4. Install the project dependencies
+## 4. Clone the repository and install dependencies
 
-For a basic local server setup, you only need the API package and the web package under it.
+The repository contains two packages you need for a basic local server: the API in `api/` and the web client in `app/`.
 
 ```sh
-cd /path/to/CloudTAK/api
+git clone https://github.com/dfpc-coe/CloudTAK.git
+cd CloudTAK
+
+cd api
 npm install
 
-cd web
+cd ../app
 npm install
 
 cd ..
@@ -125,6 +131,8 @@ Create `api/.env` with content like this:
 
 You can keep this file minimal for local development. If `StackName` is not set, CloudTAK will treat the run as a local test-style environment.
 
+Named environment files are also supported: `npm run dev -- --env local` loads `api/.env-local` instead of `api/.env`.
+
 ## 6. Start the CloudTAK development servers
 
 Run the API server and the web development server in separate terminals.
@@ -132,14 +140,14 @@ Run the API server and the web development server in separate terminals.
 In the first terminal, start the API from the `api/` directory:
 
 ```sh
-cd /path/to/CloudTAK/api
+cd CloudTAK/api
 npm run dev
 ```
 
-In the second terminal, start the web dev server from the `api/web/` directory:
+In the second terminal, start the web dev server from the `app/` directory:
 
 ```sh
-cd /path/to/CloudTAK/api/web
+cd CloudTAK/app
 npm run serve
 ```
 
@@ -162,7 +170,28 @@ psql "postgres://cloudtak:cloudtak@localhost:5432/tak_ps_etl" -c 'SELECT PostGIS
 
 If that returns a version string, the database side is ready.
 
-## 8. Common issues
+## 8. Lint, type-check and test
+
+Before opening a pull request, run the same checks the container build runs.
+
+API, from `api/`:
+
+```sh
+npm run lint
+npm test
+```
+
+Web client, from `app/`:
+
+```sh
+npm run lint
+npm run check
+npm test
+```
+
+The API test suite needs the local PostgreSQL instance from step 3; each test file clones a template database so the files can run in parallel.
+
+## 9. Common issues
 
 ### PostgreSQL connection errors
 
@@ -185,12 +214,19 @@ sudo -u postgres psql -d tak_ps_etl -c 'CREATE EXTENSION IF NOT EXISTS postgis;'
 If you changed frontend code and the UI does not reflect it yet, make sure the web dev server is running:
 
 ```sh
-cd /path/to/CloudTAK/api/web
+cd CloudTAK/app
 npm run serve
 ```
 
 Then refresh the browser. If needed, restart the web dev server.
 
-## 9. Optional: quickest local stack with Docker Compose
+### Wrong Node.js version
 
-If you mainly want to get the project running and do not need a manual PostgreSQL install, the repository also includes Docker Compose support. That is still a good option for a disposable local environment, but for day-to-day development the direct `api/` workflow above is usually easier to understand and debug.
+If `npm install` fails with engine or native build errors, confirm `node --version` reports `v26` or `v24`.
+The `nodejs` package in the Ubuntu archive is older than CloudTAK requires; use `nvm` as shown in step 1.
+
+## 10. Optional: full local stack with Docker Compose
+
+If you mainly want to get the whole project running, including the tiles, events, retention and media services, the repository also includes Docker Compose support.
+See [Building Images](/deploy/#building-images) for how to build the images locally, with or without plugins, and the [Docker Compose Deployment](/deploy/#docker-compose-deployment) guide for running them.
+That is still a good option for a disposable local environment, but for day-to-day development the direct `api/` and `app/` workflow above is usually easier to understand and debug.

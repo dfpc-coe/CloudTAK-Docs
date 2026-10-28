@@ -24,7 +24,7 @@ Plugins are **build‑time** extensions, not runtime downloads. The flow is:
 
 1. Each plugin is a git repository that exports a single default class.
 2. At build time, CloudTAK clones the configured plugin repositories into
-   `api/web/plugins/<name>/`.
+   `app/plugins/<name>/`.
 3. Vite discovers them with `import.meta.glob(['../plugins/*.ts', '../plugins/*/index.ts'])`
    and bundles them directly into the web client.
 4. When the app boots, CloudTAK calls each plugin's `install()` hook, then
@@ -36,7 +36,7 @@ the CloudTAK Plugin API and to shared UI primitives from
 
 ```mermaid
 flowchart LR
-    A[Plugin git repo] -->|clone at build| B[api/web/plugins/name/]
+    A[Plugin git repo] -->|clone at build| B[app/plugins/name/]
     B -->|import.meta.glob| C[Vite build]
     C --> D[CloudTAK web bundle]
     D -->|install → enable| E[Running web client]
@@ -144,7 +144,7 @@ own runtime dependencies.
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@tak-ps/cloudtak": "file:../CloudTAK/api/web",
+    "@tak-ps/cloudtak": "file:../CloudTAK/app",
     "@tak-ps/vue-tabler": "^4.2.1",
     "typescript": "^6.0.2",
     "typescript-eslint": "^8.52.0",
@@ -155,7 +155,7 @@ own runtime dependencies.
 ```
 
 :::tip
-The `@tak-ps/cloudtak` alias resolves to `CloudTAK/api/web` — the same package
+The `@tak-ps/cloudtak` alias resolves to `CloudTAK/app` — the same package
 that Vite exposes internally as `@tak-ps/cloudtak`. Adjust the relative
 `file:` path to match where you checked out CloudTAK.
 :::
@@ -408,7 +408,7 @@ plugin‑specific subfolder) to avoid collisions.
 ## Developing against a local CloudTAK
 
 Because plugins are compiled into the web client, you develop them by placing
-your plugin where CloudTAK's build can discover it: `api/web/plugins/`.
+your plugin where CloudTAK's build can discover it: `app/plugins/`.
 
 1. Follow the [Develop guide](/develop/) to get a local CloudTAK API and web
    dev server running.
@@ -422,18 +422,18 @@ your plugin where CloudTAK's build can discover it: `api/web/plugins/`.
 3. Make your plugin discoverable by CloudTAK. Vite loads
    `../plugins/*.ts` and `../plugins/*/index.ts`, so a directory plugin must
    expose an `index.ts` at its root. Symlink (or copy) your plugin into
-   `api/web/plugins/`:
+   `app/plugins/`:
 
     ```sh
-    ln -s /path/to/my-cloudtak-plugin /path/to/CloudTAK/api/web/plugins/my-cloudtak-plugin
+    ln -s /path/to/my-cloudtak-plugin /path/to/CloudTAK/app/plugins/my-cloudtak-plugin
     ```
 
-4. Restart the web dev server (`npm run serve` in `api/web/`). Your plugin's
+4. Restart the web dev server (`npm run serve` in `app/`). Your plugin's
    `install()` and `enable()` hooks now run in the local client at
    `http://localhost:8080`.
 
 :::note
-`api/web/plugins/` is git‑ignored in CloudTAK, so your linked plugin will not
+`app/plugins/` is git‑ignored in CloudTAK, so your linked plugin will not
 show up as a change in the CloudTAK repository.
 :::
 
@@ -447,25 +447,25 @@ npm run check
 ## Deploying a plugin
 
 Plugins are installed into a production image at **build time** via the
-`WEB_PLUGINS` build argument. Pass a comma‑separated list of git URLs; CloudTAK
-clones each into `web/plugins/<name>`, copies any `public/` assets, and bundles
+`WEB_PLUGINS` setting. It takes a comma‑separated list of git URLs; CloudTAK
+clones each into `app/plugins/<name>`, copies any `public/` assets, and bundles
 them into the web client.
 
 ### With Docker Compose
 
-```sh
-docker compose build \
-  --build-arg WEB_PLUGINS="https://github.com/your-org/my-cloudtak-plugin.git" \
-  api
-```
-
-Multiple plugins are comma separated:
+Add the plugin to the `WEB_PLUGINS` variable in the `.env` file of your CloudTAK checkout, then rebuild the
+`api` image. Multiple plugins are comma separated, and `#<ref>` pins a plugin to a tag, branch or commit:
 
 ```sh
-docker compose build \
-  --build-arg WEB_PLUGINS="https://github.com/org/plugin-a.git,https://github.com/org/plugin-b.git" \
-  api
+WEB_PLUGINS=https://github.com/your-org/my-cloudtak-plugin.git#v1.0.0
 ```
+
+```sh
+docker compose build api
+./cloudtak.sh start
+```
+
+`./cloudtak.sh install` and `./cloudtak.sh update` read the same variable, so the plugin set is kept across updates.
 
 ### With the build script
 
@@ -475,6 +475,8 @@ When building and pushing images with `bin/build.js`, pass each plugin with a
 ```sh
 node bin/build.js api --plugin https://github.com/your-org/my-cloudtak-plugin.git
 ```
+
+See [Building Images](/deploy/#building-images) for the full build and push workflow.
 
 The plugin installation itself is handled inside the Docker build by
 `api/bin/plugin.ts`, so the resulting image is fully self‑contained — no extra
@@ -503,6 +505,6 @@ production builds.
 ## Reference
 
 - Sample plugin: [`dfpc-coe/cloudtak-plugin-sample`](https://github.com/dfpc-coe/cloudtak-plugin-sample)
-- Plugin API source: `api/web/plugin.ts` in the CloudTAK repository
+- Plugin API source: `app/plugin.ts` in the CloudTAK repository
 - UI components: [`@tak-ps/vue-tabler`](https://www.npmjs.com/package/@tak-ps/vue-tabler)
 - Local development: [Develop guide](/develop/)

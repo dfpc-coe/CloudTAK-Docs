@@ -72,6 +72,165 @@ line under `[ client ]`. Leave it commented out. Enabling it makes every certifi
 produces channels enabled, including the one you upload to CloudTAK.
 :::
 
+## Building Images
+
+CloudTAK runs as four container images, all built from the root of the CloudTAK repository:
+
+| Image       | Dockerfile                          | Purpose |
+| ----------- | ----------------------------------- | ------- |
+| `api`       | `Dockerfile`                        | API server and Web UI |
+| `pmtiles`   | `tasks/pmtiles/Dockerfile.compose`  | Tile server (`tiles` service in Docker Compose) |
+| `events`    | `tasks/events/Dockerfile`           | Import and event processing |
+| `retention` | `tasks/retention/Dockerfile.compose`| Scheduled data retention |
+
+Tagged releases are also published to the GitHub Container Registry as
+`ghcr.io/dfpc-coe/cloudtak-<image>:<tag>`, but both deployment paths below build the images
+themselves so that the result matches the checked out git revision and, optionally, includes plugins.
+
+### Prerequisites
+
+Building requires Docker Engine with the Buildx and Compose plugins. On Ubuntu, `./cloudtak.sh install`
+installs them for you as part of the Docker Compose setup. To install Docker by hand, follow the
+[Docker Engine install guide](https://docs.docker.com/engine/install/ubuntu/) and make sure your user is in the `docker` group:
+
+```sh
+sudo usermod -aG docker $USER
+newgrp docker
+docker run hello-world
+```
+
+Pushing to AWS additionally requires Node.js (`24` or newer) and the AWS CLI with credentials for the target account.
+
+### Building locally
+
+From the root of the repository, Docker Compose builds every image using the `docker-compose.yml` service definitions:
+
+```sh
+git clone https://github.com/dfpc-coe/CloudTAK.git
+cd CloudTAK
+
+docker compose build
+```
+
+Build a single service by name, for example only the API:
+
+```sh
+docker compose build api
+```
+
+The resulting images are tagged `cloudtak-api`, `cloudtak-tiles`, `cloudtak-events` and `cloudtak-retention` and are picked up
+automatically by `./cloudtak.sh start` or `docker compose up`.
+
+To build an image outside of Compose, point `docker build` at the relevant Dockerfile with the repository root as the build context:
+
+```sh
+docker build -f Dockerfile -t cloudtak-api .
+docker build -f tasks/pmtiles/Dockerfile.compose -t cloudtak-tiles .
+```
+
+The `api` image runs the web client lint, type-check and build steps as well as the API lint and build, so a
+build failure usually points at a code error rather than a Docker problem. On first build, the
+Dockerfile also downloads the [CloudTAK-Data](https://github.com/dfpc-coe/CloudTAK-Data) release archive
+containing default icons and basemaps. In an environment without access to GitHub, place the archive at `api/data.zip`
+and build with `--build-arg USE_LOCAL_ZIP=true`.
+
+### Building with plugins
+
+[Plugins](/plugin/) are compiled into the Web UI at build time, so the set of plugins is fixed
+when the `api` image is built. For Docker Compose, list them in the `WEB_PLUGINS` variable of your `.env` file
+as comma-separated git URLs, optionally pinned to a tag, branch or commit with `#<ref>`:
+
+```sh
+WEB_PLUGINS=https://github.com/org/plugin-a.git#v1.2.0,https://github.com/org/plugin-b.git
+```
+
+Every Compose build reads this value, so `docker compose build`, `./cloudtak.sh install` and `./cloudtak.sh update`
+all produce an `api` image containing the listed plugins. During the build, CloudTAK clones each repository into
+`app/plugins/<name>/`, copies any `public/` assets, and bundles the plugin into the web client.
+Leave `WEB_PLUGINS` empty for an image with no plugins.
+
+After changing the list, rebuild the `api` image and restart:
+
+```sh
+docker compose build api
+./cloudtak.sh start
+```
+
+When building with plain `docker build`, pass the same value as a build argument:
+
+```sh
+docker build -f Dockerfile --build-arg WEB_PLUGINS="https://github.com/org/plugin-a.git#v1.2.0" -t cloudtak-api .
+```
+
+:::note
+Plugins symlinked into `app/plugins/` for local development are excluded from the Docker build context and will
+**not** be included in an image. Always supply plugins to an image build via `WEB_PLUGINS`.
+:::
+
+:::tip
+Pin each plugin to a tag or commit. An unpinned URL clones the plugin's default branch at build time, so two
+builds of the same CloudTAK revision can differ.
+:::
+
+### Pushing to AWS
+
+The AWS deployment runs the images from the ECR repository created by the VPC stack,
+named `tak-vpc-<environment>-cloudtak-api`. All four images share this one repository and are distinguished by tag:
+the API image is tagged with the git SHA, and the task images are prefixed, for example `pmtiles-<sha>`.
+The CloudTAK CloudFormation stack takes the git SHA as its `GitSha` parameter and resolves the image tags from it.
+
+The repository ships a build script that builds each image for `linux/amd64`, logs in to ECR, and pushes the result.
+Run it from the root of the repository with the following environment variables set:
+
+| Variable         | Description |
+| ---------------- | ----------- |
+| `AWS_ACCOUNT_ID` | AWS account that owns the ECR repository |
+| `AWS_REGION`     | Region of the ECR repository |
+| `Environment`    | Name of the VPC stack environment, for example `prod`. A comma-separated list builds once and pushes to each |
+
+AWS credentials must also be available in the shell, either from `aws configure` or from
+`$(deploy env --profile <profile> --region <region>)` if you use the deploy tooling described in [AWS Deployment](#aws-deployment).
+
+```sh
+cd CloudTAK
+npm install
+
+export AWS_ACCOUNT_ID=<account-id>
+export AWS_REGION=<region>
+export Environment=<environment>
+
+npm run build
+```
+
+With no arguments the script builds and pushes all four images. Pass an image name to build only that one:
+
+```sh
+npm run build -- api
+npm run build -- pmtiles
+npm run build -- events
+npm run build -- retention
+```
+
+To include plugins in the pushed `api` image, pass each plugin repository with a `--plugin` flag.
+The script resolves the current `HEAD` of each plugin repository and pins the build to that commit so that
+the image is reproducible:
+
+```sh
+npm run build -- api \
+  --plugin https://github.com/org/plugin-a.git \
+  --plugin https://github.com/org/plugin-b.git
+```
+
+The images are tagged with the git SHA of the CloudTAK checkout, so commit any local changes before building
+and pass the same SHA as the `GitSha` parameter when creating or updating the CloudFormation stack.
+The deploy tooling does this automatically from the current checkout.
+
+:::tip
+Pushes to the `main` branch of the upstream repository build and push all four images to the COTAK ECR
+repositories via GitHub Actions, so a manual push is only needed for custom forks, plugins, or
+accounts that are not wired into that workflow.
+:::
+
 ## Docker Compose Deployment
 
 ### Initial Install & Setup
@@ -130,6 +289,10 @@ Note: commands below assume Ubuntu
     ```
     nano .env
     ```
+
+    To include [plugins](/plugin/) in the Web UI, set `WEB_PLUGINS` to a comma-separated list of git URLs,
+    see [Building with plugins](#building-with-plugins). The image is built with the plugins listed here
+    and rebuilt with them on every update.
 
 :::caution
 If you are using the `cloudtak.sh` install script, then the `SigningSecret`
@@ -284,10 +447,11 @@ deploy create <stack-name> --profile <profile> --region <region>
 
 7. Build and publish the CloudTAK container images
 
-CloudTAK ships with scripts to build the required images and push them to ECR.
-Run these commands from the root of the CloudTAK repository after you clone it.
+CloudTAK ships with a script to build the required images and push them to the ECR repository created by the VPC stack.
+Run these commands from the root of the CloudTAK repository after you clone it, see [Pushing to AWS](#pushing-to-aws)
+for the full set of options, including building the `api` image with plugins.
 
-Make sure the target ECR repositories already exist and that your AWS credentials are available in the current shell,
+Make sure the VPC stack has finished deploying and that your AWS credentials are available in the current shell,
 because the build process performs `aws ecr get-login-password` as part of the push flow.
 
 ```sh
@@ -295,7 +459,9 @@ cd ~/Development/dfpc-coe
 git clone git@github.com:dfpc-coe/CloudTAK
 cd CloudTAK
 npm install
-npm run build
+
+$(deploy env --profile <profile> --region <region>)
+AWS_ACCOUNT_ID=<account-id> AWS_REGION=<region> Environment=<stack-name> npm run build
 ```
 
 8. Install the CloudTAK Infrastructure
