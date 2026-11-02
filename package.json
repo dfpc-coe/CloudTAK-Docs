@@ -13,7 +13,9 @@
         "node": ">=22"
     },
     "scripts": {
+        "predev": "npm run integrations",
         "dev": "astro dev",
+        "prebuild": "npm run integrations",
         "build": "astro build",
         "preview": "astro preview",
         "integrations": "node bin/integrations.js"

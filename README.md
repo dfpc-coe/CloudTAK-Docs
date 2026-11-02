@@ -18,7 +18,7 @@ npm install
 
 The Integrations landing page is generated from the integration list published by
 [CloudTAK-Known](https://github.com/dfpc-coe/CloudTAK-Known) at `https://api.cloudtak.io/index.json`.
-Integrations whose repository is not publicly accessible are skipped. The generated pages live in `src/content/docs/integrations/` and are not committed, so run the generator before serving or building the site:
+Integrations whose repository is not publicly accessible are skipped. The generated pages live in `src/content/docs/integrations/` and are not committed. `npm run dev` and `npm run build` run the generator automatically; to run it on its own:
 
 ```bash
 npm run integrations
