@@ -7,39 +7,96 @@ import { Steps } from '@astrojs/starlight/components';
 
 ## First Login
 
+You can use CloudTAK in a web browser on a computer, or in the CloudTAK app on a phone or tablet.
+
+### Get the CloudTAK App
+
+Skip this section if you are using CloudTAK in a web browser.
+
+- **iPhone and iPad:** get [CloudTAK on the App Store](https://apps.apple.com/us/app/cloudtak/id6773467848), or scan this code with your iPhone or iPad camera.
+
+    ![QR code linking to CloudTAK on the App Store](./assets/app-store-qr@2x.png)
+
+- **Android:** the Android app is being tested and will be available soon. Until then, use CloudTAK in your phone's web browser.
+
+### Connect and Log In
+
 <Steps>
 
-1. Go to your agency login page and log in with your credentials.
+1. Open CloudTAK and connect to your agency's server.
 
-    ![CloudTAK login page](./assets/2026-01-16-15-06-57-image.png)
+    - **In a web browser:** go to your agency's CloudTAK address. Your administrator can give it to you.
+    - **In the CloudTAK app:** the first time you open the app, the **Connect to Server** screen appears. Choose your agency from **Known Providers**, or select **Manual Entry** and type the server address your administrator gave you.
 
-2. The first time you log in, you must set your callsign and device preferences.
+    ![Connect to Server screen in the CloudTAK app on iPhone, with Known Providers and Manual Entry](./assets/login-connect-server-phone@2x.png)
 
-    We recommend using the following callsign convention: `[Agency Acronym] [Last Name] [Radio Callsign]`.
+2. Log in with your agency credentials.
 
-    ![Callsign and device preferences](./assets/2026-01-16-15-07-29-image.png)
-
-3. Decide which color your marker will show as on the map. Use this table to see which color you should choose.
-
-    ![Marker color by agency type](./assets/2026-01-16-15-08-16-image.png)
-
-4. Choose your role based on the table provided. When in doubt, choose the Team Member option.
-
-5. Select "Allow" if prompted that your server wants to know your location.
-
-    ![Browser location permission prompt](./assets/2026-01-16-15-10-18-image.png)
-
-6. If your device has a GPS chip, it will automatically update your location. If not, you will need to set your location manually: click the location button in the bottom left corner and select your location on the map.
-
-    Moving the map and clicking on your callsign will recenter the map on your location.
-
-    ![Callsign and location button](./assets/2026-01-16-15-11-21-image.png)
+    ![CloudTAK login page in a web browser](./assets/2026-01-16-15-06-57-image.png)
 
 </Steps>
 
-To navigate the map, click and drag. To rotate the map, hold control, then click and drag left or right. While holding control, click and drag up or down to change the perspective on the map. Zoom in and out using the mouse wheel or the plus and minus buttons in the top right corner.
+**Changing servers in the app:** log out, select the gear icon in the bottom right corner of the login screen, then select **Switch Servers**.
 
-<img class="icon" src="/icons/2026-01-16-15-17-47-image.png" alt="Search" /> At the top of the left panel is the search tool. Here you may enter an address similar to how you would use a navigation system. When you find the correct address, click on it, and your map will automatically position itself at that exact location.
+### Set Up Your Profile
+
+The first time you log in, the **Welcome to CloudTAK** window asks who you are. You can change these later in Settings.
+
+- **Callsign:** the name other users see for you on the map. We recommend this convention: `[Agency Acronym] [Last Name] [Radio Callsign]`.
+- **Team:** sets the color of your marker on the map. Use the table below to choose your color.
+- **Role:** when in doubt, choose **Team Member**.
+- **Phone Number:** optional. It is shared with other users on your channels.
+
+Select **Get Started** when you are done.
+
+![Welcome to CloudTAK window with callsign, team and role](./assets/2026-01-16-15-07-29-image.png)
+
+![Marker color by agency type](./assets/2026-01-16-15-08-16-image.png)
+
+### Allow Location and Notifications
+
+<Steps>
+
+1. CloudTAK asks for permission to use your **Location** and send you **Notifications**. Select **Request** next to each one.
+
+2. CloudTAK explains how your location is used. Select **Agree and continue**.
+
+3. Your device then asks you to confirm:
+
+    - **In a web browser:** select **Allow**.
+    - **On iPhone or iPad:** select **Allow While Using App**. CloudTAK may then ask to share your location in the background. Select **Change to Always Allow** so your team can still see you when the app is closed.
+    - **On Android:** select **While using the app** or **Allow all the time**. Choose **Allow all the time** so your team can still see you when the app is closed.
+
+    ![Browser location permission prompt](./assets/2026-01-16-15-10-18-image.png)
+
+4. When the permissions show as allowed, select **Done**. You can also select **Skip for now** and turn them on later in Settings.
+
+</Steps>
+
+### Set Your Location
+
+Phones and most tablets have GPS, so your location updates on its own. Most computers do not. If your location is not showing, set it by hand: select the location button in the bottom left corner of the map, then select your location on the map.
+
+Select your callsign at any time to move the map back to your location.
+
+![Callsign and location button](./assets/2026-01-16-15-11-21-image.png)
+
+## Moving Around the Map
+
+Use a mouse on a computer, or touch gestures on a phone or tablet.
+
+| | Mouse | Touchscreen |
+| --- | --- | --- |
+| Move the map | Click and drag | Drag with one finger |
+| Zoom in and out | Scroll the mouse wheel, or use the plus and minus buttons in the top right corner | Pinch with two fingers |
+| Rotate | Hold Ctrl, then drag left or right | Twist two fingers |
+| Tilt | Hold Ctrl, then drag up or down | Drag two fingers up or down |
+
+On a phone, the plus and minus zoom buttons are hidden to save space. To show them, open **Settings**, then **Display Preferences**, and set **Display Zoom Controls** to **Always**.
+
+### Searching the Map
+
+<img class="icon" src="/icons/2026-01-16-15-17-47-image.png" alt="Search" /> To find a place, select the search button on the left side of the map. On a computer you can also press Ctrl+F (⌘+F on a Mac). Search for an address the way you would in a navigation app, or for coordinates, overlays or another user's callsign. Select a result and the map moves to that location.
 
 ## Location & Coordinates
 

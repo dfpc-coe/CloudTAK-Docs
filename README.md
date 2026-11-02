@@ -48,6 +48,7 @@ All documentation content is located in the `src/content/docs/` directory. Pages
 - Steps: wrap an ordered list in `<Steps>` to render numbered steps. Indent a screenshot under its step to show it below the instruction.
 - Cards and buttons: `<CardGrid>`, `<LinkCard>`, `<Card>` and `<LinkButton>` from `@astrojs/starlight/components`.
 - Inline icons: `<img class="icon" src="/icons/name.png" alt="Name" />` with the image stored in `public/icons/`.
+- High-resolution screenshots: export a PNG at twice the size you want it shown and name it `name@2x.png`. It is shown at half its pixel size, and the full-size file is served to high-resolution screens so it stays sharp.
 
 See the [Starlight components reference](https://starlight.astro.build/components/using-components/) for the full list. Add a `description` to the frontmatter to show a lead paragraph under the page title. Visual styling comes from Starlight itself; `src/styles/custom.css` only sets fonts and colours through Starlight's CSS variables.
 
@@ -61,7 +62,7 @@ If you are adding a new page, make sure to also update the `sidebar` section in 
 - `src/content/docs/integrations/`: Generated Integrations landing page and integration pages (not committed).
 - `src/styles/custom.css`: Fonts and colours, set through Starlight's CSS variables.
 - `src/components/`: Starlight component overrides: the header with section tabs, the page-outline sidebar, the page title with its lead description, and the footer. Section tabs and footer links are derived from the `sidebar` in `astro.config.mjs`.
-- `src/plugins/`: Markdown plugin that opens external links in a new tab.
+- `src/plugins/`: Markdown plugins that open external links in a new tab and show `@2x` screenshots at half size.
 - `public/`: Static files served as-is, including inline icons and generated integration logos (not committed).
 - `bin/integrations.js`: Generator for the Integrations section.
 
