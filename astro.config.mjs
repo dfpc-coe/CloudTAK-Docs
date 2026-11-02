@@ -3,6 +3,7 @@ import starlight from '@astrojs/starlight';
 import starlightImageZoom from 'starlight-image-zoom';
 import { satteri } from '@astrojs/markdown-satteri';
 import externalLinks from './src/plugins/external-links.mjs';
+import retinaImages from './src/plugins/retina-images.mjs';
 
 export default defineConfig({
     site: 'https://docs.cloudtak.io',
@@ -11,7 +12,7 @@ export default defineConfig({
     },
     markdown: {
         processor: satteri({
-            hastPlugins: [externalLinks('https://docs.cloudtak.io')]
+            hastPlugins: [externalLinks('https://docs.cloudtak.io'), retinaImages()]
         })
     },
     integrations: [
