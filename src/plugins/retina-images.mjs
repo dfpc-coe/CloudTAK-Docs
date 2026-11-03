@@ -1,5 +1,6 @@
-// Show `name@2x.png` screenshots at half their pixel size, and serve the full-size
-// file to high-resolution screens, so they stay sharp without taking more room.
+// Show `name@2x.png` screenshots at half their pixel size from the full-size file, so they
+// stay sharp without taking more room. No srcset: with one, the browser reports the half
+// size as the natural size, and image zoom would never open them any larger.
 
 import { readFileSync } from 'node:fs';
 
@@ -13,7 +14,7 @@ function pngSize(file) {
 }
 
 export default function retinaImages() {
-    return ({ fileURL, sourceFormat }) => fileURL && {
+    return ({ fileURL }) => fileURL && {
         name: 'retina-images',
         element: {
             filter: ['img'],
@@ -22,10 +23,9 @@ export default function retinaImages() {
                 if (typeof src !== 'string' || !RETINA.test(src) || /^([a-z]+:|\/)/i.test(src)) return;
 
                 const { width, height } = pngSize(new URL(decodeURI(src), fileURL));
-                ctx.setProperty(node, 'width', Math.floor(width / 2));
-                ctx.setProperty(node, 'height', Math.floor(height / 2));
-                // MDX splits `densities` from a string; Markdown hands it to getImage as is.
-                ctx.setProperty(node, 'densities', sourceFormat === 'mdx' ? '1 2' : [1, 2]);
+                ctx.setProperty(node, 'width', width);
+                ctx.setProperty(node, 'height', height);
+                ctx.setProperty(node, 'style', `width: ${Math.floor(width / 2)}px`);
             }
         }
     };

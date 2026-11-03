@@ -9,6 +9,10 @@ import { Steps } from '@astrojs/starlight/components';
 
 You can use CloudTAK in a web browser on a computer, or in the CloudTAK app on a phone or tablet.
 
+Prefer to watch? [Getting Started with CloudTAK Mobile](https://vimeo.com/1240956751) (11 minutes) walks you through downloading the app, logging in and finding your way around the map.
+
+[![Watch Getting Started with CloudTAK Mobile on Vimeo](./assets/getting-started-video@2x.png)](https://vimeo.com/1240956751)
+
 ### Get the CloudTAK App
 
 Skip this section if you are using CloudTAK in a web browser.
@@ -17,7 +21,9 @@ Skip this section if you are using CloudTAK in a web browser.
 
     ![QR code linking to CloudTAK on the App Store](./assets/app-store-qr@2x.png)
 
-- **Android:** the Android app is being tested and will be available soon. Until then, use CloudTAK in your phone's web browser.
+- **Android:** get [CloudTAK on Google Play](https://play.google.com/store/apps/details?id=io.cloudtak.app), or scan this code with your Android phone or tablet camera.
+
+    ![QR code linking to CloudTAK on Google Play](./assets/google-play-qr@2x.png)
 
 ### Connect and Log In
 
@@ -32,7 +38,7 @@ Skip this section if you are using CloudTAK in a web browser.
 
 2. Log in with your agency credentials.
 
-    ![CloudTAK login page in a web browser](./assets/2026-01-16-15-06-57-image.png)
+    ![CloudTAK login page in a web browser](./assets/login-browser@2x.png)
 
 </Steps>
 
@@ -43,43 +49,91 @@ Skip this section if you are using CloudTAK in a web browser.
 The first time you log in, the **Welcome to CloudTAK** window asks who you are. You can change these later in Settings.
 
 - **Callsign:** the name other users see for you on the map. We recommend this convention: `[Agency Acronym] [Last Name] [Radio Callsign]`.
-- **Team:** sets the color of your marker on the map. Use the table below to choose your color.
+- **Team:** sets the color of your marker on the map. Choose the color for your agency type, shown in the chart below.
 - **Role:** when in doubt, choose **Team Member**.
 - **Phone Number:** optional. It is shared with other users on your channels.
 
 Select **Get Started** when you are done.
 
-![Welcome to CloudTAK window with callsign, team and role](./assets/2026-01-16-15-07-29-image.png)
-
-![Marker color by agency type](./assets/2026-01-16-15-08-16-image.png)
+![Welcome to CloudTAK window next to the team colors by agency type: White, Emergency Medical Services; Yellow, Wildland Fire; Orange, Search and Rescue; Red, Structure Fire; Dark Blue, State/Federal Law Enforcement; Blue, County Law Enforcement; Cyan, Municipal Law Enforcement; Green, National Guard/Military. The other colors are open.](./assets/login-profile@2x.png)
 
 ### Allow Location and Notifications
 
+After you set up your profile, the **Permissions** window asks to use your **Location** and send you **Notifications**. The steps are different on each device, so follow the ones for yours. To set these up later, select **Skip for now** and turn them on in Settings.
+
+![Permissions window with Request Permission buttons for Location and Notifications](./assets/login-permissions@2x.png)
+
+#### In a Web Browser
+
 <Steps>
 
-1. CloudTAK asks for permission to use your **Location** and send you **Notifications**. Select **Request** next to each one.
+1. Select **Request Permission** under **Location**.
 
-2. CloudTAK explains how your location is used. Select **Agree and continue**.
+2. Read how CloudTAK uses your location, then select **Agree and continue**.
 
-3. Your device then asks you to confirm:
+3. When your browser asks to know your location, select **Allow while visiting the site**. Some browsers just show **Allow**.
 
-    - **In a web browser:** select **Allow**.
-    - **On iPhone or iPad:** select **Allow While Using App**. CloudTAK may then ask to share your location in the background. Select **Change to Always Allow** so your team can still see you when the app is closed.
-    - **On Android:** select **While using the app** or **Allow all the time**. Choose **Allow all the time** so your team can still see you when the app is closed.
+    ![Browser prompt asking to know your location, with Allow while visiting the site, Allow this time and Never allow](./assets/login-location-browser@2x.png)
 
-    ![Browser location permission prompt](./assets/2026-01-16-15-10-18-image.png)
+4. Select **Request Permission** under **Notifications**. When your browser asks to show notifications, select **Allow**.
 
-4. When the permissions show as allowed, select **Done**. You can also select **Skip for now** and turn them on later in Settings.
+    ![Browser prompt asking to show notifications, with Block and Allow](./assets/login-notifications-browser@2x.png)
+
+5. When both show **Allowed**, select **Done**.
 
 </Steps>
 
-### Set Your Location
+#### On iPhone or iPad
 
-Phones and most tablets have GPS, so your location updates on its own. Most computers do not. If your location is not showing, set it by hand: select the location button in the bottom left corner of the map, then select your location on the map.
+<Steps>
 
-Select your callsign at any time to move the map back to your location.
+1. Select **Request Permission** under **Location**.
 
-![Callsign and location button](./assets/2026-01-16-15-11-21-image.png)
+2. Read how CloudTAK uses your location, then select **Agree and continue**.
+
+3. Leave **Precise** on and select **Allow While Using App**.
+
+    ![iPhone location prompt with Allow While Using App](./assets/login-location-ios@2x.png)
+
+4. On the **Background location** screen, select **Agree and continue**.
+
+5. Select **Change to Always Allow** so your team can still see you when the app is closed.
+
+    ![iPhone prompt with Change to Always Allow](./assets/login-background-location-ios@2x.png)
+
+6. Select **Request Permission** under **Notifications**, then select **Allow**.
+
+7. When both show **Allowed**, select **Done**.
+
+</Steps>
+
+#### On Android
+
+<Steps>
+
+1. Select **Request Permission** under **Location**.
+
+2. Read how CloudTAK uses your location, then select **Agree and continue**.
+
+3. Select **Precise**, then select **While using the app**.
+
+    ![Android location prompt with Precise and While using the app](./assets/login-location-android@2x.png)
+
+4. On the **Background location** screen, select **Agree and continue**.
+
+5. In the settings page that opens, select **Allow all the time** so your team can still see you when the app is closed. Scroll down and make sure **Use precise location** is on, then go back to CloudTAK.
+
+    ![Android Location permission settings with Allow all the time selected](./assets/login-background-location-android@2x.png)
+
+6. Select **Request Permission** under **Notifications**, then select **Allow**.
+
+7. When both show **Allowed**, select **Done**.
+
+</Steps>
+
+### Check Your Location
+
+Once you are on the map, check that your location is right. Phones and tablets with cellular service find it with GPS. On a computer, your location may be missing or only approximate. To see how accurate it is or to set it by hand, see [Location & Coordinates](#location--coordinates).
 
 ## Moving Around the Map
 
@@ -102,15 +156,20 @@ On a phone, the plus and minus zoom buttons are hidden to save space. To show th
 
 The GPS panel in the bottom left corner of the map shows your callsign, your altitude (MSL), location accuracy, speed, heading, and a coordinate readout you can copy.
 
-**Your location.** The icon next to your callsign shows where your location comes from:
+![GPS panel with callsign, altitude, accuracy, speed, heading and coordinates, and the location icon in the top right corner](./assets/location-gps-panel@2x.png)
 
-- **Live GPS** (arrow icon): the icon color shows accuracy. Green is within 50 m, yellow within 200 m, and red is worse than 200 m. A red icon with a very large `+/-` value usually means the browser is estimating your position from the network rather than GPS.
+**Your location.** CloudTAK uses the location that your device or web browser provides. It does not look up your location from your internet connection itself. How accurate your location is depends on your device:
+
+- **Phones, and tablets with cellular service:** use GPS. Your location is usually accurate to within about 30 feet and updates as you move.
+- **Computers and Wi-Fi-only tablets:** have no GPS. Your browser estimates your location from nearby Wi-Fi networks, usually to within a few hundred feet. Without Wi-Fi, for example on a desktop with a wired connection, the browser may only know your general area from your internet connection, which can be off by miles.
+
+The `+/-` value shows how accurate your location is. The icon next to your callsign shows where your location comes from:
+
+- **Live GPS** (arrow icon): the icon color shows accuracy. Green is within 50 m (about 165 feet), yellow within 200 m (about 650 feet), and red is worse than that. A red icon with a very large `+/-` value usually means your browser could only estimate your general area.
 - **Manual location** (pin icon): a position you placed on the map yourself.
 - **No location** (crossed-out icon): CloudTAK doesn't know where you are and you will not appear to other users.
 
-Click the icon to switch between live GPS and setting your location manually. Click your callsign to zoom the map to your location.
-
-![GPS panel showing callsign, altitude, accuracy, speed and coordinates](./assets/user-gps-panel.png)
+Select your callsign at any time to move the map back to your location.
 
 **Coordinate readout.** Click the coordinates to open the coordinate menu:
 
@@ -127,6 +186,22 @@ Click the icon to switch between live GPS and setting your location manually. Cl
 | UTM - Universal Transverse Mercator | `13S 500831 4398811` |
 
 ![Coordinate menu with Cursor/GPS, Copy and format options](./assets/user-coordinate-format.png)
+
+### Set Your Location
+
+If your location is missing or wrong, set it by hand:
+
+<Steps>
+
+1. Select the location icon <img class="icon" src="/icons/location-gps.png" alt="Location" /> in the top right corner of the GPS panel.
+
+2. A prompt at the bottom of the map says **Click on the map to set your location**. Select your location on the map.
+
+    ![Prompt saying Click on the map to set your location, with Use GPS and close buttons](./assets/location-set-prompt@2x.png)
+
+</Steps>
+
+The icon changes to a pin to show that you set your location by hand. To go back to your device's GPS, select the icon again, then select **Use GPS**. To close the prompt without changing anything, select the **X**.
 
 ### Querying a Point on the Map
 
