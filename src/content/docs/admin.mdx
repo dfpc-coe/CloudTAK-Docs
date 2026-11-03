@@ -3,7 +3,7 @@ title: CloudTAK Server Administration Guide
 description: Configure, brand and manage a CloudTAK server from the Admin Panel.
 ---
 
-import { LinkButton, Steps } from '@astrojs/starlight/components';
+import { LinkButton, Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
 ## Introduction
 
@@ -215,37 +215,48 @@ Basemaps and overlays are both layers on the map that will be visible to the use
 
     ![New Overlay pane](./assets/2026-03-19-20-52-53-image.png)
 
-3. Choose a name for the basemap.
+3. Choose the source of the tiles. Manual Entry supports quadkey, ZXY, and ESRI servers, for example:
+
+    | Source             | Example URL                                                          |
+    | ------------------ | -------------------------------------------------------------------- |
+    | ESRI MapServer     | `https://example.com/arcgis/rest/services/WorldTopo/MapServer/1`     |
+    | ESRI FeatureServer | `https://example.com/arcgis/rest/services/Parcels/FeatureServer/1`   |
+    | ZXY                | `https://example.com/tiles/{$z}/{$x}/{$y}.png`                       |
+    | Quadkey            | `https://example.com/tiles/{$q}.png`                                 |
+
+    If adding a Hosted Tileset uploaded in the previous section, select the **Hosted Tileset** option and choose the relevant tileset from the list. The tile URL, type and zoom range are filled in from the tileset's metadata.
+
+    To import settings from an existing TileJSON or WMTS endpoint, select **TileJSON / WMTS Import**, paste the URL and click **Fetch TileJSON**.
+
+4. Choose a name for the layer and whether it is a **Basemap** (replaces the bottom layer) or an **Overlay** (drawn on top of the basemap).
 
     - **Enable Sharing** allows the user to share the basemap to other TAK users. While disabling sharing makes it more difficult to share, the user is still able to see the tile URL and could create a personal overlay they could subsequently share.
-    - **Hidden** should typically only be used for snapping layers, as it keeps the basemap out of the default Basemap or Overlay menu.
+    - **Hidden** (under Advanced Options) keeps the layer out of the default Basemap and Overlay menus. This is intended for layers that CloudTAK uses behind the scenes, such as a terrain source or a road snapping layer, rather than layers a user would turn on directly.
 
-4. If the basemap should be available to all users of the system, leave it as "Publicly Shared". Otherwise select a user from the dropdown to assign it to a specific user.
+5. If the basemap should be available to all users of the system, leave it as "Publicly Shared". Otherwise select a user from the dropdown to assign it to a specific user.
 
-5. Choose the source of the tiles. Manual Entry supports quadkey, ZXY, and ESRI servers, for example:
-
-    | Source            | Example URL                                                          |
-    | ----------------- | -------------------------------------------------------------------- |
-    | ESRI MapServer    | `https://example.com/arcgis/rest/services/WorldTopo/MapServer/1`     |
-    | ESRI FeatureServer | `https://example.com/arcgis/rest/services/Parcels/FeatureServer/1`  |
-    | ZXY               | `https://example.com/tiles/{$z}/{$x}/{$y}.png`                       |
-    | Quadkey           | `https://example.com/tiles/{$q}.png`                                 |
-
-    If adding a Hosted Tileset uploaded in the previous section, select the "Hosted Tilesets" item and select the relevant tileset from the list.
+6. Click **Save**.
 
 </Steps>
 
-## Terrain
+### Common Layer Types
 
-CloudTAK has support for a 2.5D environment if loaded with a DEM dataset. You can provide your own DEM source if it is in the mapbox or terrarium tile format, or use Mapterhorn, a high quality, free global elevation dataset.
+Some layers are not meant to be turned on by users directly but instead power a specific CloudTAK feature. The tabs below walk through configuring the most common ones.
+
+<Tabs>
+<TabItem label="3D Terrain">
+
+CloudTAK can render the map in 3D when a terrain source is configured. A terrain source is a `raster-dem` basemap whose tiles are elevation data encoded in either the `mapbox` or `terrarium` format.
+
+You can host your own DEM tiles, or use a public provider such as [Mapterhorn](https://mapterhorn.com/), a free, high quality global elevation dataset built from open data. The steps below use Mapterhorn as the example.
 
 <Steps>
 
-1. Navigate to the Basemaps & Overlays section of the Admin Panel as described above, create a new basemap and select **TileJSON Import** from the protocol options.
+1. Navigate to the Basemaps & Overlays section of the Admin Panel as described above, click **Create Overlay** and select **TileJSON / WMTS Import** from the source options.
 
     ![TileJSON Import protocol option](./assets/2026-05-20-14-18-20-image.png)
 
-2. If using Mapterhorn, paste the TileJSON URL and select **Fetch TileJSON**:
+2. Paste the Mapterhorn TileJSON URL and select **Fetch TileJSON**:
 
     ```
     https://tiles.mapterhorn.com/tilejson.json
@@ -253,7 +264,7 @@ CloudTAK has support for a 2.5D environment if loaded with a DEM dataset. You ca
 
     ![Fetch TileJSON](./assets/2026-05-20-14-19-54-image.png)
 
-3. If using the CloudTAK provided Mapterhorn snapping file, set the following values, then click save. Some of these fields are only visible once the "Advanced Options" section is expanded.
+3. Confirm the following values, then click save. Some of these fields are only visible once the "Advanced Options" section is expanded.
 
     | Setting          | Value          | Location         |
     | ---------------- | -------------- | ---------------- |
@@ -265,6 +276,9 @@ CloudTAK has support for a 2.5D environment if loaded with a DEM dataset. You ca
     | Max Zoom         | 14             | Advanced Options |
     | Tile Size        | 512            | Advanced Options |
     | Format           | webp           | Advanced Options |
+    | Hidden           | On             | Advanced Options |
+
+    If you are using your own DEM tiles instead of Mapterhorn, set the Terrain Encoding, zoom range, tile size and format to match your tileset.
 
 4. To make the layer the default CloudTAK terrain source and show the 3D terrain button on the map, navigate to **CloudTAK Settings** in the Admin Panel, then **Map Settings**.
 
@@ -279,6 +293,46 @@ CloudTAK has support for a 2.5D environment if loaded with a DEM dataset. You ca
     ![3D terrain button on the map](./assets/2026-05-20-14-24-05-image.png)
 
 </Steps>
+
+</TabItem>
+<TabItem label="Road Snapping">
+
+When drawing lines, CloudTAK can snap vertices to features in a vector overlay, for example a road network, so that a drawn route follows the road rather than cutting across it. Snapping requires a vector tileset that is hosted on the CloudTAK server (see [Hosted Tilesets](#hosted-tilesets) above); external tile servers cannot be used as a snapping source.
+
+CloudTAK provides a ready-made global road and trail network, built from OpenStreetMap highway features, that you can use as a snapping layer:
+
+<LinkButton href="https://files.cloudtak.io/snapping.pmtiles" icon="download">Download snapping.pmtiles</LinkButton>
+
+<Steps>
+
+1. Upload `snapping.pmtiles` as a Hosted Tileset, as described in the [Hosted Tilesets](#hosted-tilesets) section.
+
+2. Navigate to **Basemaps & Overlays**, click **Create Overlay** and choose the **Hosted Tileset** source, then select the `snapping` tileset from the list.
+
+3. Set the following values, then click save. Some of these fields are only visible once the "Advanced Options" section is expanded.
+
+    | Setting         | Value          | Location         |
+    | --------------- | -------------- | ---------------- |
+    | Name            | Roads & Trails | Main form        |
+    | Basemap/Overlay | Overlay        | Main form        |
+    | Enable Sharing  | Off            | Main form        |
+    | Type            | vector         | Advanced Options |
+    | Hidden          | On             | Advanced Options |
+    | Enable Snapping | On             | Advanced Options |
+    | Snapping Layer  | roads          | Advanced Options |
+
+    The **Enable Snapping** toggle is only shown for layers whose Type is `vector`. The **Snapping Layer** is the name of the layer within the vector tiles that contains the features to snap to; for `snapping.pmtiles` this is `roads`. If you are using your own tileset, choose the appropriate layer from the dropdown.
+
+4. Log out and back in. When drawing a line, the draw toolbar will now show a snapping dropdown listing each snapping-enabled overlay. Select the layer to snap to, or "No Snapping" to draw freehand.
+
+</Steps>
+
+:::note
+Snapping can only be enabled on vector layers that are served from the CloudTAK PMTiles Task Server. The API will reject a snapping-enabled layer that points at any other host.
+:::
+
+</TabItem>
+</Tabs>
 
 ## Users
 
