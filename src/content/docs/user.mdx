@@ -3,7 +3,7 @@ title: CloudTAK User Guide
 description: Get on the map, share what you see, and coordinate with your team.
 ---
 
-import { Steps } from '@astrojs/starlight/components';
+import { Steps, Tabs, TabItem } from '@astrojs/starlight/components';
 
 ## First Login
 
@@ -17,13 +17,18 @@ Prefer to watch? [Getting Started with CloudTAK Mobile](https://vimeo.com/124095
 
 Skip this section if you are using CloudTAK in a web browser.
 
-- **iPhone and iPad:** get [CloudTAK on the App Store](https://apps.apple.com/us/app/cloudtak/id6773467848), or scan this code with your iPhone or iPad camera.
+<Tabs syncKey="platform">
+  <TabItem label="iPhone and iPad" icon="apple">
+    Get [CloudTAK on the App Store](https://apps.apple.com/us/app/cloudtak/id6773467848), or scan this code with your iPhone or iPad camera.
 
     ![QR code linking to CloudTAK on the App Store](./assets/app-store-qr@2x.png)
-
-- **Android:** get [CloudTAK on Google Play](https://play.google.com/store/apps/details?id=io.cloudtak.app), or scan this code with your Android phone or tablet camera.
+  </TabItem>
+  <TabItem label="Android" icon="mobile-android">
+    Get [CloudTAK on Google Play](https://play.google.com/store/apps/details?id=io.cloudtak.app), or scan this code with your Android phone or tablet camera.
 
     ![QR code linking to CloudTAK on Google Play](./assets/google-play-qr@2x.png)
+  </TabItem>
+</Tabs>
 
 ### Connect and Log In
 
@@ -59,11 +64,12 @@ Select **Get Started** when you are done.
 
 ### Allow Location and Notifications
 
-After you set up your profile, the **Permissions** window asks to use your **Location** and send you **Notifications**. The steps are different on each device, so follow the ones for yours. To set these up later, select **Skip for now** and turn them on in Settings.
+After you set up your profile, the **Permissions** window asks to use your **Location** and send you **Notifications**. The steps are different on each device, so select yours below. To set these up later, select **Skip for now** and turn them on in Settings.
 
 ![Permissions window with Request Permission buttons for Location and Notifications](./assets/login-permissions@2x.png)
 
-#### In a Web Browser
+<Tabs syncKey="platform">
+<TabItem label="Web Browser" icon="laptop">
 
 <Steps>
 
@@ -83,7 +89,8 @@ After you set up your profile, the **Permissions** window asks to use your **Loc
 
 </Steps>
 
-#### On iPhone or iPad
+</TabItem>
+<TabItem label="iPhone and iPad" icon="apple">
 
 <Steps>
 
@@ -107,7 +114,8 @@ After you set up your profile, the **Permissions** window asks to use your **Loc
 
 </Steps>
 
-#### On Android
+</TabItem>
+<TabItem label="Android" icon="mobile-android">
 
 <Steps>
 
@@ -130,6 +138,8 @@ After you set up your profile, the **Permissions** window asks to use your **Loc
 7. When both show **Allowed**, select **Done**.
 
 </Steps>
+</TabItem>
+</Tabs>
 
 ### Check Your Location
 
