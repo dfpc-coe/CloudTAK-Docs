@@ -1,10 +1,12 @@
 /* CloudTAK docs theme. Everything here is a Starlight CSS variable override,
-   plus a few rules for inline icons and the generated integrations catalog. */
+   plus a few rules for headings, inline icons and the generated integrations catalog. */
 
 :root {
     --sl-font: 'Roboto', system-ui, sans-serif;
     --sl-font-mono: 'Roboto Mono', ui-monospace, monospace;
     --sl-text-base: 1.0625rem;
+    --sl-text-h3: 1.5rem;
+    --sl-text-h4: 1.1875rem;
     --sl-color-bg-nav: var(--sl-color-bg);
     --sl-color-bg-sidebar: var(--sl-color-bg);
 
@@ -49,6 +51,21 @@ header.header {
     --sl-color-gray-6: #181d25;
     --sl-color-black: #0f1319;
     --sl-color-text-accent: #6ea8ff;
+}
+
+/* Headings: a divider before each major section, and headings sit close to their content */
+.sl-markdown-content {
+    line-height: 1.6;
+}
+
+.sl-markdown-content h2:not(:first-child) {
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--sl-color-hairline);
+}
+
+.sl-markdown-content :is(h2, h3, h4) + * {
+    margin-top: 0.75rem;
 }
 
 /* Steps: tinted number badge, no connecting line */

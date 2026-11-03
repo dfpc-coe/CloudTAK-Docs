@@ -48,7 +48,7 @@ All documentation content is located in the `src/content/docs/` directory. Pages
 - Steps: wrap an ordered list in `<Steps>` to render numbered steps. Indent a screenshot under its step to show it below the instruction.
 - Cards and buttons: `<CardGrid>`, `<LinkCard>`, `<Card>` and `<LinkButton>` from `@astrojs/starlight/components`.
 - Inline icons: `<img class="icon" src="/icons/name.png" alt="Name" />` with the image stored in `public/icons/`.
-- High-resolution screenshots: export a PNG at twice the size you want it shown and name it `name@2x.png`. It is shown at half its pixel size, and the full-size file is served to high-resolution screens so it stays sharp.
+- High-resolution screenshots: export a PNG at twice the size you want it shown and name it `name@2x.png`. It is shown at half its pixel size so it stays sharp on high-resolution screens, and opens at full size when you zoom it.
 
 See the [Starlight components reference](https://starlight.astro.build/components/using-components/) for the full list. Add a `description` to the frontmatter to show a lead paragraph under the page title. Visual styling comes from Starlight itself; `src/styles/custom.css` only sets fonts and colours through Starlight's CSS variables.
 
