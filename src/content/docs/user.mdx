@@ -145,6 +145,8 @@ After you set up your profile, the **Permissions** window asks to use your **Loc
 
 Once you are on the map, check that your location is right. Phones and tablets with cellular service find it with GPS. On a computer, your location may be missing or only approximate. To see how accurate it is or to set it by hand, see [Location & Coordinates](#location--coordinates).
 
+Once you're set up, see [Moving Around the Map](#moving-around-the-map) to learn the basics.
+
 ## Moving Around the Map
 
 Use a mouse on a computer, or touch gestures on a phone or tablet.
@@ -160,42 +162,29 @@ On a phone, the plus and minus zoom buttons are hidden to save space. To show th
 
 ### Searching the Map
 
-<img class="icon" src="/icons/2026-01-16-15-17-47-image.png" alt="Search" /> To find a place, select the search button on the left side of the map. On a computer you can also press Ctrl+F (⌘+F on a Mac). Search for an address the way you would in a navigation app, or for coordinates, overlays or another user's callsign. Select a result and the map moves to that location.
+<img class="icon" src="/icons/search.png" alt="Search" /> To find a place, select the search button on the left side of the map. On a computer you can also press Ctrl+F (⌘+F on a Mac). Search for an address the way you would in a navigation app, or for coordinates, overlays or another user's callsign. Select a result and the map moves to that location.
 
 ## Location & Coordinates
 
-The GPS panel in the bottom left corner of the map shows your callsign, your altitude (MSL), location accuracy, speed, heading, and a coordinate readout you can copy.
+Everything about your own location is in the GPS panel in the bottom left corner of the map.
 
-![GPS panel with callsign, altitude, accuracy, speed, heading and coordinates, and the location icon in the top right corner](./assets/location-gps-panel@2x.png)
+![GPS panel with labels: select the callsign to re-center the map, select the location icon to set your location, select the coordinates to copy or reformat them, plus altitude, accuracy, speed and heading](./assets/location-gps-panel@2x.png)
 
-**Your location.** CloudTAK uses the location that your device or web browser provides. It does not look up your location from your internet connection itself. How accurate your location is depends on your device:
+### Callsign
 
-- **Phones, and tablets with cellular service:** use GPS. Your location is usually accurate to within about 30 feet and updates as you move.
-- **Computers and Wi-Fi-only tablets:** have no GPS. Your browser estimates your location from nearby Wi-Fi networks, usually to within a few hundred feet. Without Wi-Fi, for example on a desktop with a wired connection, the browser may only know your general area from your internet connection, which can be off by miles.
+Your callsign is at the top of the panel. Select it at any time to move the map back to your location.
 
-The `+/-` value shows how accurate your location is. The icon next to your callsign shows where your location comes from:
+### Location Icon
 
-- **Live GPS** (arrow icon): the icon color shows accuracy. Green is within 50 m (about 165 feet), yellow within 200 m (about 650 feet), and red is worse than that. A red icon with a very large `+/-` value usually means your browser could only estimate your general area.
-- **Manual location** (pin icon): a position you placed on the map yourself.
-- **No location** (crossed-out icon): CloudTAK doesn't know where you are and you will not appear to other users.
+The icon next to your callsign shows where your location comes from:
 
-Select your callsign at any time to move the map back to your location.
+- <img class="icon" src="/icons/location-gps.png" alt="Green arrow" /> **Live GPS, green:** accurate to within 50 m (about 165 feet).
+- <img class="icon" src="/icons/location-gps-yellow.png" alt="Yellow arrow" /> **Live GPS, yellow:** accurate to within 200 m (about 650 feet).
+- <img class="icon" src="/icons/location-gps-red.png" alt="Red arrow" /> **Live GPS, red:** more than 200 m off.
+- <img class="icon" src="/icons/location-manual.png" alt="Manual location" /> **Manual location:** a position you placed on the map yourself.
+- <img class="icon" src="/icons/location-off.png" alt="No location" /> **No location:** CloudTAK doesn't know where you are and you will not appear to other users. This icon also shows briefly while your device finds your location.
 
-**Coordinate readout.** Click the coordinates to open the coordinate menu:
-
-- **Cursor / GPS**: show the position of your mouse cursor, or your own location.
-- **Copy**: copy the coordinates in the current format, ready to paste into a radio log, CAD or chat.
-- **Format**: pick one of the formats below. Your choice is saved to your profile.
-
-| Format | Example |
-| ------ | ------- |
-| DD - Decimal Degrees | `39.7392, -104.9903` |
-| DM - Degrees Minutes | `39° 44.3519', -104° 59.418'` |
-| DMS - Degrees Minutes Seconds | `39° 44' 21.11", -104° 59' 25.08"` |
-| MGRS - Military Grid Reference System | `13S ED 00831 98811` |
-| UTM - Universal Transverse Mercator | `13S 500831 4398811` |
-
-![Coordinate menu with Cursor/GPS, Copy and format options](./assets/user-coordinate-format.png)
+The icon is also the button for setting your location by hand.
 
 ### Set Your Location
 
@@ -213,21 +202,252 @@ If your location is missing or wrong, set it by hand:
 
 The icon changes to a pin to show that you set your location by hand. To go back to your device's GPS, select the icon again, then select **Use GPS**. To close the prompt without changing anything, select the **X**.
 
+### Altitude, Accuracy, Speed and Heading
+
+The middle of the panel shows:
+
+- **Altitude:** your height above mean sea level (MSL).
+- **Accuracy:** the `+/-` value, how far off your location may be. Phones use GPS and are usually accurate to within about 30 feet. Computers often don't have GPS, so the browser may estimate your location and it can be much less accurate.
+- **Speed:** how fast you are moving. Altitude and speed only show while your location comes from live GPS.
+- **Heading:** the direction you are facing, from your device's compass when it has one, or the direction you are moving.
+
+To change the units, open **Settings**, then **Display Preferences**, and set **Distance Unit**, **Elevation Unit** and **Speed Unit**.
+
+### Coordinates
+
+The bottom of the panel shows your coordinates. Click them to open the coordinate menu:
+
+![Coordinate menu above the GPS panel, with Cursor and GPS, Copy, and the DD, DM, DMS, MGRS and UTM formats](./assets/location-coordinate-menu@2x.png)
+
+- **Cursor / GPS** (web only): switch between the position of your mouse cursor and your own location. This switch doesn't appear in the mobile apps, which always show your own location.
+- **Copy**: copy the coordinates in the current format, ready to paste into a radio log, CAD or chat.
+- **Format**: pick DD, DM, DMS, MGRS or UTM. Your choice is saved to your profile.
+
+<details>
+<summary>Coordinate format examples</summary>
+
+| Format | Example |
+| ------ | ------- |
+| DD | `39.7392, -104.9903` |
+| DM | `39° 44.3519', -104° 59.418'` |
+| DMS | `39° 44' 21.11", -104° 59' 25.08"` |
+| MGRS | `13S ED 00831 98811` |
+| UTM | `13S 500831 4398811` |
+
+</details>
+
+## Drawing Tools
+
+Use the drawing tools to put points, lines, shapes and photos on the map.
+
+![Drawing Tools menu, opened from the pencil button in the top bar, with a search button and 13 tools from Coordinate Input to GeoJSON Import](./assets/draw-tools-menu@2x.png)
+
+Select the pencil icon <img class="icon" src="/icons/draw-tools.png" alt="Drawing Tools" /> in the top right corner to open the menu, then select a tool. To find a tool quickly, select the search icon and type its name.
+
+While you draw, a bar at the bottom of the map shows the tool you're using. Select the check mark to finish, or the **X** to cancel. When you finish, the new feature's details pane opens so you can name and style it.
+
+Drawing works a little differently with a finger than with a mouse, because the map can't see your finger until it touches the screen. Each tool below says what to do on a computer and on a phone or tablet. On a phone, tools with their own pane, such as Coordinate Input and Range Rings, open it as a full-screen window instead.
+
+### <img class="icon" src="/icons/draw-coordinate.png" alt="" />Coordinate Input
+
+Place a point at coordinates you type in. Enter a name and the coordinates in any format (DD, DM, DMS, MGRS or UTM), choose the point type, then select **Create Point**.
+
+![Coordinate Entry pane with Name, Coordinates in DD, DM, DMS, MGRS or UTM, the five point types and a Create Point button, next to the green point it adds to the map](./assets/draw-coordinate-input@2x.png)
+
+### <img class="icon" src="/icons/draw-event.png" alt="" />Create Event
+
+Start a shared record of an incident, such as a wildfire or a search, that your team can work from together.
+
+An event is more than a marker. It's kept on the CloudTAK server and shared with the channels you choose, so everyone on those channels sees it on their map, including people using other TAK apps. Each event keeps track of its own priority, start and end times, the people assigned to it, and any linked missions, links and forms, so it can be the one place everyone checks during an incident.
+
+**Events are in beta**, so how they work may change between releases.
+
+<Steps>
+
+1. Select **Create Event** from the Drawing Tools menu. You can also select **Create Event** at the top of the Query Mode panel to start one at a spot on the map, with its address filled in. See [Working with Map Features](#working-with-map-features).
+
+2. Fill in the event:
+
+    - **Name** (required): what the event is called, such as "Grass Fire".
+    - **Priority:** **none**, **low**, **medium**, **high** or **critical**.
+    - **Type:** the symbol the event shows on the map. It starts as a friendly **Incident**. See the next step to change it.
+    - **Coordinates:** where the event is. This starts at the center of the map, and you can type coordinates in any format.
+    - **Location:** an address or place name.
+    - **Remarks:** any notes, with bold, lists and links if you need them.
+    - **Share to Channels** (required): choose at least one channel. Only channels you have turned on are listed.
+
+    ![Create Event pane with Name, Priority, Type set to a friendly Incident, Coordinates, Location, Remarks and Share to Channels, and a Create Event button. The channels shown are examples.](./assets/draw-create-event@2x.png)
+
+3. To change the type, select **Type**. This is the same symbol picker as on a marker's details:
+
+    - **Affiliation:** the menu next to **Filter**. Choose **Friendly**, **Hostile**, **Neutral**, **Unknown** or another affiliation. The symbol's frame and color change to match.
+    - **Status:** **Present**, **Planned**, **Fully Capable**, **Damaged**, **Destroyed** or **Full to Capacity**.
+    - **Symbol:** type in **Filter** to search every symbol, or browse the symbol sets and select one.
+
+    ![Type picker open, with the current symbol, Filter, an affiliation menu set to Friendly, a Status menu set to Present, and the list of symbol sets](./assets/draw-event-type@2x.png)
+
+    If your administrator has set up event types, you choose one of those instead, or **Other** to use the picker.
+
+4. Select **Create Event**. The button stays greyed out until the event has a name and at least one channel.
+
+</Steps>
+
+The new event opens in its own pane. From there you can:
+
+- **End** the event when it's over, or **Reactivate** it later.
+- Move its marker, zoom to it, or delete it.
+- Choose whether other people can edit it.
+- Add the people managing it under **Assignments**, each with a role such as Incident Commander.
+- Link it to Data Sync missions, add links, and fill out forms under **Forms**.
+
+You'll find every event you can see under **Menu** → **Features** → **Events**.
+
+### <img class="icon" src="/icons/draw-quick-pic.png" alt="" />Quick Pic
+
+Take a photo and drop a marker with the photo attached at your current location, or at the center of the map if CloudTAK doesn't know where you are. Select **Take Photo**. On a phone or tablet this opens the camera.
+
+![Quick Pic pane with a Take Photo button, next to the camera marker it adds to the map](./assets/draw-quick-pic@2x.png)
+
+### <img class="icon" src="/icons/draw-range.png" alt="" />Range & Bearing
+
+Draw a line from a starting point at a bearing and distance you choose. Enter a name, the starting coordinates in decimal degrees, the bearing and the distance, then select **Create Range & Bearing**.
+
+![Range & Bearing pane with Name, Coordinates, Bearing, Distance and a Create Range & Bearing button, next to the red line it draws on the map](./assets/draw-range-bearing@2x.png)
+
+### <img class="icon" src="/icons/draw-range-rings.png" alt="" />Range Rings
+
+Draw rings at set distances around a point. Useful for evacuations, searches and manhunts. Enter a name and the origin, set the diameter of each ring (select **Add Ring** for more), and choose the color, opacity and line width.
+
+![Range Rings pane with Name, Origin, Ring Diameter, an Add Ring button, Style Options and a Create Range Rings button, next to three red rings around a red origin point on the map](./assets/draw-range-rings@2x.png)
+
+### <img class="icon" src="/icons/draw-point.png" alt="" />Draw Point
+
+Choose the point type in the bar at the bottom of the map (Custom Point, Unknown, Friendly, Hostile or Neutral), then click the map to drop the point, or tap it on a phone or tablet.
+
+![Draw Point bar with the five point types, next to one of each on the map: a green Custom Point and the Unknown, Friendly, Hostile and Neutral symbols](./assets/draw-point-bar@2x.png)
+
+### <img class="icon" src="/icons/draw-line.png" alt="" />Draw Line
+
+- **Computer:** click the map to add each point along the line. To finish, click the last point again, press **Enter**, or select the check mark.
+- **Phone or tablet:** tap to add each point. The line doesn't follow your finger between taps, so each section appears when you tap. To finish, tap the last point again or select the check mark.
+
+To follow roads and trails instead of drawing straight sections, choose a snapping layer from the menu in the bar at the bottom of the map. It starts as **No Snapping**, and the layers you can choose depend on your server. On a phone, the menu is under **More**.
+
+![Line Editing bar with a No Snapping menu, next to a red line on the map](./assets/draw-line-bar@2x.png)
+
+### <img class="icon" src="/icons/draw-polygon.png" alt="" />Draw Polygon
+
+Draw any shape with three or more corners.
+
+- **Computer:** click the map to add each corner. To close the shape, click the first corner again, press **Enter**, or select the check mark.
+- **Phone or tablet:** tap to add each corner, then tap the first corner again or select the check mark.
+
+![Polygon Editing bar, next to a red shape with a see-through red fill on the map](./assets/draw-polygon-bar@2x.png)
+
+### <img class="icon" src="/icons/draw-rectangle.png" alt="" />Draw Rectangle
+
+Draw a rectangle at any angle.
+
+- **Computer:** click two corners to set the length and angle of one side. Move the pointer to either side to set the width, then click a third time.
+- **Phone or tablet:** tap two corners for one side, then tap where the opposite side should be. The rectangle appears when you tap, rather than following your finger.
+
+![Rectangle Editing bar, next to a tilted red rectangle with a see-through red fill on the map](./assets/draw-rectangle-bar@2x.png)
+
+### <img class="icon" src="/icons/draw-circle.png" alt="" />Draw Circle
+
+- **Computer:** click the center, move the pointer out to the size you want, and click again. You can also press at the center and drag out.
+- **Phone or tablet:** press and hold the center of the circle, drag your finger out to the size you want, then lift your finger.
+
+![Circle Editing bar, next to a red circle with a see-through red fill on the map](./assets/draw-circle-bar@2x.png)
+
+### <img class="icon" src="/icons/draw-sector.png" alt="" />Draw Sector
+
+Draw a wedge, such as a search area or a camera's field of view.
+
+- **Computer:** click the center. Click again to set how far the wedge reaches and where one side starts, then move the pointer around to sweep the wedge open and click a third time to set the other side.
+- **Phone or tablet:** tap the center, tap where one side of the wedge should end, then tap where the other side should be.
+
+![Sector Editing bar, next to a red wedge with a see-through red fill on the map](./assets/draw-sector-bar@2x.png)
+
+### <img class="icon" src="/icons/draw-lasso.png" alt="" />Lasso Select
+
+Select several features at once. First choose where to select from in the bar at the bottom of the map: **Map Features**, or one of your overlays. On a phone, this is under **More**.
+
+- **Computer:** click to start the loop, move the pointer around the features you want, and click again to finish. You can also press and drag.
+- **Phone or tablet:** press and drag your finger around the features you want, then lift your finger to finish.
+
+![Lasso Select bar with a Layer Selection menu set to Map Features, next to a blue loop being drawn around three features on the map, with a fourth left outside](./assets/draw-lasso-bar@2x.png)
+
+When you finish, the features inside the loop are listed in a **Selected Features** menu in the bottom left corner of the map. From there you can:
+
+- **Share** the features with other users.
+- Select the three dots for more options: **New Data Package**, **Move to Data Sync**, or **Delete Features**.
+- Select the trash can next to a feature to take it out of the selection. This doesn't delete it from the map.
+
+**Delete Features** takes every selected feature off your map. Features that only exist on your map, like the ones you've drawn, are gone for good. Features that are syncing to your map from somewhere else, like another user's icon or an aircraft, come back the next time they update.
+- Select the **X** to close the menu and clear the selection.
+
+![Selected Features menu listing three features, each with a trash can, a Share button, and the three-dot menu open with New Data Package, Move to Data Sync and Delete Features](./assets/draw-lasso-selected@2x.png)
+
+### <img class="icon" src="/icons/draw-import.png" alt="" />GeoJSON Import
+
+Add a small GeoJSON file (.json or .geojson) to the map. After you choose the file, CloudTAK lists the features it found. Select **Create Features** to add them. They show up in **Your Features** and can each be edited, but they are features on your map rather than an overlay, so you can't toggle them on or off. Upload large files through **Imports** instead.
+
+![GeoJSON Import pane with a file picker, a note to upload large files through Imports, and a Create Features button](./assets/draw-geojson-import@2x.png)
+
+### Editing What You've Drawn
+
+To move, edit, delete or share anything you've drawn, select it on the map. See [Working with Map Features](#working-with-map-features).
+
+## Working with Map Features
+
+Everything on the map, from other users and aircraft to markers, shapes and overlay data, can be selected for more information.
+
+### The Radial Menu
+
+Click a feature, or tap it on a phone or tablet, to open its radial menu. Which options appear depends on what the feature is and your permissions:
+
+- <img class="icon" src="/icons/point-move.png" alt="Edit" /> **Edit:** change the shape or move the point by dragging it. For your own features, and Data Sync features where you have write access. Other users' positions can't be edited.
+- <img class="icon" src="/icons/point-delete.png" alt="Delete" /> **Delete:** remove the feature from your map. Data Sync features can only be deleted with write access, and are then removed for everyone subscribed.
+- <img class="icon" src="/icons/point-lock.png" alt="Lock On" /> **Lock On:** points only. The map follows the feature as it moves, which is useful for vehicles, aircraft and GPS trackers.
+- <img class="icon" src="/icons/point-play.png" alt="Play" /> **Play:** shown when the feature has a video stream attached.
+- <img class="icon" src="/icons/point-geometry.png" alt="Geometry" /> **Geometry:** opens a second ring with more options, shown below.
+- <img class="icon" src="/icons/point-edit.png" alt="View" /> **View:** open the feature's details pane.
+
+![Radial menu on a point with Edit, Delete, Lock On, Geometry and View, and the Geometry ring it opens with Buffer and Copy](./assets/map-radial-feature@2x.png)
+
+The **Geometry** ring has:
+
+- <img class="icon" src="/icons/point-buffer.png" alt="Buffer" /> **Buffer:** draw a perimeter at a distance you choose around the feature.
+- <img class="icon" src="/icons/point-copy.png" alt="Copy" /> **Copy:** copy the point so you can paste it somewhere else on the map, from the menu below. Only points can be pasted for now.
+- <img class="icon" src="/icons/line-split.png" alt="Split" /> **Split:** lines only. Split the line in two at the spot you clicked.
+
+Select the center of the ring to go back.
+
+![Buffer Geometry radius dialog](./assets/2026-03-24-12-40-49-image.png)
+![Buffer drawn around a point](./assets/2026-03-24-12-42-02-image.png)
+
+Overlay data, such as features from an overlay or base map, shows a shorter menu: **View**, and <img class="icon" src="/icons/overlay-cut.png" alt="Cut" /> **Cut** when the overlay allows it, which copies the feature onto your map as your own feature.
+
+When several features overlap where you click, a list appears so you can pick the right one. Hold **Ctrl** while clicking to add a feature to a multi-selection.
+
+**On an empty spot of the map**, right-click, or press and hold on a phone or tablet, to open a different radial menu:
+
+- <img class="icon" src="/icons/map-new.png" alt="New Feature" /> **New Feature:** drop a point here.
+- <img class="icon" src="/icons/map-paste.png" alt="Paste" /> **Paste:** only shown when you have copied a point. Pastes it here.
+- <img class="icon" src="/icons/map-info.png" alt="Info" /> **Info:** open Query Mode for this spot. See [Querying a Point on the Map](#querying-a-point-on-the-map) below.
+
+![Radial menu on an empty spot of the map with New Feature, Paste and Info](./assets/map-radial-empty@2x.png)
+
 ### Querying a Point on the Map
 
 Query Mode gives you information about any spot on the map without placing a marker.
 
 <Steps>
 
-1. Right-click an empty spot on the map. A radial menu opens with:
+1. Right-click an empty spot on the map, or press and hold on a phone or tablet, then select **Info** <img class="icon" src="/icons/map-info.png" alt="Info" />.
 
-    - **New Feature** (pencil with plus): drop a point here.
-    - **Paste**: only shown when you have copied a feature. Pastes it here.
-    - **Info** (question mark): open Query Mode for this spot.
-
-    ![Radial menu on an empty spot: New Feature, Paste and Info](./assets/user-query-radial.png)
-
-2. Select **Info**. The Query Mode panel shows:
+2. The Query Mode panel shows:
 
     - **Coordinates** of the spot, switchable between formats
     - **Location**: the nearest address or place name
@@ -236,73 +456,15 @@ Query Mode gives you information about any spot on the map without placing a mar
     - **Sun Phase**: sunrise, sunset and twilight times, with the current local time
     - **Magnetic Declination**: the difference between true and magnetic north, needed for compass bearings
 
-    ![Query Mode panel with location, elevation, weather, sun phase and magnetic declination](./assets/user-query-panel.png)
+    ![Query Mode panel with coordinates, Create Event, location, elevation, weather, sun phase and magnetic declination](./assets/map-query-panel@2x.png)
 
 3. From the buttons at the top of the panel you can **Navigate** to the spot, **Create Route** to it, or **Refresh** the information. **Create Event** starts a new event at this location, pre-filled with the address.
 
 </Steps>
 
-## Draw Tools
+### The Details Pane
 
-Click the pencil icon in the top right corner to open the drawing tool options.
-
-- **Coordinate Input:** Place a marker of your choice at the coordinates that you enter.
-- **Range & Bearing:** Create a line of specified bearing and distance originating from chosen coordinates.
-- **Range Rings:** Create rings at specified distances from the point of origin. Useful for evacuation operations, searches, and manhunts.
-- **Draw Point:** Opens a window with 5 different points to choose from. Select the desired icon then click on the map to drop the point.
-- **Draw Line:** Place points on the map to create a straight line between them. Double click to finish the line. The Edit button allows you to add accuracy.
-- **Draw Polygon:** Create any type of shape. Click to put at least two points on the map then double click at the last point to close the shape.
-- **Draw Rectangle:** Draw a rectangle in any orientation of your choosing. Drop your first and second point to draw the height of the rectangle, then use the third point to create the width.
-- **Draw Circle:** First click is the center, second click is the perimeter.
-- **Draw Sector:** First click is the center point, second click is the perimeter.
-- **Lasso Select:** Single click to start, single click to finish. Selected features can be shared, deleted, added to a Data Package, or added to a Data Sync.
-- **GeoJSON Import:** Import smaller GeoJSON files. Features imported this way, instead of through the Imports tool, show up in "Your Features" and are each editable, but they are features on your map rather than an overlay, so you can't toggle them on or off.
-
-![Drawing Tools menu](./assets/2026-01-20-13-35-10-image%20(2).png)
-
-Click on a point or shape to open the radial menu. All geometric shapes share this menu, and also let you edit color, opacity, line style, and center coordinates.
-
-<img class="icon" src="/icons/2026-01-16-11-05-50-image.png" alt="Move" /> Edit the location of the point by clicking and dragging.
-
-<img class="icon" src="/icons/2026-01-16-11-06-34-image.png" alt="Delete" /> Delete the point.
-
-<img class="icon" src="/icons/2026-01-16-11-06-55-image.png" alt="Lock" /> Lock on the point. This feature was created for moving markers and integrations such as aircraft or GPS trackers.
-
-<img class="icon" src="/icons/2026-03-24-12-39-06-image.png" alt="Buffer" /> Open the Buffer Geometry tool.
-
-<img class="icon" src="/icons/2026-01-16-11-07-22-image.png" alt="Edit" /> Open the side menu to edit the point.
-
-![Radial menu on a point](./assets/2026-03-24-12-38-27-image.png)
-
-**Buffer Geometry** creates a perimeter with a radius of a specified distance around your point.
-
-![Buffer Geometry radius dialog](./assets/2026-03-24-12-40-49-image.png)
-![Buffer drawn around a point](./assets/2026-03-24-12-42-02-image.png)
-
-From the **edit side menu** you can change the name, coordinates and icon style, add notes or attachments, and share with other users through the share button <img class="icon" src="/icons/2026-01-16-11-29-16-image.png" alt="Share" />.
-
-CloudTAK supports many iconsets (view them by clicking Style, then Select Icon). Specialty icon sets may not be supported by other TAK clients, and if unsupported they will often be received as a yellow clover icon.
-
-![Icon set selection](./assets/2026-01-16-11-30-14-image.png)
-
-## Working with Map Features
-
-Everything on the map, from other users and aircraft to markers, shapes and overlay data, can be selected for more information.
-
-**Click a feature** to open its radial menu. Which options appear depends on what the feature is and your permissions:
-
-- **Edit**: for your own features, and Data Sync features where you have write access. Other users' positions can't be edited.
-- **Delete**: remove the feature from your map. Data Sync features can only be deleted with write access, and are then removed for everyone subscribed.
-- **Lock On**: points only. The map follows the feature as it moves.
-- **Play**: shown when the feature has a video stream attached.
-- **Geometry**: a submenu with **Buffer**, **Copy**, and **Split** for lines.
-- **View**: open the details pane.
-
-When several features overlap where you click, a list appears so you can pick the right one. Hold **Ctrl** while clicking to add a feature to a multi-selection.
-
-![Radial menu on a user position: Delete, Lock On, Geometry and View](./assets/user-feature-radial.png)
-
-**The details pane** opens from **View**. The buttons along the top are:
+The details pane opens from **View** <img class="icon" src="/icons/point-edit.png" alt="View" />. The buttons along the top are:
 
 - **Save Feature** (star): keep the feature on your map, so it doesn't disappear when it stops updating
 - **Zoom To**: center the map on the feature
@@ -320,13 +482,15 @@ When several features overlap where you click, a list appears so you can pick th
 
 Below the buttons, the **Info** view shows everything known about the feature: its type, the Data Sync it belongs to, location, elevation, speed and course, contact details, remarks, attachments, links, sensor readings, style and who created it.
 
+To change a point's icon, go to **Style** in the Info view and select **Select Icon** next to **Icon**. Choose an icon set from the menu, or search for an icon by name. CloudTAK has many icon sets, but other TAK apps may not support the specialty ones and often show those icons as a yellow clover instead.
+
 Use the switch at the top to change to **Raw** to see the underlying data. For other users, **Channels** shows which channels they are on.
 
 ### Sharing Features
 
 <Steps>
 
-1. Open the feature's details pane and click **Share**. You can also share several features at once from a Lasso selection (see [Draw Tools](#draw-tools)).
+1. Open the feature's details pane and click **Share**. You can also share several features at once from a Lasso selection (see [Drawing Tools](#drawing-tools)).
 
 2. In the **Share Features** window, choose who receives it from the **Users**, **Channels** or **Data Syncs** tabs, then click **Share**.
 
@@ -350,7 +514,7 @@ Use the switch at the top to change to **Raw** to see the underlying data. For o
 
 ## Menu
 
-<img class="icon" src="/icons/2026-02-03-13-24-41-image.png" alt="Menu" /> Click the three lines (hamburger) at the top right of the page to view the menu.
+<img class="icon" src="/icons/menu.png" alt="Menu" /> Click the three lines (hamburger) at the top right of the page to view the menu.
 
 ### Your Features
 
@@ -398,7 +562,7 @@ Data Sync is a tool that creates a mission, also known as a feed, which is like 
 
     ![Active mission in the top left corner](./assets/2026-02-04-11-47-43-image.png)
 
-5. To add existing features, select them with the Lasso Tool (see [Draw Tools](#draw-tools)), click the three dots, and select **Move to Data Sync**.
+5. To add existing features, select them with the Lasso Tool (see [Drawing Tools](#drawing-tools)), click the three dots, and select **Move to Data Sync**.
 
     ![Move to Data Sync](./assets/2026-02-04-11-54-34-image.png)
 
@@ -408,24 +572,24 @@ Data Sync is a tool that creates a mission, also known as a feed, which is like 
 
 Any Data Sync you are subscribed to has a menu, displayed on the right side. A shortcut to this menu also appears in the top left next to your active mission.
 
-<img class="icon" src="/icons/2026-03-18-11-24-09-image.png" alt="Layers" /> **Layers:** Displays all features added to this Data Sync.
+<img class="icon" src="/icons/sync-layers.png" alt="Layers" /> **Layers:** Displays all features added to this Data Sync.
 
-<img class="icon" src="/icons/2026-03-18-11-35-32-image.png" alt="Files" /> **Files:** Displays all files added to the Data Sync.
+<img class="icon" src="/icons/sync-files.png" alt="Files" /> **Files:** Displays all files added to the Data Sync.
 
-<img class="icon" src="/icons/2026-03-18-11-38-31-image.png" alt="Chats" /> **Chats:** Chat for all users subscribed to the Data Sync.
+<img class="icon" src="/icons/sync-chats.png" alt="Chats" /> **Chats:** Chat for all users subscribed to the Data Sync.
 
 ![Data Sync menu](./assets/2026-03-18-11-22-12-image.png)
 ![Data Sync shortcut bar](./assets/2026-03-18-11-23-38-image.png)
 
-<img class="icon" src="/icons/2026-03-18-11-25-11-image.png" alt="Users" /> **Users:** Displays all users subscribed to this Data Sync. Click the plus button to send users a request to join the Data Sync.
+<img class="icon" src="/icons/sync-users.png" alt="Users" /> **Users:** Displays all users subscribed to this Data Sync. Click the plus button to send users a request to join the Data Sync.
 
 ![Data Sync users](./assets/2026-03-18-11-59-55-image.png)
 
-<img class="icon" src="/icons/2026-03-18-11-26-09-image.png" alt="Changes" /> **Changes:** Displays a log of all added and deleted features, including the date and time the change was made.
+<img class="icon" src="/icons/sync-changes.png" alt="Changes" /> **Changes:** Displays a log of all added and deleted features, including the date and time the change was made.
 
 ![Data Sync change log](./assets/2026-03-18-11-40-14-image.png)
 
-<img class="icon" src="/icons/2026-03-18-11-28-43-image.png" alt="Logs" /> **Logs:** Allows for documentation of the mission. Logs can be downloaded as a .csv by clicking **Save Log**.
+<img class="icon" src="/icons/sync-logs.png" alt="Logs" /> **Logs:** Allows for documentation of the mission. Logs can be downloaded as a .csv by clicking **Save Log**.
 
 ![Data Sync logs](./assets/2026-03-18-12-06-00-image.png)
 
@@ -455,7 +619,7 @@ A tool to bundle items you might want to share with other TAK users.
 
 <Steps>
 
-1. Use the Lasso Tool (see [Draw Tools](#draw-tools)) to select existing features on your map. A menu will appear displaying the captured features.
+1. Use the Lasso Tool (see [Drawing Tools](#drawing-tools)) to select existing features on your map. A menu will appear displaying the captured features.
 
     ![Lasso selection results](./assets/2026-02-03-13-45-33-image.png)
 
@@ -491,15 +655,15 @@ Data Packages are cleared from the server every two months. To keep a Data Packa
 
 Displays all channels available to your account.
 
-<img class="icon" src="/icons/2026-02-03-13-55-28-image.png" alt="Channel on" /> An open eyeball icon indicates that the channel is currently on and is sharing your location with all other users on that same channel.
+<img class="icon" src="/icons/channel-on.png" alt="Channel on" /> An open eyeball icon indicates that the channel is currently on and is sharing your location with all other users on that same channel.
 
-<img class="icon" src="/icons/2026-02-03-13-54-28-image.png" alt="Channel off" /> Toggling this icon to the off position (eyeball with slash through it) removes your location and presence from that channel.
+<img class="icon" src="/icons/channel-off.png" alt="Channel off" /> Toggling this icon to the off position (eyeball with slash through it) removes your location and presence from that channel.
 
 To the right of the channels you will also see a pointer arrow icon.
 
-<img class="icon" src="/icons/2026-02-03-13-56-23-image.png" alt="Users visible" /> An arrow icon indicates that users who are active on this channel can see each other.
+<img class="icon" src="/icons/users-visible.png" alt="Users visible" /> An arrow icon indicates that users who are active on this channel can see each other.
 
-<img class="icon" src="/icons/2026-02-03-13-57-05-image.png" alt="Users hidden" /> An arrow with a slash indicates that users on this channel cannot see each other. Instead, these channels are used to supply you with additional data such as aircraft locations or wildland fire data.
+<img class="icon" src="/icons/users-hidden.png" alt="Users hidden" /> An arrow with a slash indicates that users on this channel cannot see each other. Instead, these channels are used to supply you with additional data such as aircraft locations or wildland fire data.
 
 Each user sees a unique list of channels. Some of these channels were created by your agency administrator and are only available to members of your public safety organization, while other channels are available to multiple agencies for use in mutual aid. It is best practice to only turn on mutual aid channels when a need for them arises, but refer to your own agency's policies for definitive guidance.
 
@@ -539,7 +703,7 @@ All files uploaded through Imports are displayed here. Click on an uploaded file
 
 ### Imports
 
-Displays all imported files. To import a new file, select the New Import icon <img class="icon" src="/icons/2026-02-04-11-24-20-image.png" alt="New Import" /> in the top right to upload files from your desktop.
+Displays all imported files. To import a new file, select the New Import icon <img class="icon" src="/icons/import.png" alt="New Import" /> in the top right to upload files from your desktop.
 
 ### Settings
 

@@ -61,7 +61,7 @@ If you are adding a new page, make sure to also update the `sidebar` section in 
 - `src/content/docs/assets/`: Screenshots and images referenced from the docs.
 - `src/content/docs/integrations/`: Generated Integrations landing page and integration pages (not committed).
 - `src/styles/custom.css`: Fonts and colours, set through Starlight's CSS variables.
-- `src/components/`: Starlight component overrides: the header with section tabs, the page-outline sidebar, the page title with its lead description, and the footer. Section tabs and footer links are derived from the `sidebar` in `astro.config.mjs`.
+- `src/components/`: Starlight component overrides: the header with section tabs, the page-outline sidebar (each main heading collapses, and the one being read opens automatically), the page title with its lead description, and the footer. Section tabs and footer links are derived from the `sidebar` in `astro.config.mjs`.
 - `src/plugins/`: Markdown plugins that open external links in a new tab and show `@2x` screenshots at half size.
 - `public/`: Static files served as-is, including inline icons and generated integration logos (not committed).
 - `bin/integrations.js`: Generator for the Integrations section.

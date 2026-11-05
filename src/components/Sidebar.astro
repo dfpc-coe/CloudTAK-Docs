@@ -25,13 +25,25 @@ for (const heading of headings) {
     <a class="back" href={back.href}>‹ {back.label}</a>
     <h2>{title}</h2>
     <ul>
-        {outline.map((item) => (
-            <li>
-                <a href={'#' + item.slug}>{item.text}</a>
-                {item.children.length > 0 && (
-                    <ul>{item.children.map((child) => <li><a href={'#' + child.slug}>{child.text}</a></li>)}</ul>
-                )}
+        {outline.map((item) => item.children.length > 0 ? (
+            <li class="group">
+                <div class="row">
+                    <a href={'#' + item.slug}>{item.text}</a>
+                    <button
+                        type="button"
+                        class="toggle"
+                        aria-expanded="true"
+                        aria-controls={'outline-' + item.slug}
+                        aria-label={'Show or hide ' + item.text}
+                        hidden
+                    >
+                        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 6l6 6l-6 6" /></svg>
+                    </button>
+                </div>
+                <ul id={'outline-' + item.slug}>{item.children.map((child) => <li><a href={'#' + child.slug}>{child.text}</a></li>)}</ul>
             </li>
+        ) : (
+            <li><a href={'#' + item.slug}>{item.text}</a></li>
         ))}
     </ul>
 </nav>
@@ -46,15 +58,43 @@ for (const heading of headings) {
     const links = [...document.querySelectorAll<HTMLAnchorElement>('.outline a[href^="#"]')];
     const headings = links.map((link) => document.getElementById(link.hash.slice(1))).filter(Boolean) as HTMLElement[];
 
+    // Collapsible sections: everything stays expanded without JavaScript. With it, the section
+    // being read opens and the rest close, unless the reader has opened or closed one by hand.
+    const groups = [...document.querySelectorAll<HTMLLIElement>('.outline .group')];
+    const pinned = new Set<HTMLLIElement>();
+    let openGroup: HTMLLIElement | null | undefined;
+
+    function setOpen(group: HTMLLIElement, open: boolean) {
+        group.querySelector('.toggle')!.setAttribute('aria-expanded', String(open));
+        group.querySelector<HTMLUListElement>(':scope > ul')!.hidden = !open;
+    }
+
+    for (const group of groups) {
+        const toggle = group.querySelector<HTMLButtonElement>('.toggle')!;
+        toggle.hidden = false;
+        toggle.addEventListener('click', () => {
+            pinned.add(group);
+            setOpen(group, toggle.getAttribute('aria-expanded') !== 'true');
+        });
+    }
+
     function highlight() {
         let current = headings[0];
         for (const heading of headings) {
             if (heading.getBoundingClientRect().top <= 120) current = heading;
         }
+        let active: HTMLAnchorElement | undefined;
         for (const link of links) {
-            if (link.hash.slice(1) === current?.id) link.setAttribute('aria-current', 'true');
-            else link.removeAttribute('aria-current');
+            if (link.hash.slice(1) === current?.id) {
+                link.setAttribute('aria-current', 'true');
+                active = link;
+            } else link.removeAttribute('aria-current');
         }
+
+        const group = active?.closest<HTMLLIElement>('.group') ?? null;
+        if (group === openGroup) return;
+        openGroup = group;
+        for (const g of groups) if (!pinned.has(g)) setOpen(g, g === group);
     }
 
     document.addEventListener('scroll', highlight, { passive: true });
@@ -99,11 +139,73 @@ for (const heading of headings) {
     .outline > ul > li > a {
         margin-top: 0.5rem;
         color: var(--sl-color-white);
-        font-weight: 500;
+        font-weight: 600;
+    }
+
+    /* Subheadings: indented under a guide line, smaller and quieter than the main headings */
+    ul ul {
+        margin: 0.25rem 0 0.5rem 0.75rem;
+        padding-left: 0.5rem;
+        border-left: 1px solid var(--sl-color-hairline);
     }
 
     ul ul a {
-        padding-left: 1.75rem;
+        padding: 0.25rem 0.75rem;
+        font-size: var(--sl-text-xs);
+        color: var(--sl-color-gray-3);
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        margin-top: 0.5rem;
+    }
+
+    .row a {
+        flex: 1;
+    }
+
+    .outline > ul > li > .row > a {
+        color: var(--sl-color-white);
+        font-weight: 600;
+    }
+
+    .toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: none;
+        width: 1.75rem;
+        height: 1.75rem;
+        padding: 0;
+        border: 0;
+        border-radius: 6px;
+        background: none;
+        color: var(--sl-color-gray-3);
+        cursor: pointer;
+    }
+
+    .toggle[hidden] {
+        display: none;
+    }
+
+    .toggle:hover {
+        background: var(--sl-color-gray-6);
+        color: var(--sl-color-white);
+    }
+
+    .toggle svg {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transition: transform 0.15s ease;
+    }
+
+    .toggle[aria-expanded='true'] svg {
+        transform: rotate(90deg);
     }
 
     a:not(.back):hover {
