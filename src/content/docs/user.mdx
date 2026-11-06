@@ -104,7 +104,7 @@ After you set up your profile, the **Permissions** window asks to use your **Loc
 
 4. On the **Background location** screen, select **Agree and continue**.
 
-5. Select **Change to Always Allow** so your team can still see you when the app is closed.
+5. Select **Change to Always Allow** so your team can still see you while CloudTAK is in the background.
 
     ![iPhone prompt with Change to Always Allow](./assets/login-background-location-ios@2x.png)
 
@@ -129,7 +129,7 @@ After you set up your profile, the **Permissions** window asks to use your **Loc
 
 4. On the **Background location** screen, select **Agree and continue**.
 
-5. In the settings page that opens, select **Allow all the time** so your team can still see you when the app is closed. Scroll down and make sure **Use precise location** is on, then go back to CloudTAK.
+5. In the settings page that opens, select **Allow all the time** so your team can still see you while CloudTAK is in the background. Scroll down and make sure **Use precise location** is on, then go back to CloudTAK.
 
     ![Android Location permission settings with Allow all the time selected](./assets/login-background-location-android@2x.png)
 
@@ -145,16 +145,74 @@ After you set up your profile, the **Permissions** window asks to use your **Loc
 
 Once you are on the map, check that your location is right. Phones and tablets with cellular service find it with GPS. On a computer, your location may be missing or only approximate. To see how accurate it is or to set it by hand, see [Location & Coordinates](#location--coordinates).
 
-Once you're set up, see [Moving Around the Map](#moving-around-the-map) to learn the basics.
+### Stop Sharing Your Location
 
-## Moving Around the Map
+CloudTAK shares your location for as long as it's open. On a phone or tablet it keeps sharing in the background, so switching to another app doesn't stop it. To stop, close CloudTAK completely.
+
+<Tabs syncKey="platform">
+
+<TabItem label="Web Browser" icon="laptop">
+
+Close the CloudTAK tab or the browser window.
+
+</TabItem>
+
+<TabItem label="iPhone and iPad" icon="apple">
+
+Swipe up from the bottom of the screen and pause to open the app switcher, then swipe CloudTAK up and off the screen.
+
+</TabItem>
+
+<TabItem label="Android" icon="mobile-android">
+
+Open your recent apps, by swiping up from the bottom of the screen and holding or by selecting the square button, then swipe CloudTAK away.
+
+</TabItem>
+
+</Tabs>
+
+To keep using CloudTAK but stop sharing your location on a particular channel, turn that channel off instead. See [Channels](#channels).
+
+Once you're set up, see [The Map Screen](#the-map-screen) to learn your way around.
+
+## The Map Screen
+
+![CloudTAK on an iPhone with numbered callouts: 1 active mission, 2 notifications, 3 Drawing Tools, 4 menu, 5 map controls, 6 GPS panel, 7 server connection](./assets/map-screen@2x.png)
+
+1. <img class="icon" src="/icons/map-mission.png" alt="" />**Active mission:** the Data Sync that new features are added to. Shows **No Active Mission** when there isn't one, and selecting it opens your Data Syncs. See [Data Sync](#data-sync).
+2. <img class="icon" src="/icons/map-notifications.png" alt="" />**Notifications:** see [Notifications](#notifications) below.
+3. <img class="icon" src="/icons/draw-tools.png" alt="" />**Drawing Tools:** see [Drawing Tools](#drawing-tools).
+4. <img class="icon" src="/icons/menu.png" alt="" />**Menu:** see [The Menu](#the-menu) below.
+5. **Map controls:** see [Map Controls](#map-controls) below.
+6. <img class="icon" src="/icons/location-gps.png" alt="" />**GPS panel:** your callsign, location and coordinates. See [Location & Coordinates](#location--coordinates).
+7. **Server connection:** your server's logo, with a green dot when you're connected and a red dot when you're not. Select it to return the map to its starting view.
+
+On a computer the layout is the same, with a few extras: the active mission has buttons that open its tabs, the zoom buttons are always shown, and an icon bar on the right side of the map has shortcuts to the menu items.
+
+### Notifications
+
+When you have notifications, such as chats, contacts, imports and Data Sync updates, a red badge on the bell at the top right shows how many. Select the bell to see them. Select a notification to go to it, filter them by type, or delete them one at a time or all at once.
+
+### Map Controls
+
+The buttons down the left side of the map are:
+
+- <img class="icon" src="/icons/search.png" alt="" />**Search:** see [Searching the Map](#searching-the-map) below.
+- <img class="icon" src="/icons/map-north.png" alt="" />**Snap to North:** turn the map back to north up. When the map is following your heading, this is **Orient North** instead.
+- <img class="icon" src="/icons/map-flat.png" alt="" />**Snap Flat:** only shown when the map is tilted. Flattens it again.
+- <img class="icon" src="/icons/map-zoom-in.png" alt="" />**Zoom in**.
+- <img class="icon" src="/icons/map-zoom-out.png" alt="" />**Zoom out**.
+- <img class="icon" src="/icons/map-terrain.png" alt="" />**3D Terrain:** only shown when your server has terrain. Turns 3D terrain on or off.
+- <img class="icon" src="/icons/map-unlock.png" alt="" />**Unlock:** only shown when the map is locked onto a feature with **Lock On**. Select it to stop following the feature.
+
+### Moving Around the Map
 
 Use a mouse on a computer, or touch gestures on a phone or tablet.
 
 | | Mouse | Touchscreen |
 | --- | --- | --- |
 | Move the map | Click and drag | Drag with one finger |
-| Zoom in and out | Scroll the mouse wheel, or use the plus and minus buttons in the top right corner | Pinch with two fingers |
+| Zoom in and out | Scroll the mouse wheel, or use the plus and minus buttons on the left side of the map | Pinch with two fingers |
 | Rotate | Hold Ctrl, then drag left or right | Twist two fingers |
 | Tilt | Hold Ctrl, then drag up or down | Drag two fingers up or down |
 
@@ -163,6 +221,27 @@ On a phone, the plus and minus zoom buttons are hidden to save space. To show th
 ### Searching the Map
 
 <img class="icon" src="/icons/search.png" alt="Search" /> To find a place, select the search button on the left side of the map. On a computer you can also press Ctrl+F (⌘+F on a Mac). Search for an address the way you would in a navigation app, or for coordinates, overlays or another user's callsign. Select a result and the map moves to that location.
+
+### The Menu
+
+<img class="icon" src="/icons/menu.png" alt="Menu" /> Click the three lines (hamburger) at the top right of the map to open the menu.
+
+- <img class="icon" src="/icons/search.png" alt="" />**Search** at the top finds a menu item by name.
+- <img class="icon" src="/icons/menu-tile.png" alt="" />**Tile View** and <img class="icon" src="/icons/menu-list.png" alt="" />**List View** switch how the menu items are laid out. The button next to the title shows the view it switches to.
+- <img class="icon" src="/icons/menu-reorder.png" alt="" />**Reorder Items** lets you drag items into the order you want. While reordering, select the eye next to an item to choose where it shows:
+    - <img class="icon" src="/icons/channel-on.png" alt="" />In the menu, and in the icon bar along the edge of the map on a computer.
+    - <img class="icon" src="/icons/menu-eye-dotted.png" alt="" />In the menu only.
+    - <img class="icon" src="/icons/channel-off.png" alt="" />Not at all.
+- <img class="icon" src="/icons/menu-save-order.png" alt="" />**Save Order** keeps the new order when you're done.
+
+On a computer, the icon bar along the right side of the map has shortcuts to the menu items while the menu is closed. Items marked **A** are only shown to administrators.
+
+The menu items are covered in these sections:
+
+- [Communication](#communication): Channels, Contacts, Chats and Videos
+- [Layers & Files](#layers--files): Features, Overlays, BaseMaps, Iconsets, Routes, History, Files and Data Packages
+- [Data Sync](#data-sync)
+- [Settings](#settings)
 
 ## Location & Coordinates
 
@@ -335,6 +414,10 @@ To follow roads and trails instead of drawing straight sections, choose a snappi
 
 ![Line Editing bar with a No Snapping menu, next to a red line on the map](./assets/draw-line-bar@2x.png)
 
+With a trail layer chosen, the line follows the trail between the points you add, switchbacks and all:
+
+![CloudTAK on an iPhone drawing a line that follows a switchback trail up a mountainside, with the Line Editing bar at the bottom](./assets/draw-line-route-snapping@2x.png)
+
 ### <img class="icon" src="/icons/draw-polygon.png" alt="" />Draw Polygon
 
 Draw any shape with three or more corners.
@@ -381,8 +464,8 @@ Select several features at once. First choose where to select from in the bar at
 When you finish, the features inside the loop are listed in a **Selected Features** menu in the bottom left corner of the map. From there you can:
 
 - **Share** the features with other users.
-- Select the three dots for more options: **New Data Package**, **Move to Data Sync**, or **Delete Features**.
-- Select the trash can next to a feature to take it out of the selection. This doesn't delete it from the map.
+- Select the <img class="icon" src="/icons/details-more.png" alt="" />three dots for more options: **New Data Package**, **Move to Data Sync**, or **Delete Features**.
+- Select the <img class="icon" src="/icons/point-delete.png" alt="" />trash can next to a feature to take it out of the selection. This doesn't delete it from the map.
 
 **Delete Features** takes every selected feature off your map. Features that only exist on your map, like the ones you've drawn, are gone for good. Features that are syncing to your map from somewhere else, like another user's icon or an aircraft, come back the next time they update.
 - Select the **X** to close the menu and clear the selection.
@@ -401,41 +484,130 @@ To move, edit, delete or share anything you've drawn, select it on the map. See 
 
 ## Working with Map Features
 
-Everything on the map, from other users and aircraft to markers, shapes and overlay data, can be selected for more information.
+Everything on the map, from other users and aircraft to markers, shapes and overlay data, can be selected for more information. When several features overlap where you click, a list appears so you can pick the right one. Hold **Ctrl** while clicking to add a feature to a multi-selection.
 
-### The Radial Menu
+### The Feature Radial Menu
 
-Click a feature, or tap it on a phone or tablet, to open its radial menu. Which options appear depends on what the feature is and your permissions:
+Click a feature, or tap it on a phone or tablet, to open its radial menu.
 
-- <img class="icon" src="/icons/point-move.png" alt="Edit" /> **Edit:** change the shape or move the point by dragging it. For your own features, and Data Sync features where you have write access. Other users' positions can't be edited.
-- <img class="icon" src="/icons/point-delete.png" alt="Delete" /> **Delete:** remove the feature from your map. Data Sync features can only be deleted with write access, and are then removed for everyone subscribed.
-- <img class="icon" src="/icons/point-lock.png" alt="Lock On" /> **Lock On:** points only. The map follows the feature as it moves, which is useful for vehicles, aircraft and GPS trackers.
-- <img class="icon" src="/icons/point-play.png" alt="Play" /> **Play:** shown when the feature has a video stream attached.
-- <img class="icon" src="/icons/point-geometry.png" alt="Geometry" /> **Geometry:** opens a second ring with more options, shown below.
-- <img class="icon" src="/icons/point-edit.png" alt="View" /> **View:** open the feature's details pane.
+![Radial menu on a marker with Edit, Delete, Lock On, Geometry and View, and the Geometry ring it opens with Buffer and Copy](./assets/map-radial-feature@2x.png)
 
-![Radial menu on a point with Edit, Delete, Lock On, Geometry and View, and the Geometry ring it opens with Buffer and Copy](./assets/map-radial-feature@2x.png)
+Not every feature has every option. For example, other users have no **Edit**, and overlay data usually only has **View**.
+
+- <img class="icon" src="/icons/point-move.png" alt="" />**Edit:** move a point by dragging it, or change the shape of a line or polygon.
+- <img class="icon" src="/icons/point-delete.png" alt="" />**Delete:** take the feature off your map. Anything syncing to your map from somewhere else, such as another user's position, comes back the next time it updates.
+- <img class="icon" src="/icons/point-lock.png" alt="" />**Lock On:** points only. The map follows the feature as it moves, which is useful for vehicles, aircraft and GPS trackers.
+- <img class="icon" src="/icons/point-play.png" alt="" />**Play:** open the feature's video stream, when it has one.
+- <img class="icon" src="/icons/point-geometry.png" alt="" />**Geometry:** open a second ring with more options, shown below.
+- <img class="icon" src="/icons/overlay-cut.png" alt="" />**Cut:** only for features in an ArcGIS FeatureServer overlay. Copy the feature onto your map as your own feature, which you can then edit and share.
+- <img class="icon" src="/icons/point-edit.png" alt="" />**View:** open the feature's details pane. See [The Details Pane](#the-details-pane).
 
 The **Geometry** ring has:
 
-- <img class="icon" src="/icons/point-buffer.png" alt="Buffer" /> **Buffer:** draw a perimeter at a distance you choose around the feature.
-- <img class="icon" src="/icons/point-copy.png" alt="Copy" /> **Copy:** copy the point so you can paste it somewhere else on the map, from the menu below. Only points can be pasted for now.
-- <img class="icon" src="/icons/line-split.png" alt="Split" /> **Split:** lines only. Split the line in two at the spot you clicked.
+- <img class="icon" src="/icons/point-buffer.png" alt="" />**Buffer:** draw a perimeter at a distance you choose around the feature.
+- <img class="icon" src="/icons/point-copy.png" alt="" />**Copy:** copy the point so you can paste it somewhere else on the map. See [The Map Radial Menu](#the-map-radial-menu). Only points can be pasted for now.
+- <img class="icon" src="/icons/line-split.png" alt="" />**Split:** lines only. Split the line in two at the spot you clicked.
 
 Select the center of the ring to go back.
 
-![Buffer Geometry radius dialog](./assets/2026-03-24-12-40-49-image.png)
-![Buffer drawn around a point](./assets/2026-03-24-12-42-02-image.png)
+![Buffer window with a radius in miles, next to the buffer it draws around a point on the map](./assets/map-buffer@2x.png)
 
-Overlay data, such as features from an overlay or base map, shows a shorter menu: **View**, and <img class="icon" src="/icons/overlay-cut.png" alt="Cut" /> **Cut** when the overlay allows it, which copies the feature onto your map as your own feature.
+### The Details Pane
 
-When several features overlap where you click, a list appears so you can pick the right one. Hold **Ctrl** while clicking to add a feature to a multi-selection.
+Select **View** <img class="icon" src="/icons/point-edit.png" alt="View" /> in the radial menu to open a feature's details. The name at the top can be changed if you're allowed to edit the feature.
 
-**On an empty spot of the map**, right-click, or press and hold on a phone or tablet, to open a different radial menu:
+![Details pane for a point in a Data Sync, with the action buttons, the Data Sync it's from, Appearance, location, elevation, creator, remarks, attachments, links, video and the Updated and Stale times](./assets/map-details@2x.png)
 
-- <img class="icon" src="/icons/map-new.png" alt="New Feature" /> **New Feature:** drop a point here.
-- <img class="icon" src="/icons/map-paste.png" alt="Paste" /> **Paste:** only shown when you have copied a point. Pastes it here.
-- <img class="icon" src="/icons/map-info.png" alt="Info" /> **Info:** open Query Mode for this spot. See [Querying a Point on the Map](#querying-a-point-on-the-map) below.
+The buttons along the top are:
+
+- <img class="icon" src="/icons/details-saved.png" alt="" />**Saved**: the feature is saved on your map, so it doesn't disappear when it stops updating. This yellow star only shows the feature is saved and can't be turned off. Features you draw are saved automatically.
+- <img class="icon" src="/icons/details-save.png" alt="" />**Save Feature**: shown instead of the yellow star on features that aren't saved yet. Select it to save the feature. Not shown for people.
+- <img class="icon" src="/icons/details-zoom.png" alt="" />**Zoom To**: center the map on the feature.
+- <img class="icon" src="/icons/details-navigate.png" alt="" />**Navigate**: points and routes only. See [Navigating to a Feature](#navigating-to-a-feature).
+- <img class="icon" src="/icons/details-lock.png" alt="" />**Lock On**: points only. The map follows the feature as it moves.
+- <img class="icon" src="/icons/point-play.png" alt="" />**View Video Stream**: when the feature has video.
+- <img class="icon" src="/icons/details-share.png" alt="" />**Share**: see [Sharing Features](#sharing-features).
+- <img class="icon" src="/icons/details-breadcrumb.png" alt="" />**Breadcrumb**: points only. Show a **Live Trail**, or **Load History** for the last 1, 4, 8 or 24 hours.
+- <img class="icon" src="/icons/point-delete.png" alt="" />**Delete**: when you're allowed to edit the feature.
+- <img class="icon" src="/icons/details-more.png" alt="" />**More Actions**: **Edit Geometry**, **Chat** with another user, **Buffer**, and **Convert to Route** for lines. For features you can edit, you can also add an attachment, external links, a video, a sensor field of view, or a geofence (polygons only).
+
+Below the buttons are:
+
+- **From**: the Data Sync the feature belongs to, if any. Select its name to open the Data Sync. A **Read Only** badge means your role in that Data Sync doesn't let you change the feature.
+- **Appearance**: the feature's symbol or style. Select it to change how the feature looks. See [Changing a Feature's Appearance](#changing-a-features-appearance).
+- **Location**, or **Center** for lines and shapes, which you can change if you're allowed to edit the feature. Then elevation, length, area or radius, speed and course, phone, email, battery and who created it, when they're known.
+- An **elevation profile** for lines, when a terrain layer is turned on.
+- **Remarks**.
+
+![The rows below the buttons: the Data Sync it's from, Appearance, Location, Elevation, Creator and Remarks](./assets/map-details-body@2x.png)
+
+The tabs below that switch between **Details** (attachments, links, video, sensors and other information sent with the feature), **Channels** (people only: which channels they're on) and **Debug** (the underlying data). Unless the feature is saved, the bottom of the pane shows when it was last **Updated** and when it goes **Stale**.
+
+### Changing a Feature's Appearance
+
+Select the **Appearance** row in the details pane to change how a feature looks. Changes show on the map as you make them. You can only change features you're allowed to edit, and some point types, such as photos, don't have an Appearance row.
+
+![The Appearance row in the details pane, showing a Friendly Incident symbol](./assets/map-appearance-row@2x.png)
+
+**For a point:**
+
+![Appearance editor for a point, with Affiliation, Type, Status, Marker and Opacity](./assets/map-appearance-point@2x.png)
+
+- **Affiliation:** **Friendly**, **Hostile**, **Neutral** or **Unknown**. **More affiliations** has the rest, such as **Assumed friend**, **Suspect** and **Pending**, and for military symbols whether it's real, an exercise or a simulation.
+- **Type:** what the feature is. Search all types, or browse them by category, such as **Land units**, **Land equipment** or **Activities & incidents**.
+- **Status**, **echelon** and **indicators** such as **Headquarters** and **Task force**: shown for newer (2525E) military symbols only.
+- **Marker:** how the point is drawn on the map.
+    - **Military symbol:** the color and frame come from the affiliation.
+    - **Custom icon:** choose an **Iconset**, find the icon you want with the filter, and pick a color. The type stays the same. CloudTAK has many icon sets, but other TAK apps may not support the specialty ones and often show those icons as a yellow clover instead.
+
+        ![Marker set to Custom icon, with an Iconset menu, an icon filter, a grid of icons, color swatches and a note](./assets/map-appearance-icon@2x.png)
+
+    - **Spot:** a plain dot in the color you choose, with no type.
+- **Opacity**.
+
+**For a line or polygon:** choose the **Stroke** color, **Line style** (solid, dashed, dotted or outlined), **Width** and **Stroke opacity**. Polygons also have a **Fill** color and **Fill opacity**.
+
+![Appearance editor for a polygon, with Stroke and Fill colors, Line style, Width and opacity sliders](./assets/map-appearance-style@2x.png)
+
+### Sharing Features
+
+<Steps>
+
+1. Open the feature's details pane and click <img class="icon" src="/icons/details-share.png" alt="" />**Share**. You can also share several features at once from a Lasso selection (see [Drawing Tools](#drawing-tools)).
+
+2. In the **Share Features** window, choose who receives it from the **Users**, **Channels** or **Data Syncs** tabs, then click **Share**.
+
+    **Broadcast To All Users** sends the feature to everyone on your active channels instead.
+
+    The **Data Syncs** tab only lists Data Syncs you're subscribed to and allowed to add features to. It doesn't have to be your active mission. To share to one that isn't listed, subscribe to it first. See [Subscribing to a Data Sync](#subscribing-to-a-data-sync).
+
+    ![Share Features window with Users, Channels and Data Syncs tabs](./assets/map-share@2x.png)
+
+</Steps>
+
+:::caution[Broadcast with care]
+**Broadcast To All Users** sends the feature to every user on every channel you have turned on. That can include mutual aid and other channels shared across many agencies. Before you broadcast, check which channels are on (see [Channels](#channels)), or share with specific users or channels instead.
+:::
+
+### Navigating to a Feature
+
+<Steps>
+
+1. Click **Navigate** <img class="icon" src="/icons/details-navigate.png" alt="Navigate" /> in a feature's details pane, or in the Query Mode panel for any spot on the map (see [Querying a Point on the Map](#querying-a-point-on-the-map)).
+
+2. A navigation banner at the top of the map shows the distance to the destination, your speed and ETA (speed and ETA need a live GPS location while moving). Use the zoom button to fit the destination on screen, and the **X** to end navigation. When navigating a route, a **Reverse Direction** button also appears.
+
+    ![Navigation banner with distance, speed and ETA, and a line to the destination](./assets/map-navigation@2x.png)
+
+</Steps>
+
+### The Map Radial Menu
+
+Right-click an empty spot of the map, or press and hold on a phone or tablet, to open a different radial menu:
+
+- <img class="icon" src="/icons/map-new.png" alt="" />**New Feature:** drop a point here, using your default point type. To change it, open **Settings**, then **Callsign & Device Preferences**, and set **Default Point Type**.
+- <img class="icon" src="/icons/map-paste.png" alt="" />**Paste:** paste a point you copied with **Copy** here. Paste is usually shown even when you haven't copied a point, and selecting it then shows an error.
+- <img class="icon" src="/icons/map-info.png" alt="" />**Info:** open Query Mode for this spot. See [Querying a Point on the Map](#querying-a-point-on-the-map) below.
 
 ![Radial menu on an empty spot of the map with New Feature, Paste and Info](./assets/map-radial-empty@2x.png)
 
@@ -458,253 +630,423 @@ Query Mode gives you information about any spot on the map without placing a mar
 
     ![Query Mode panel with coordinates, Create Event, location, elevation, weather, sun phase and magnetic declination](./assets/map-query-panel@2x.png)
 
-3. From the buttons at the top of the panel you can **Navigate** to the spot, **Create Route** to it, or **Refresh** the information. **Create Event** starts a new event at this location, pre-filled with the address.
+3. From the buttons at the top of the panel you can **Navigate** to the spot, **Create Route** to it, or **Refresh** the information. [**Create Event**](#create-event) starts a new event at this location, pre-filled with the address.
 
 </Steps>
 
-### The Details Pane
+## Communication
 
-The details pane opens from **View** <img class="icon" src="/icons/point-edit.png" alt="View" />. The buttons along the top are:
+Channels decide who you share your location with and what data you see. Contacts, Chats and Videos are how you reach the people and feeds on those channels. Open the menu and select the item you want.
 
-- **Save Feature** (star): keep the feature on your map, so it doesn't disappear when it stops updating
-- **Zoom To**: center the map on the feature
-- **Navigate**: points and routes only, see below
-- **Lock On**: points only. The map follows the feature as it moves.
-- **View Video Stream**: when the feature has video
-- **Share**: see below
-- **Breadcrumb**: points only. Show a **Live Trail**, or **Load History** for the last 1, 4, 8 or 24 hours.
-- **Edit**: change the shape or position
-- **Transforms**: **Buffer**, or **Convert to Route** for lines
-- **Chat**: start a chat with another user
-- **Add Properties** (three dots): attach files, links, a video stream, a sensor field of view, or a geofence (polygons only)
+### <img class="icon" src="/icons/menu-channels.png" alt="" />Channels
 
-![Details pane for a user position, with action buttons and Info view](./assets/user-feature-info.png)
+Lists every channel available to your account. Select a channel to turn it on or off.
 
-Below the buttons, the **Info** view shows everything known about the feature: its type, the Data Sync it belongs to, location, elevation, speed and course, contact details, remarks, attachments, links, sensor readings, style and who created it.
+![Channels menu with two channels on and two off](./assets/menu-channels@2x.png)
 
-To change a point's icon, go to **Style** in the Info view and select **Select Icon** next to **Icon**. Choose an icon set from the menu, or search for an icon by name. CloudTAK has many icon sets, but other TAK apps may not support the specialty ones and often show those icons as a yellow clover instead.
+- <img class="icon" src="/icons/channel-on.png" alt="" />**On:** you see the channel's data, and share your location on it if it allows location sharing.
+- <img class="icon" src="/icons/channel-off.png" alt="" />**Off:** the channel's data is hidden and your location isn't shared on it.
 
-Use the switch at the top to change to **Raw** to see the underlying data. For other users, **Channels** shows which channels they are on.
+The icon on the right shows what kind of channel it is:
 
-### Sharing Features
+- <img class="icon" src="/icons/users-visible.png" alt="" />**Location Sharing:** everyone on the channel can see each other.
+- <img class="icon" src="/icons/users-hidden.png" alt="" />**No Location Sharing:** your location isn't shared. These channels supply data instead, such as aircraft positions or wildland fire data.
+
+<img class="icon" src="/icons/ui-eye-x.png" alt="" />**All Channels Off** at the top turns every channel off at once. When they're all off, it becomes <img class="icon" src="/icons/ui-eye-plus.png" alt="" />**All Channels On**.
+
+Each user sees a unique list of channels. Some of these channels were created by your agency administrator and are only available to members of your public safety organization, while other channels are available to multiple agencies for use in mutual aid. It is best practice to only turn on mutual aid channels when a need for them arises, but refer to your own agency's policies for definitive guidance.
+
+### <img class="icon" src="/icons/sync-users.png" alt="" />Contacts
+
+Lists the people online on your channels, grouped by team color, with how many are in each team. **Recently Offline** lists people who recently closed their TAK app or lost their connection.
+
+![Contacts menu with two teams and Recently Offline](./assets/menu-contacts-list@2x.png)
+
+Use the filter to find someone. Select an online contact to go to their location on the map, or select the <img class="icon" src="/icons/sync-chats.png" alt="" />chat bubble next to their name to chat with them.
+
+### <img class="icon" src="/icons/sync-chats.png" alt="" />Chats
+
+Lists your chats, with a count of unread messages. Select a chat to open it, type in **Send Message...**, and select send.
+
+![Chat with Engine 12, with two messages received and one sent](./assets/menu-chat@2x.png)
+
+- <img class="icon" src="/icons/ui-plus.png" alt="" />**New Chat** opens [Contacts](#contacts). Select the <img class="icon" src="/icons/sync-chats.png" alt="" />chat bubble next to the person you want to message.
+- <img class="icon" src="/icons/ui-select.png" alt="" />**Select Chats** lets you select several chats to delete them.
+
+Each Data Sync also has its own chat for everyone subscribed. See [The Data Sync Page](#the-data-sync-page).
+
+### <img class="icon" src="/icons/menu-videos.png" alt="" />Videos
+
+The **Streams** tab lists the video streams set up on your channels. Being listed doesn't mean a stream is live: it only plays while its source is broadcasting. A drone, for example, has to be flying and sending video to an active lease. Select a stream to watch it in a video window you can move around the map. Video from features on the map, such as a camera, is listed too, and selecting one opens its [details pane](#the-details-pane).
+
+![Videos menu on the Streams tab with three streams](./assets/menu-videos@2x.png)
+
+If you get a **Video Server Error**, the video either isn't being broadcast right now or is in a format CloudTAK doesn't support.
+
+The **Leases** tab is for sending your own video, such as from a drone (UAS), to TAK:
 
 <Steps>
 
-1. Open the feature's details pane and click **Share**. You can also share several features at once from a Lasso selection (see [Drawing Tools](#drawing-tools)).
+1. Select <img class="icon" src="/icons/ui-plus.png" alt="" />**Get Lease**. Give the lease a **Name**, choose how long it lasts, and set the type of source.
 
-2. In the **Share Features** window, choose who receives it from the **Users**, **Channels** or **Data Syncs** tabs, then click **Share**.
+2. Save the lease. It lists the addresses to send your video to. Enter one of them in your drone's or camera's streaming settings.
 
-    **Broadcast To All Users** sends the feature to everyone on your active channels instead.
-
-    ![Share Features window with Users, Channels and Data Syncs tabs](./assets/user-share.png)
+3. Select play next to the lease to watch the stream. Turn on **Publish to TAK Server** in the lease to list it for other TAK users too.
 
 </Steps>
 
-### Navigating to a Feature
+Leases have more options, such as **Shared Lease** so everyone on your channel can manage it, **Record Stream**, and separate usernames and passwords for watching and publishing. When a lease expires, you can renew it without its address changing.
+
+<img class="icon" src="/icons/ui-video-plus.png" alt="" />**Publish Video Stream** adds a video feed that already exists, by its URL, so others on your channels can watch it.
+
+For more on streaming from a drone, see:
+
+- [UAS Tool Pt 1: Downloading and Operating UAS Tool](https://cotak.gov/pages/tak-integrations/uas-tool-pt1-downloading-and-operating-uas-tool)
+- [UAS Tool Pt 2: Streaming CloudTAK Leases](https://cotak.gov/pages/tak-integrations/uas-tool-pt-2-fmv-streaming-cloudtak-leases)
+
+## Layers & Files
+
+These menu items control what's loaded on your map: your saved features, overlays, basemaps and icons, and the files you upload. Open the menu and select the item you want.
+
+### <img class="icon" src="/icons/menu-features.png" alt="" />Features
+
+Lists the features saved on your map, such as the ones you've drawn and the ones you've saved with the star in their details pane. Select a feature to go to it on the map.
+
+![Features menu with Recently Deleted, a Grass Fire folder and three features](./assets/menu-features@2x.png)
+
+- Next to each feature:
+    - <img class="icon" src="/icons/channel-on.png" alt="" />The eye shows or hides it on the map.
+    - <img class="icon" src="/icons/ui-details.png" alt="" />**View Info** opens its [details pane](#the-details-pane).
+    - <img class="icon" src="/icons/point-delete.png" alt="" />The trash can deletes it.
+- <img class="icon" src="/icons/ui-folder-plus.png" alt="" />**Create Folder** keeps features organized. Drag features into a folder, and use the eye next to the folder to show or hide everything in it.
+- <img class="icon" src="/icons/point-delete.png" alt="" />**Recently Deleted** lists features you've deleted. Select the ones you want back, then <img class="icon" src="/icons/ui-restore.png" alt="" />**Restore Features**.
+- <img class="icon" src="/icons/ui-download.png" alt="" />**Export** saves all your features as a GeoJSON or KML file.
+- The filter at the top searches by name and can narrow the list to points, lines or polygons.
+
+The **Events** tab lists the events made with [Create Event](#create-event), and <img class="icon" src="/icons/ui-plus.png" alt="" />**Create Event** starts a new one. The **Devices** tab lists your agency's tracked devices. Select one to see its details. Both tabs are empty if your agency doesn't use them.
+
+### <img class="icon" src="/icons/sync-layers.png" alt="" />Overlays
+
+Overlays are layers drawn on top of your basemap, such as weather radar, boundaries, files you've uploaded and your Data Syncs.
+
+![Overlays menu with four overlays, the first opened to its Opacity slider](./assets/menu-overlays@2x.png)
+
+Each overlay is labelled with what it is: **Raster** or **Vector** map layers, **Terrain**, **Mission** for a Data Sync, or **Data** for a file you uploaded. A red **Issue** label means it couldn't load. The buttons next to each overlay are:
+
+- <img class="icon" src="/icons/ui-zoom-to.png" alt="" />**Zoom To Overlay:** move the map to where the overlay is.
+- <img class="icon" src="/icons/channel-on.png" alt="" />**Hide Layer** and <img class="icon" src="/icons/channel-off.png" alt="" />**Show Layer:** the eye means the overlay is showing, and selecting it hides the overlay. The crossed-out eye means it's hidden, and selecting it shows the overlay again.
+- <img class="icon" src="/icons/point-delete.png" alt="" />**Delete Overlay:** remove it from your overlays. Not shown for the basemap or CloudTAK's built-in layers.
+
+Select an overlay to see more: an **Opacity** slider for raster layers, or a list of the layers inside a vector overlay. To change which overlay is drawn on top, select the <img class="icon" src="/icons/menu-reorder.png" alt="" />pencil at the top, drag the overlays into order, and select the <img class="icon" src="/icons/menu-save-order.png" alt="" />check mark to save.
+
+#### Adding an Overlay
+
+Select <img class="icon" src="/icons/ui-plus.png" alt="" />**Add Overlay** to open the **Overlay Explorer**. It has two parts:
+
+- **Your Files** is for your own overlays. It takes you to [Files](#files), where you can upload a file and add it to the map. See [Uploading a File](#uploading-a-file).
+- Everything below it is the overlays your server provides, such as weather and boundaries. Browse the folders or search, then select an overlay to add it.
+
+![Overlay Explorer with Your Files, two folders and three overlays](./assets/menu-overlay-explorer@2x.png)
+
+### <img class="icon" src="/icons/menu-basemaps.png" alt="" />BaseMaps
+
+The basemap is the map underneath everything else, such as satellite imagery or streets. Select a basemap to switch to it.
+
+![BaseMaps menu with three favorite basemaps, a folder, and one basemap's options open](./assets/menu-basemaps@2x.png)
+
+- The pictures at the top are favorites your administrator has picked, for quick switching.
+- Folders group more basemaps together.
+- Each basemap's <img class="icon" src="/icons/details-more.png" alt="" />three dots have:
+    - **Add as Overlay**, to draw it on top of your current basemap instead. See [Overlays](#overlays).
+    - **Download XML**, to use the basemap in another TAK app such as ATAK or WinTAK.
+    - **Share**, to send it to other users.
+    - **Edit Basemap**, for basemaps you created.
+
+**Download XML** and **Share** are only shown when the basemap allows sharing. To add your own basemap, such as from a tile URL or an ArcGIS service, select <img class="icon" src="/icons/ui-plus.png" alt="" />**Create Basemap**.
+
+### <img class="icon" src="/icons/menu-iconsets.png" alt="" />Iconsets
+
+Icon sets are the collections of icons you can pick from when you give a point a **Custom icon**. See [Changing a Feature's Appearance](#changing-a-features-appearance).
+
+- The **Iconsets** tab lists every icon set, and the **Icons** tab lets you browse or search all their icons at once.
+- <img class="icon" src="/icons/ui-file-upload.png" alt="" />**Zip Upload** adds an icon set from a TAK icon set zip, such as one exported from ATAK. Icon sets also arrive with some imports, such as KMZ files. See [Uploading a File](#uploading-a-file).
+- <img class="icon" src="/icons/ui-plus.png" alt="" />**Create Iconset** starts a new, empty icon set you can add icons to.
+- <img class="icon" src="/icons/ui-download.png" alt="" />**Download TAK Zip** saves an icon set to use in another TAK app.
+
+### <img class="icon" src="/icons/details-breadcrumb.png" alt="" />Routes
+
+Lists the routes on your map. To have CloudTAK plan one for you:
 
 <Steps>
 
-1. Click **Navigate** in a feature's details pane, or in the Query Mode panel for any spot on the map.
+1. Select <img class="icon" src="/icons/ui-plus.png" alt="" />**New Route**.
 
-2. A navigation banner at the top of the map shows the distance to the destination, your speed and ETA (speed and ETA need a live GPS location while moving). Use the zoom button to fit the destination on screen, and the **X** to end navigation. When navigating a route, a **Reverse Direction** button also appears.
+2. Search for or pick on the map a **Start Location** and an **End Location**, then choose the **Travel Mode**. You can also choose the **Routing Provider** when your server offers one.
 
-    ![Navigation banner with distance, speed and ETA, and a line to the destination](./assets/user-navigation.png)
+3. Select **Generate Route**. The route is added to your map, named after its start and end, and its details pane opens. From there you can navigate it, share it or edit it like any other feature.
+
+    ![New Route with a routing provider, start and end locations and a travel mode](./assets/menu-route-new@2x.png)
 
 </Steps>
 
-## Menu
+To draw a route yourself, use [Draw Line](#draw-line) and select **Convert to Route** in its details pane.
 
-<img class="icon" src="/icons/menu.png" alt="Menu" /> Click the three lines (hamburger) at the top right of the page to view the menu.
+### <img class="icon" src="/icons/menu-history.png" alt="" />History
 
-### Your Features
-
-All features created by you or shared to you by other users can be viewed here. Click on a feature to snap to it on the map. All features are editable. You can easily delete features or recover recently deleted features.
-
-### Overlays
-
-Allows you to toggle layers on or off of your basemap. Click the eye icon to turn overlays on or off. Click the plus button in the top right corner to add additional pre-existing overlays such as NOAA radar, cell coverage maps, and county boundaries. See information on adding custom overlays under Imports.
-
-### Contacts
-
-Shows a list of all contacts that are online and those who recently closed their TAK application or lost connection with the TAK server. You may search for specific contacts in the filter search bar. Clicking on an online contact will reposition your map to their location. Clicking the chat bubble next to their name will open a chat with that contact.
-
-### Base Maps
-
-Allows you to change the current basemap displayed on CloudTAK. Feel free to choose whichever basemap best suits your needs.
-
-### Data Sync (Missions)
-
-Data Sync is a tool that creates a mission, also known as a feed, which is like a folder for custom data sets, and is hosted within the TAK Server. It allows synchronization of data between multiple devices. Any data in the feed is synchronized to all TAK app users who have subscribed to that feed. This sync happens immediately if the users are connected to the TAK Server, or as soon as a user reconnects to the Server. As a result, data sync is the best method in TAK to ensure that all members of a team receive identical data when planning an operation. Conversely, items deleted by the Data Sync feed creator will disappear from users' maps. This is useful for de-cluttering maps after an incident is complete.
-
-#### Creating a Data Sync
+Lists the breadcrumb trails on your map: the paths people and vehicles have taken.
 
 <Steps>
 
-1. Click the plus button in the top right corner.
+1. Choose a **Window** of 1, 4, 8 or 24 hours. To only load trails for the area you're looking at, turn on **Current map view only**.
 
-    ![New Data Sync button](./assets/2026-02-04-11-43-04-image.png)
+2. Select **Load**. CloudTAK gets every position the TAK Server recorded in that window and makes a trail for each person or vehicle, even ones you never [started a breadcrumb](#the-details-pane) for. Each trail shows who it belongs to, the time it covers and how many points it has.
 
-2. Name your Data Sync and select the channel or channels you want it to be available on. Only channels you currently have turned on are displayed as options.
+    ![History menu with a 4 hour window and three trails, one with Live Trail on](./assets/menu-history@2x.png)
 
-    Advanced Options allows you to password protect your Data Sync and control whether users are:
+3. Select a trail to go to it on the map. Next to each trail:
 
-    - **Owners:** able to subscribe to, edit, and delete the Data Sync
-    - **Subscribers** (default): able to subscribe to and edit the Data Sync
-    - **Viewers:** able to subscribe to the Data Sync but not make any edits
-
-    ![New Data Sync form](./assets/2026-02-04-11-41-42-image.png)
-
-3. Click **Make Active**.
-
-    ![Make Active button](./assets/2026-02-04-11-45-58-image.png)
-
-4. The active mission is displayed in the top left corner. While the Data Sync is active, any features you create in CloudTAK are automatically added to it.
-
-    ![Active mission in the top left corner](./assets/2026-02-04-11-47-43-image.png)
-
-5. To add existing features, select them with the Lasso Tool (see [Drawing Tools](#drawing-tools)), click the three dots, and select **Move to Data Sync**.
-
-    ![Move to Data Sync](./assets/2026-02-04-11-54-34-image.png)
+    - The switch turns on **Live Trail**, so the trail keeps growing as new positions come in.
+    - <img class="icon" src="/icons/ui-details.png" alt="" />**View CoT** opens that feature's [details pane](#the-details-pane).
+    - <img class="icon" src="/icons/point-delete.png" alt="" />**Clear Trail** removes the trail from the map. <img class="icon" src="/icons/point-delete.png" alt="" />**Clear All Trails** at the top removes them all.
 
 </Steps>
 
-#### The Data Sync Menu
+To show the trail for one feature, you can also select <img class="icon" src="/icons/details-breadcrumb.png" alt="" />**Breadcrumb** in its [details pane](#the-details-pane), then **Live Trail** or **Load History**.
 
-Any Data Sync you are subscribed to has a menu, displayed on the right side. A shortcut to this menu also appears in the top left next to your active mission.
+### <img class="icon" src="/icons/sync-files.png" alt="" />Files
 
-<img class="icon" src="/icons/sync-layers.png" alt="Layers" /> **Layers:** Displays all features added to this Data Sync.
+The **Online** tab lists the files you've uploaded, and you can organize them into folders. To upload a new one, see [Uploading a File](#uploading-a-file) below. Select a file to see its options:
 
-<img class="icon" src="/icons/sync-files.png" alt="Files" /> **Files:** Displays all files added to the Data Sync.
+- **Add to Map as Overlay** puts the file on the map and in your [Overlays](#overlays), where you can turn it on or off with the <img class="icon" src="/icons/channel-on.png" alt="" />eye.
+- **Download** saves a copy. For map files, it can also **Make Available Offline**.
+- **Add to Data Sync**, **Create Data Package** or **Share to Channel** shares the file with others.
+- **Rename File**, **Move to Folder** and **Delete File**.
 
-<img class="icon" src="/icons/sync-chats.png" alt="Chats" /> **Chats:** Chat for all users subscribed to the Data Sync.
+![Files menu on the Online tab with one file's options open](./assets/menu-files@2x.png)
 
-![Data Sync menu](./assets/2026-03-18-11-22-12-image.png)
-![Data Sync shortcut bar](./assets/2026-03-18-11-23-38-image.png)
+The **Offline** tab lists what's saved on this device for use without a connection.
 
-<img class="icon" src="/icons/sync-users.png" alt="Users" /> **Users:** Displays all users subscribed to this Data Sync. Click the plus button to send users a request to join the Data Sync.
-
-![Data Sync users](./assets/2026-03-18-11-59-55-image.png)
-
-<img class="icon" src="/icons/sync-changes.png" alt="Changes" /> **Changes:** Displays a log of all added and deleted features, including the date and time the change was made.
-
-![Data Sync change log](./assets/2026-03-18-11-40-14-image.png)
-
-<img class="icon" src="/icons/sync-logs.png" alt="Logs" /> **Logs:** Allows for documentation of the mission. Logs can be downloaded as a .csv by clicking **Save Log**.
-
-![Data Sync logs](./assets/2026-03-18-12-06-00-image.png)
-
-#### Subscribing to an existing Data Sync
+#### Uploading a File
 
 <Steps>
 
-1. Make sure you have the channel associated with the Data Sync turned on. Select the Data Sync, then select **Subscribe**. All features in the Data Sync will now appear live on your map.
+1. In **Files**, select <img class="icon" src="/icons/ui-upload.png" alt="" />**File Upload** at the top, then **Upload**, and choose the file. On a computer, you can also drag a file onto the map.
 
-    ![Subscribe to a Data Sync](./assets/2026-02-04-12-00-20-image.png)
+2. The import opens and shows its progress. When it's done, **Import Results** shows where the file ended up. Select a result to go to it:
 
-2. To add features to this Data Sync, click **Make Active**. While the Data Sync is active, any features you create in CloudTAK are automatically added to it. After clicking **Deactivate**, features you create are no longer added, but the Data Sync will continue to update.
-
-    ![Make Active and Deactivate](./assets/2026-02-04-12-05-01-image.png)
-
-3. To unsubscribe and remove the Data Sync features from your map, click **Unsubscribe**. Some Data Syncs (such as the CDOT cameras) do not allow the **Make Active** option.
-
-    ![Unsubscribe from a Data Sync](./assets/2026-02-04-12-03-16-image.png)
+    - Map files go to your [Files](#files), where you can select **Add to Map as Overlay**.
+    - Features from a Data Package go to your [Features](#features).
+    - Icon sets go to [Iconsets](#iconsets), and basemap XML files go to [BaseMaps](#basemaps).
 
 </Steps>
 
-### Data Packages
+To see all your imports and how they went, select **Imports** at the top of the Files list. If an import failed, select <img class="icon" src="/icons/ui-restore.png" alt="" />**Retry Import** next to it to try again.
 
-A tool to bundle items you might want to share with other TAK users.
+![Data Imports with the upload box open, above three imports, one of them showing Retry Import](./assets/menu-imports@2x.png)
+
+You can upload files up to 5 GB:
+
+- **Map data:** GeoJSON, KML or KMZ, and Shapefiles. A Shapefile must be uploaded as a zip that also has its .dbf, .prj and .shx files.
+- **Imagery:** GeoTIFF, MBTiles, and PDFs that are georeferenced (GeoPDF).
+- **TAK files:** Data Packages (.zip) and basemap XML files.
+
+### <img class="icon" src="/icons/menu-packages.png" alt="" />Data Packages
+
+A Data Package bundles features and files so you can share them with other TAK users on a channel.
 
 #### Creating a Data Package
 
 <Steps>
 
-1. Use the Lasso Tool (see [Drawing Tools](#drawing-tools)) to select existing features on your map. A menu will appear displaying the captured features.
+1. Select the features to include with [Lasso Select](#lasso-select), select the <img class="icon" src="/icons/details-more.png" alt="" />three dots, and then **New Data Package**.
 
-    ![Lasso selection results](./assets/2026-02-03-13-45-33-image.png)
+    To make a package from a file instead, open the menu, select **Data Package**, and select <img class="icon" src="/icons/ui-plus.png" alt="" />**Create Package**.
 
-2. Click the three dots, then **New Data Package**.
+2. In the **Create Data Package** window, give the package a **Name**, check its **Contents**, choose the channels to share it on, and add any hashtags. Only channels you currently have turned on are listed. Select **Create**.
 
-    You can also use the plus button on the right side under Data Packages to create a new package.
-
-    ![New Data Package option](./assets/2026-02-03-13-46-53-image.png)
-
-3. Name your Data Package and select the channel or channels you want this data to be available on. Only channels you currently have turned on are displayed as options. If desired, you can add a file to your data package.
+    ![Create Data Package window with a name, three features as its contents, a channel and a hashtag](./assets/menu-package-new@2x.png)
 
 </Steps>
 
 :::note
-Data Packages are cleared from the server every two months. To keep a Data Package available on your channel indefinitely, add `#permanent` under "Hashtags".
+Data Packages are cleared from the server every two months. To keep a Data Package available on your channel indefinitely, add the hashtag `#permanent`.
 :::
 
-#### Importing an existing Data Package
+#### Importing an Existing Data Package
 
 <Steps>
 
-1. Ensure the correct channel is on, then select the Data Package and click **Import Package**. This imports all features in the data package.
+1. Make sure the channel the package is on is turned on. Open the menu, select **Data Package**, and select the package. Its page shows who created it, its channels, **Expiry**, hashtags and size.
 
-    ![Import Package](./assets/2026-03-18-14-03-58-image.png)
+2. Under **Quick Actions**, select **Import Package**. **Share Package** sends it to other users instead.
 
-2. If the data package has a file such as a KMZ attached, select the file under **Import Results**. This adds the file to your overlays.
+    ![Data Package page with its details and the Quick Actions Import Package and Share Package](./assets/menu-package@2x.png)
 
-    ![Data Package import results](./assets/2026-03-18-13-52-17-image.png)
+3. The import opens when it's done. Under **Import Results**, select a result to go to it: features go to your [Features](#features), and files, such as a KMZ, go to your [Files](#files), where you can add them to the map.
+
+    ![Finished import with its Import Results: three features and a KMZ file](./assets/menu-package-import@2x.png)
 
 </Steps>
 
-## Channels
+## Data Sync
 
-Displays all channels available to your account.
+Sending a feature straight to someone works, but it has limits. It's a one-time transfer: if the feature changes, nobody sees the update unless you send it again, and if you delete it, it's only gone from your map. It also only reaches people who are connected when you send it. Anyone out of coverage or with the app closed never gets it.
 
-<img class="icon" src="/icons/channel-on.png" alt="Channel on" /> An open eyeball icon indicates that the channel is currently on and is sharing your location with all other users on that same channel.
+A Data Sync solves both problems. Instead of a single transfer, it's a live feed of map data hosted on the TAK Server. Everyone subscribed sees the same features and files, and every addition, change and removal reaches them as it happens, or the next time they open the app.
 
-<img class="icon" src="/icons/channel-off.png" alt="Channel off" /> Toggling this icon to the off position (eyeball with slash through it) removes your location and presence from that channel.
+Data Syncs are used in two ways:
 
-To the right of the channels you will also see a pointer arrow icon.
+- **Feeds you view:** data your program or agency keeps updated automatically, such as wildland fire mapping or roadside cameras. You subscribe and watch.
+- **Missions you build together:** Data Syncs that users create to map an incident together, or to keep track of points of interest in a response area. Anyone allowed to contribute can add, change and remove features, and everyone subscribed sees the changes without anyone resending them. This is the best way to keep shared data up to date during any ongoing operation.
 
-<img class="icon" src="/icons/users-visible.png" alt="Users visible" /> An arrow icon indicates that users who are active on this channel can see each other.
+### Subscribing to a Data Sync
 
-<img class="icon" src="/icons/users-hidden.png" alt="Users hidden" /> An arrow with a slash indicates that users on this channel cannot see each other. Instead, these channels are used to supply you with additional data such as aircraft locations or wildland fire data.
+Open the menu and select <img class="icon" src="/icons/map-mission.png" alt="" />**Data Sync**. The **Subscribed** tab lists the Data Syncs you're subscribed to, and the **Available** tab lists the ones you can subscribe to. A lock means the Data Sync is password protected.
 
-Each user sees a unique list of channels. Some of these channels were created by your agency administrator and are only available to members of your public safety organization, while other channels are available to multiple agencies for use in mutual aid. It is best practice to only turn on mutual aid channels when a need for them arises, but refer to your own agency's policies for definitive guidance.
+Every Data Sync belongs to a channel, and it's only listed when that channel is turned on. If you can't find a Data Sync you're looking for, check your [Channels](#channels) first. Many statewide feeds, for example, are on statewide mutual aid channels.
 
-### Videos
-
-Use the left tab (Streams) to view any video feeds that are currently available. If you get a Video Server Error, the video is either not currently being broadcast or not in a format that is supported by CloudTAK. Use the right tab (Leases) to set up a video lease to broadcast your video stream from a UAS or other source to TAK. This will allow you to broadcast your video stream live to other TAK users on your channel. For more information on how to set up video leases for a UAS see the following videos:
-
-- [UAS Tool Pt 1: Downloading and Operating UAS Tool](https://cotak.gov/pages/tak-integrations/uas-tool-pt1-downloading-and-operating-uas-tool)
-- [UAS Tool Pt 2: Streaming CloudTAK Leases](https://cotak.gov/pages/tak-integrations/uas-tool-pt-2-fmv-streaming-cloudtak-leases)
-
-### Chat
-
-Displays all of your current chats. To start a new chat, click the plus button in the top right corner.
-
-### Routes
+![Data Syncs menu on the Available tab, with a filter and three Data Syncs, one password protected](./assets/menu-data-syncs@2x.png)
 
 <Steps>
 
-1. Routes lets you create and save routes from one address to another. Either freehand the route with **No Snapping**, or select **Roads & Trails** to snap to routes.
+1. On the **Available** tab, select the Data Sync. If it's password protected, enter the password and select **Unlock**.
 
-    ![Route snapping options](./assets/2026-02-20-09-12-34-image.png)
+2. Under **Quick Actions**, select **Subscribe**. Everything in the Data Sync now appears live on your map.
 
-2. Click once to start the route and twice to finish. The route can then be edited and shared like any other feature.
+    ![Data Sync Metadata tab with its details and the Quick Actions Unsubscribe, Make Active and Invite QR Code](./assets/menu-mission-info@2x.png)
 
-    ![A drawn route](./assets/2026-02-20-09-16-06-image.png)
+3. To remove the Data Sync and its features from your map, select **Unsubscribe**.
 
 </Steps>
 
-### Uploaded Files
+You can subscribe to as many Data Syncs as you like.
 
-All files uploaded through Imports are displayed here. Click on an uploaded file to view its options.
+### Contributing to a Mission
 
-- **Add to Map as Overlay** makes the file appear on the map and in your Overlays tool, where it can be toggled on or off using the eyeball.
-- You can also download the file, add it to an existing Data Sync or Data Package, and rename or delete the file.
+Subscribing and contributing are two different things. Subscribing only receives what's in a Data Sync. To contribute, you make it your **active mission**.
 
-![Uploaded file options](./assets/2026-02-03-14-01-07-image.png)
+<Steps>
 
-### Imports
+1. Open the Data Sync and, under **Quick Actions**, select **Make Active**. You can only have one active mission at a time.
 
-Displays all imported files. To import a new file, select the New Import icon <img class="icon" src="/icons/import.png" alt="New Import" /> in the top right to upload files from your desktop.
+2. The top left of the map changes from **No Active Mission** to the Data Sync's name. From now on, anything you draw goes into the mission for everyone subscribed.
 
-### Settings
+    ![No Active Mission at the top left of the map, before a mission is made active](./assets/menu-sync-inactive@2x.png)
 
-Allows you to change your callsign, device preferences, and preferred settings such as unit type.
+    ![Active mission at the top left of the map, with buttons for Layers, Changes, Users, Logs, Chats and Files](./assets/menu-sync-active@2x.png)
+
+3. Select the name at the top left at any time to open the mission's page. See [The Data Sync Page](#the-data-sync-page).
+
+</Steps>
+
+**Deactivate** doesn't unsubscribe you. You keep receiving the Data Sync, but what you draw stays on your own map. Deactivate when you want to switch to a different mission, or to place something on the map without sharing it with everyone.
+
+**Make Active** can't be selected on Data Syncs you can only view, such as camera feeds.
+
+Use missions however works best for your team: one mission for all your operations, or a new one for each. Either way, each person needs to subscribe to the mission to see it.
+
+### The Data Sync Page
+
+Select a Data Sync you're subscribed to, or its name at the top left of the map, to open its page. The tabs along the top are:
+
+- <img class="icon" src="/icons/sync-metadata.png" alt="" />**Metadata:** when it was created, how many people are subscribed, its channels, keywords and description. **Advanced** shows the default role and whether it has a password. If you're allowed to, select the pencil next to the channels or keywords to change them. **Quick Actions** has **Subscribe** or **Unsubscribe**, **Make Active** or **Deactivate**, and an **Invite QR Code** others can scan to join.
+- <img class="icon" src="/icons/sync-layers.png" alt="" />**Layers:** every feature in the Data Sync, which can be organized into layers.
+- <img class="icon" src="/icons/sync-users.png" alt="" />**Users:** everyone subscribed. Select <img class="icon" src="/icons/ui-plus.png" alt="" />**Invite User** to invite someone. If you're an owner, you can also change someone's role with the <img class="icon" src="/icons/menu-reorder.png" alt="" />pencil or remove them with the <img class="icon" src="/icons/point-delete.png" alt="" />trash can.
+- <img class="icon" src="/icons/sync-changes.png" alt="" />**Changes:** a log of features and files added and removed, with the date and time of each change.
+- <img class="icon" src="/icons/sync-logs.png" alt="" />**Logs:** written notes about the mission. Type an entry, add keywords if you like, and select **Save Log**. Select <img class="icon" src="/icons/ui-download.png" alt="" />**Download Logs** to save them all as a CSV file.
+- <img class="icon" src="/icons/sync-files.png" alt="" />**Files:** files added to the Data Sync.
+- <img class="icon" src="/icons/sync-chats.png" alt="" />**Chats:** a chat for everyone subscribed.
+
+On a computer, the bar at the top left of the map also has shortcuts to these tabs for your active mission. A red number on **Logs** or **Chats** shows how many you haven't read.
+
+![Users tab with four subscribers and their roles](./assets/menu-mission-users@2x.png)
+
+![Changes tab listing features and files added and removed](./assets/menu-mission-changes@2x.png)
+
+![Logs tab with two log entries, a box for a new entry and Save Log](./assets/menu-mission-logs@2x.png)
+
+The <img class="icon" src="/icons/details-more.png" alt="" />three dots at the top of the page can export the Data Sync as a Data Package, GeoJSON or KML, or download it as an archive. Owners also have a <img class="icon" src="/icons/point-delete.png" alt="" />trash can to delete the Data Sync.
+
+### Creating a Mission
+
+Anyone can create a Data Sync mission.
+
+<Steps>
+
+1. In the Data Syncs menu, select <img class="icon" src="/icons/ui-plus.png" alt="" />**Create Sync** at the top.
+
+2. In the **Create Mission** window, give it a **Name** and **Description**, and choose the **Channels** it's on. Only channels you currently have turned on are listed. The channel controls who can find the mission to subscribe, and it's the main way its contents stay secure. If your server has templates, you can also start from one.
+
+3. Open **Advanced Options** if you need them:
+
+    - **Keywords** help others find it.
+    - **Password Protected** means only people with the password can subscribe.
+    - **Default Subscriber Role** sets what people can do once they subscribe:
+        - **Subscriber** (the default): they can subscribe, make it active and contribute, but can't delete it or change who's in charge.
+        - **Owner:** everyone who subscribes gets full control, including deleting it.
+        - **Read-Only:** they can subscribe and view it, but only you can change it.
+
+4. Select **Create Mission**. It opens on its **Metadata** tab, ready for you to **Make Active**.
+
+    ![Create Mission window with Name, Description, Channels and Advanced Options open](./assets/menu-mission-create@2x.png)
+
+</Steps>
+
+### Adding Data to a Mission
+
+There are two ways to get features into a mission:
+
+- **Make it active.** Everything you draw from then on goes straight into it. See [Contributing to a Mission](#contributing-to-a-mission).
+- **Share features already on your map.** Open a feature's details pane, select <img class="icon" src="/icons/details-share.png" alt="" />**Share**, then the **Data Syncs** tab. Select the mission and select **Share**. The feature now lives in the mission instead of only on your device. See [Sharing Features](#sharing-features).
+
+To add several features at once, select them with [Lasso Select](#lasso-select), then select **Share**, or select the <img class="icon" src="/icons/details-more.png" alt="" />three dots and **Move to Data Sync**.
+
+The **Data Syncs** tab only lists missions you're allowed to contribute to, so read-only ones don't appear. If you later unsubscribe from a mission, or it's deleted, the features you added to it leave your map along with it.
+
+## Settings
+
+<img class="icon" src="/icons/menu.png" alt="Menu" /> Open the menu and select <img class="icon" src="/icons/menu-settings.png" alt="" />**Settings**.
+
+![Settings with its seven pages and Refresh App](./assets/menu-settings@2x.png)
+
+- **Callsign & Device Preferences:** your **User Callsign**, **Phone Number**, **User Group** (your team color) and **User Role**, how often your location is reported, and your **Default Point Type** for new points.
+- **Display Preferences:** units for distance, area, elevation, speed and radiation dose, coordinate format, map projection, light or dark style, text size, zoom controls, keeping the screen awake, rotating icons with their course, and removing stale features.
+- **Permissions:** what CloudTAK is allowed to use on this device, such as your location, notifications and camera. See [Allow Location and Notifications](#allow-location-and-notifications).
+- **API Tokens:** tokens for connecting other tools to your account.
+- **Login Passkeys** and **Login Sessions:** sign in with a passkey, and see or end the places you're signed in.
+- **Paging Notifications:** where you get pages: by text message, by email, or as notifications on devices you register.
+- **Refresh App:** reload CloudTAK.
+
+## Glossary
+
+**Affiliation:** whether a point is **Friendly**, **Hostile**, **Neutral** or **Unknown**, so anyone looking at the map can tell at a glance whose side something is on. In public safety terms, friendly is usually your own and partner resources, hostile is a threat, neutral is something not involved, such as a hospital or shelter, and unknown is anything not identified yet.
+
+TAK uses military symbols (MIL-STD-2525) because they're a shared standard: every TAK user, in any agency, reads them the same way. The affiliation sets the frame's color and shape: a blue rectangle for friendly, a red diamond for hostile, a green square for neutral and a yellow clover for unknown. The shape matters as much as the color, so the symbols still read in low light, in black and white, or for colorblind users. See [Changing a Feature's Appearance](#changing-a-features-appearance).
+
+**Basemap and overlay:** the basemap is the map underneath everything else, such as satellite imagery or streets. Overlays are layers drawn on top of it, such as weather radar, boundaries or a file you uploaded. See [BaseMaps](#basemaps) and [Overlays](#overlays).
+
+**Breadcrumb trail:** the path a person or vehicle has taken, drawn as a line behind them. See [History](#history).
+
+**Callsign:** the name other users see for you on the map and in chats. See [Callsign](#callsign).
+
+**Channel:** a group on the TAK Server. The channels you turn on decide who can see your location and what data you see, such as your agency's units or aircraft positions. See [Channels](#channels).
+
+**Coordinates:** a location written as numbers. CloudTAK can show them as decimal degrees (DD), degrees and minutes (DM), degrees, minutes and seconds (DMS), MGRS or UTM. See [Coordinates](#coordinates).
+
+**Data Package:** a one-time bundle of features and files shared on a channel. Unlike a Data Sync, it doesn't update after it's shared. See [Data Packages](#data-packages).
+
+**Data Sync:** a live feed of features and files on the TAK Server. Everyone subscribed sees the same data, and changes reach them without anyone resending it. Some Data Syncs are feeds you only view, such as fire mapping or cameras. Others are **missions** that users build together, and the mission you're adding features to is your **active mission**. See [Data Sync](#data-sync).
+
+**Event:** a shared record of an incident, such as a wildfire or a search, that a team works from together. See [Create Event](#create-event).
+
+**Feature:** anything on the map you can select. A feature is a **point** (a single spot, like a marker or a person), a **line** (like a route or a dozer line) or a **polygon** (a closed shape, like a fire perimeter). See [Working with Map Features](#working-with-map-features).
+
+**Import:** uploading a file, such as a KML or a Shapefile, so CloudTAK can turn it into features, an overlay or icons. See [Uploading a File](#uploading-a-file).
+
+**Saved and stale:** a feature goes stale when it stops updating, such as when a user goes offline. Stale features fade, then drop off your map after the time set in **Remove Stale Elements** in Display Preferences. Saved features, like the ones you draw, never go stale. See [The Details Pane](#the-details-pane).
+
+**TAK:** short for Team Awareness Kit. The **TAK app** is what you use to see the map and share your location, such as CloudTAK. The **TAK Server** connects everyone's apps and passes data between them, so users on different devices and apps see each other.
+
+**Team color and role:** your team color is the color of your dot on other users' maps, and your role is your job on the team, such as Medic. Set both in **Callsign & Device Preferences**. See [Settings](#settings).
+
+**Video lease:** what lets you stream your own video, such as from a drone, so you and other TAK users can watch it. See [Videos](#videos).
