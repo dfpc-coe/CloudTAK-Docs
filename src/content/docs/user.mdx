@@ -165,29 +165,7 @@ Swipe up from the bottom of the screen and pause to open the app switcher, then 
 
 <TabItem label="Android" icon="mobile-android">
 
-On Android, closing CloudTAK from your recent apps doesn't fully stop it. It keeps running in the background and sharing your location until you also stop it in **Check background activity**, as shown below.
-
-<Steps>
-
-1. Open your recent apps by swiping up from the bottom of the screen and holding, or by selecting the recent apps button. Swipe CloudTAK up and off the screen.
-
-    ![Android recent apps screen with an arrow showing CloudTAK being swiped up](./assets/stop-sharing-android-close@2x.png)
-
-2. At the top left of the recent apps screen, select **1 active in background**.
-
-    ![Android recent apps screen with 1 active in background highlighted in the top left](./assets/stop-sharing-android-background@2x.png)
-
-3. In the **Check background activity** window, select **Stop** next to CloudTAK.
-
-    ![Check background activity window with a Stop button next to CloudTAK](./assets/stop-sharing-android-stop@2x.png)
-
-4. When the button changes to **Stopped**, CloudTAK is no longer sharing your location. Select **Done**.
-
-    ![Check background activity window showing CloudTAK as Stopped](./assets/stop-sharing-android-stopped@2x.png)
-
-</Steps>
-
-**Not on a Samsung phone?** On Pixel and most other Android phones, swipe down twice from the top of the screen to open quick settings. At the bottom, select **active apps** (for example, **1 active app**), then select **Stop** next to CloudTAK.
+Open your recent apps, by swiping up from the bottom of the screen and holding or by selecting the square button, then swipe CloudTAK away.
 
 </TabItem>
 
@@ -423,9 +401,47 @@ Draw rings at set distances around a point. Useful for evacuations, searches and
 
 ### <img class="icon" src="/icons/draw-point.png" alt="" />Draw Point
 
-Choose the point type in the bar at the bottom of the map (Custom Point, Unknown, Friendly, Hostile or Neutral), then click the map to drop the point, or tap it on a phone or tablet.
+Drop a point on the map. Set up the point in the bar at the bottom of the map, then click the map to drop it, or tap it on a phone or tablet.
 
-![Draw Point bar with the five point types, next to one of each on the map: a green Custom Point and the Unknown, Friendly, Hostile and Neutral symbols](./assets/draw-point-bar@2x.png)
+![Draw Point bar with the five point types, the Select Icon button, Drop Multiple Points, the check mark and the X, next to one of each point type on the map: a green Custom Point and the Unknown, Friendly, Hostile and Neutral symbols](./assets/draw-point-tool@2x.png)
+
+- **Point type:** **Custom Point**, **Unknown**, **Friendly**, **Hostile** or **Neutral**. The bar starts on your default point type.
+- <img class="icon" src="/icons/draw-point-icon.png" alt="" />**Select Icon:** give the point an icon from an icon set, instead of the symbol for its type.
+- <img class="icon" src="/icons/draw-point-multiple.png" alt="" />**Drop Multiple Points:** keep the tool open so you can drop one point after another. It isn't shown on phones.
+
+When you drop the point, its details pane opens so you can name it.
+
+**Choosing an icon**
+
+<Steps>
+
+1. Select <img class="icon" src="/icons/draw-point-icon.png" alt="" />**Select Icon** in the bar. The **Select Icon** window opens.
+
+    ![Select Icon window with a No Icon button, an icon set menu set to Public Safety, Icon Search, a Show Icon Names switch and a grid of icons. The icon set shown is an example.](./assets/draw-point-select-icon@2x.png)
+
+2. Choose an icon set from the menu at the top. To find an icon, type in **Icon Search**, or turn on **Show Icon Names** to see each icon's name.
+
+3. Select the icon you want. The window closes, and the button in the bar now shows that icon.
+
+4. Click or tap the map to drop the point.
+
+</Steps>
+
+The tool keeps the icon until you finish or cancel, so every point you drop uses it. To go back to the symbol for the point type, open the window again and select **No Icon**.
+
+Other TAK apps may not support every icon set. See [Changing a Feature's Appearance](#changing-a-features-appearance).
+
+**Dropping several points**
+
+On a computer or tablet, select <img class="icon" src="/icons/draw-point-multiple.png" alt="" />**Drop Multiple Points**. It turns blue, and each click or tap on the map drops another point without opening its details pane. You can change the point type or icon between points.
+
+![Draw Point bar with a fire icon chosen and Drop Multiple Points turned on, next to five fire icon points dropped on the map](./assets/draw-point-multiple@2x.png)
+
+When you're done, select the check mark. The points are all called **New Feature**, so select each one afterwards to name it. See [The Details Pane](#the-details-pane).
+
+**Starting from an icon**
+
+Open **Menu** → **Iconsets**, select an icon, then select <img class="icon" src="/icons/ui-drop-point.png" alt="" />**Drop Point**. Draw Point opens with that icon already chosen. See [Iconsets](#iconsets).
 
 ### <img class="icon" src="/icons/draw-line.png" alt="" />Draw Line
 
@@ -788,12 +804,45 @@ The basemap is the map underneath everything else, such as satellite imagery or 
 
 ### <img class="icon" src="/icons/menu-iconsets.png" alt="" />Iconsets
 
-Icon sets are the collections of icons you can pick from when you give a point a **Custom icon**. See [Changing a Feature's Appearance](#changing-a-features-appearance).
+Icon sets are the collections of icons you can put on a point, either when you drop it with [Draw Point](#draw-point) or later as a **Custom icon**. See [Changing a Feature's Appearance](#changing-a-features-appearance).
 
-- The **Iconsets** tab lists every icon set, and the **Icons** tab lets you browse or search all their icons at once.
-- <img class="icon" src="/icons/ui-file-upload.png" alt="" />**Zip Upload** adds an icon set from a TAK icon set zip, such as one exported from ATAK. Icon sets also arrive with some imports, such as KMZ files. See [Uploading a File](#uploading-a-file).
+![Iconsets menu with Create Iconset, Zip Upload and refresh buttons, a filter, and three icon sets. Public Safety is open and shows its icons. The icon sets shown are examples.](./assets/iconsets-list@2x.png)
+
+Every icon set is in one list:
+
+- Select an icon set's name to show or hide its icons. Large icon sets show the first 96, with a **Show all** button for the rest.
+- Type in **Filter iconsets and icons** to search every icon set at once, by icon set name or icon name.
+- Select the arrow next to an icon set to open it.
+- Select an icon to open its page.
+
+The buttons at the top add icon sets:
+
 - <img class="icon" src="/icons/ui-plus.png" alt="" />**Create Iconset** starts a new, empty icon set you can add icons to.
-- <img class="icon" src="/icons/ui-download.png" alt="" />**Download TAK Zip** saves an icon set to use in another TAK app.
+- <img class="icon" src="/icons/ui-file-upload.png" alt="" />**Zip Upload** adds an icon set from a TAK icon set zip, such as one exported from ATAK. Icon sets also arrive with some imports, such as KMZ files. See [Uploading a File](#uploading-a-file).
+
+**An icon's page**
+
+Select <img class="icon" src="/icons/ui-drop-point.png" alt="" />**Drop Point** to drop a point with that icon. This opens [Draw Point](#draw-point) with the icon already chosen, so you can also drop several points in a row.
+
+![An icon's page with its name, icon set and type, and a Drop Point button under Quick Actions. The icon shown is an example.](./assets/iconset-icon-drop-point@2x.png)
+
+**Inside an icon set**
+
+Opening an icon set shows its icons in folders. Under its name you'll see how many icons and folders it has and who can see it: **Everyone**, or **Only you** for an icon set you created.
+
+![An icon set called Public Safety, open with Add Icons, Settings, Download Zip, refresh and delete buttons, a filter, a New folder button, and its icons in the folders Apparatus, Hazards and No folder. The icon set shown is an example.](./assets/iconsets-iconset@2x.png)
+
+- Type in **Filter icons** to find an icon, or select a folder's name to show or hide its icons.
+- <img class="icon" src="/icons/ui-download.png" alt="" />**Download Zip** saves the icon set. Choose **TAK Compatible** to use it in another TAK app (every icon is saved as a PNG), or **Full CloudTAK** to keep the original files, including SVGs.
+
+You can change the icon sets you created. Administrators can change any of them.
+
+- <img class="icon" src="/icons/ui-plus.png" alt="" />**Add Icons** adds an icon. Give it a name, upload a PNG or SVG file, then select **Submit**.
+- <img class="icon" src="/icons/ui-folder-plus.png" alt="" />**New folder** makes a folder. A new folder is only kept once it has an icon in it.
+- The three dots next to a folder let you **Rename** it, **Add icons here**, or **Delete folder**. Deleting a folder keeps its icons and moves them to **No folder**.
+- On a computer, drag PNG or SVG files onto a folder to add them there, or drag an icon to another folder to move it.
+- **Settings** changes the icon set's options, and the trash can deletes the whole icon set.
+- To change or delete a single icon, open its page and select the pencil or the trash can.
 
 ### <img class="icon" src="/icons/details-breadcrumb.png" alt="" />Routes
 
