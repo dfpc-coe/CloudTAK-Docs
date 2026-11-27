@@ -191,9 +191,11 @@ img.icon {
     background: #ffffff;
 }
 
-.tile-logo img {
+.sl-markdown-content .tile-logo img {
     max-width: 100%;
     max-height: 3rem;
+    border: 0;
+    border-radius: 0;
 }
 
 .tile-logo--fallback {
